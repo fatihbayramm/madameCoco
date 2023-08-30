@@ -38,3 +38,4 @@ const port = 3000;
 app.listen(port, () => {
   console.log(`Sunucu http://localhost:${port}/ adresinde çalışıyor.`);
 });
+console.log("fatih");

@@ -6,7 +6,8 @@
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     height: 100%;
 }
 
@@ -14,7 +15,10 @@ html, body {
     width: 100%;
     height: 43px;
     background-color: #F5EFEC;
+}
 
+.container header {
+    margin-left: 130px;
 }
 
 .header .header-band {
@@ -62,7 +66,7 @@ html, body {
 
 .search-mark {
     position: absolute;
-    left: 520px;
+    left:630px;
 }
 
 .form input {
@@ -74,6 +78,72 @@ html, body {
 
 .form input:focus {
     outline: none;
+}
+
+.header-bottom{
+    display: flex;
+    gap: 15px;
+}
+
+.header-bottom h1 {
+    position: relative;
+    bottom: 20px;
+}
+
+.header-bottom a {
+    text-decoration: none;
+}
+
+.header-bottom div {
+    text-align: center;
+    width: 214px ;
+    height: 36px;
+    padding: 10px;
+    background-color: #E8E8E8;
+    color: #323E48;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.list-content {
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    padding: 20px;
+    font-size: 18px;
+    color: #323E48;
+    background-color: #FFFFFF;
+}
+
+.list-views {
+    display: flex;
+    gap: 20px;
+}
+
+.list-views svg {
+    padding-top: 3px;
+}
+
+.layout {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    padding: 5px;
+}
+
+.filter,
+.order,
+.layout-icons svg{
+    cursor: pointer;
+}
+
+.product-list {
+    display: grid;
+    grid-template: repeat(28, 475px) / repeat(4, 333px);
+    row-gap: 20px;
+    column-gap: 120px;
 }
 
 footer {
