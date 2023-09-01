@@ -66,7 +66,7 @@ body {
 
 .search-mark {
     position: absolute;
-    left:630px;
+    left:590px;
 }
 
 .form input {
@@ -87,7 +87,7 @@ body {
 
 .header-bottom h1 {
     position: relative;
-    bottom: 20px;
+    bottom: 0px;
 }
 
 .header-bottom a {
@@ -141,9 +141,29 @@ body {
 
 .product-list {
     display: grid;
-    grid-template: repeat(28, 475px) / repeat(4, 333px);
+    grid-template: repeat(7, 475px) / repeat(4, 333px);
     row-gap: 20px;
     column-gap: 120px;
+    padding: 40px;
+}
+
+.product-info {
+    width: 333px;
+    height: 65px;
+}
+
+.product-info p {
+    font-size: 16px;
+}
+
+.product-info a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.product-info span {
+    font-size: 18px;
+    font-weight: bolder;
 }
 
 footer {
