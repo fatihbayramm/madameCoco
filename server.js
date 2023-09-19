@@ -8,7 +8,7 @@ app.set('view engine', 'ejs')
 const targetUrl = "https://www.madamecoco.com"; 
 
 
-app.use(express.static('static'))
+app.use(express.static('static'));
 
 app.use('/api/', proxy(targetUrl));
 

@@ -11,6 +11,11 @@ body {
     height: 100%;
 }
 
+input {
+    font-family: 'Karma', serif;
+    font-size: 18px;
+}
+
 .header {
     width: 100%;
     height: 43px;
@@ -51,7 +56,6 @@ body {
 .btn {
     border: none;
     background: none;
-    cursor: pointer;
 }
 
 .madame-coco a {
@@ -83,6 +87,7 @@ body {
 .header-bottom{
     display: flex;
     gap: 15px;
+    justify-content: space-evenly;
 }
 
 .header-bottom h1 {
@@ -96,7 +101,7 @@ body {
 
 .header-bottom div {
     text-align: center;
-    width: 214px ;
+    width: 160px ;
     height: 36px;
     padding: 10px;
     background-color: #E8E8E8;
@@ -135,16 +140,46 @@ body {
 
 .filter,
 .order,
+.btn,
 .layout-icons svg{
+    cursor: pointer;
+}
+
+.layout-icons button {
+    border: none;
+    background: none;
     cursor: pointer;
 }
 
 .product-list {
     display: grid;
-    grid-template: repeat(7, 475px) / repeat(4, 333px);
+    grid-template: repeat(6, 490px) / repeat(4, 333px);
     row-gap: 20px;
     column-gap: 120px;
     padding: 40px;
+}
+
+.product-image {
+    width: 333px;
+    height: 416px;
+}
+
+.product_list_double {
+    display: grid;
+    grid-template: repeat(6, 490px) / repeat(2, 333px);
+    row-gap: 20px;
+    column-gap: 30px;
+    padding: 40px;
+    justify-content: center;
+}
+
+.product_list_hexa {
+    display: grid;
+    grid-template: repeat(4, 490px) / repeat(6, 333px);
+    row-gap: 20px;
+    column-gap: 30px;
+    padding: 40px;
+
 }
 
 .product-info {
