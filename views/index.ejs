@@ -54,7 +54,8 @@
   <div>
         <div>
           <a href="/product/<%= product.pk %>">
-            <img src="<%= product.productimage_set[0].image %>" class="product-image"   alt="Bu dosyanın uzantısı tarayıcınız tarafından desteklenmiyor.">    
+            <img src="<%= product.productimage_set[0].image %>" class="product-image"
+            alt="Bu dosyanın uzantısı tarayıcınız tarafından desteklenmiyor.">    
           </a>
         </div>
     <div class="product-info">
@@ -67,8 +68,12 @@
         <%= product.price %> TL |
         <i class="bi bi-bag-check" style="color: #760C0C;"></i>
           <% product.basket_offers.forEach(basketOffer => { %>  
-              <b style="color: #760C0C; font-size: 14px;"><%= basketOffer.label %></b>
-              <b style="color: #760C0C; font-size: 18px;"><%= basketOffer.listing_kwargs.discounted_total_price %> TL</b>
+              <b style="color: #760C0C; font-size: 14px;">
+                <%= basketOffer.label %>
+              </b>
+              <b style="color: #760C0C; font-size: 18px;">
+                <%= basketOffer.listing_kwargs.discounted_total_price %> TL
+              </b>
           <% }); %>
       </span>
       </p>

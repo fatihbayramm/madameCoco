@@ -70,7 +70,7 @@ input {
 
 .search-mark {
     position: absolute;
-    left:590px;
+    left:650px;
 }
 
 .form input {
@@ -199,6 +199,103 @@ input {
 .product-info span {
     font-size: 18px;
     font-weight: bolder;
+}
+
+.product_detail_wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    padding-top: 50px;
+}
+
+.product_detail_info {
+    width: 626px;
+    height: 1084.5px;
+}
+
+.product-info-head,
+.product-info-code {
+    display: flex;
+    justify-content:space-between;
+}
+
+.product-info-heart {
+    width: 60px;
+    height: 40px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 25px;
+    position: relative;
+    left: 17px;
+}
+
+.product-info-heart:hover {
+    background-color: #eee;
+}
+
+.product-code {
+    color: #696969;
+    font-size: 20px;
+}
+
+.share-button {
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.product-price {
+    display: flex;
+    padding-top: 15px;
+}
+
+.basket-offer-price {
+    padding-left: 10px;
+}
+
+.price {
+    font-size: 32px;
+    font-weight: bolder;
+}
+
+.product-opportunity-content {
+    padding-top: 15px;
+    display: flex;
+}
+
+.opportunity-content {
+    padding-left: 15px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.add-to-basket-and-quantity {
+    padding-top: 30px;
+}
+
+.product-quantity {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+#deacreaseButton, #increaseButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.quantity-buttons {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: #EFEFEF;
+    text-align: center;
+}
+
+.quantity {
+    color: #323E48;
+    font-size: 32px;
 }
 
 footer {

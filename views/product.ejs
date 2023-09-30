@@ -1,5 +1,78 @@
 <%- include('header'); -%>
 
-<%= product.name %> <%= product.pk %>
+<div class="product_detail_wrapper">
+    <div>
+        <img src="<%= product.productimage_set[0].image %>" style="width: 690px; height: 862px;"
+        alt="Bu dosyanın uzantısı tarayıcınız tarafından desteklenmiyor.">
+    </div>
+    <div class="product_detail_info">
+        <div class="product-info-head">
+            <div>
+                <h1 style="font-size: 24px; color: #222222;"><%= product.name %></h1>
+            </div>
+            <div class="product-info-heart">
+                <i class="bi bi-heart"></i>
+            </div>
+        </div>
+        <div class="product-info-code">
+            <div class="product-code">
+                Ürün Kodu: <%= product.sku %>
+            </div>
+            <div class="share-button">
+                <!-- tiklaninca ekranin ortasina platformlarda paylasma gelicek. -->
+                <i class="bi bi-share"></i>
+            </div>
+        </div>
+        <div class="product-price">
+            <div class="price">
+                <%= product.price %> TL | 
+            </div>
+            <div class="basket-offer-price">
+                <% product.basket_offers.forEach(basketOffer => { %>  
+                    <b style="color: #760C0C; font-size: 32px;">
+                        <i class="bi bi-bag-check" style="font-size: 24px;"></i>
+                        <%= basketOffer.listing_kwargs.discounted_total_price %> TL 
+                    </b>
+                    <b style="color: #760C0C; font-size: 13px;" >
+                        <%= basketOffer.label %>
+                    </b>
+                <% }); %>
+            </div>
+        </div>
+        <div class="product-opportunity-content">
+            <div class="opportunity-image">
+                <img src="https://akn-coco.a-cdn.akinoncloud.com/cms/2023/07/01/4767acef-49c2-4dca-8eb1-e87fe1c280b0.jpg"
+                alt="Bu dosyanın uzantısı tarayıcınız tarafından desteklenmiyor." style="width: 48px; height: 48px;">
+            </div>
+            <div class="opportunity-content">
+                <p>Bonus'a Özel Tüm Alışverişlerde Peşin Fiyatına 2+4 Taksit!</p>
+            </div>
+        </div>
+        <!-- renk ve olcu eklenecek. -->
+        <div class="add-to-basket-and-quantity">
+            <div class="product-quantity">
+                <div class="quantity-buttons">
+                    <button id="deacreaseButton">
+                        <i class="bi bi-dash" style="font-size: 32px;"></i>
+                    </button>
+                </div>
+                <div class="quantity">
+                    
+                </div>
+                <div class="quantity-buttons">
+                    <button id="increaseButton">
+                        <i class="bi bi-plus" style="font-size: 32px;"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="add-to-card">
+
+            </div>
+        </div>
+        
+    </div>
+
+</div>
 
 <%- include('footer'); -%>
+
