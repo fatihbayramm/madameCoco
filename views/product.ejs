@@ -1,5 +1,5 @@
 <%- include('header'); -%>
-
+<!-- header menusunu yapiskan yap bu sayfada. -->
 <div class="product_detail_wrapper">
     <div>
         <img src="<%= product.productimage_set[0].image %>" style="width: 690px; height: 862px;"
@@ -49,6 +49,7 @@
             </div>
         </div>
         <!-- renk ve olcu eklenecek. -->
+        <!-- sayaci yapmayi unutma. -->
         <div class="add-to-basket-and-quantity">
             <div class="product-quantity">
                 <div class="quantity-buttons">
@@ -57,7 +58,7 @@
                     </button>
                 </div>
                 <div class="quantity">
-                    
+                    1
                 </div>
                 <div class="quantity-buttons">
                     <button id="increaseButton">
@@ -66,9 +67,84 @@
                 </div>
             </div>
             <div class="add-to-card">
-
+                <button id="addtobasket">
+                    <i class="bi bi-bag-plus" style="font-size: 20px;"></i> SEPETE EKLE
+                </button>  
             </div>
         </div>
+        <div class="product-everything">
+            <div class="detail">
+                <div class="detail-divs">
+                    <div class="icon">
+                        <i class="bi bi-bookmark"></i>
+                    </div>
+                    <div>
+                        <p>Ürün Detayı</p>
+                        <%= product.attributes.aciklama %> 
+                    </div>
+                    
+                </div>
+                <div class="plus">
+                    <i class="bi bi-plus"></i>
+                </div>
+            </div>
+            <div class="exchange">
+                <div class="detail-divs">
+                    <div class="icon">
+                        <i class="bi bi-shuffle"></i>
+                    </div>
+                    <div>
+                        <p>İade ve Değişim</p>
+                    </div>
+                </div>
+                <div class="plus">
+                    <i class="bi bi-plus"></i>
+                </div>
+            </div>
+            <div class="installment">
+                <div class="detail-divs">
+                    <div class="icon">
+                        <i class="bi bi-credit-card-2-back"></i>
+                    </div>
+                    <div>
+                        <p>Taksit Seçenekleri</p>
+                    </div>
+                </div>
+                <div class="plus">
+                    <i class="bi bi-plus"></i>
+                </div>
+            </div>
+            <div class="comments">
+                <div class="detail-divs">
+                    <div class="icon">
+                        <i class="bi bi-chat"></i>
+                    </div>
+                    <div>
+                        <p>Yorumlar</p>
+                    </div> 
+                </div>
+                <div class="plus">
+                    <i class="bi bi-plus"></i>
+                </div>
+            </div>
+            <div class="find-in-store">
+                <div class="detail-divs">
+                    <div class="icon">
+                        <i class="bi bi-shop"></i>
+                    </div>
+                    <div>
+                        <p>Mağazada Bul</p>
+                    </div>
+                </div>
+                <div class="plus">
+                    <i class="bi bi-plus"></i>
+                </div>
+            </div>
+        </div>
+        
+            <!-- <%= product.attributes.aciklama %> -->
+
+
         
     </div>
 
