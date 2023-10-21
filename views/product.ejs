@@ -32,7 +32,6 @@
                         <h1>MADAME COCO</h1>
                     </a>
                 </div>
-                <!-- arama yerine tiklayinca madamecoconun sitesindeki gibi olacak.-->
                 <div class="search-mark">
                     <i class="bi bi-search" style="font-size: 26px;"></i>
                 </div>
@@ -116,10 +115,31 @@
                 alt="Bu dosyanın uzantısı tarayıcınız tarafından desteklenmiyor." style="width: 48px; height: 48px;">
             </div>
             <div class="opportunity-content">
-                <!-- burayi siteye bakarak duzelt. -->
-                <p>Bonus'a Özel Tüm Alışverişlerde Peşin Fiyatına 2+4 Taksit!</p>
+                <p>Bonus'a Özel 1500TL Alışverişe 150TL Madame Coco Bonus! Üstelik Peşin Fiyatına 6 Taksit!</p>
             </div>
         </div>
+
+        <div class="product-variants">
+            <div class="product-color">
+                <!-- farki renkleri de olabilir ona bak. -->
+                <p>
+                    Renk:
+                    <span style="color: #8E502B; margin-left: 3px;">
+                        <%= product.attributes.renk %>
+                        <!-- <%= product.attributes.filtre_renk2 %> bunu altta gelecek resmin ustune tiklayinca yazdir. -->
+                    </span>
+                </p>
+            </div>
+            <div class="product-color-images">
+
+            </div>
+            <div class="product-measure">
+                <p>Ölçü: <span style="color: #8E502B; margin-left: 3px;"><%= product.attributes.boyut %></span></p>
+            </div>
+            <div class="product-measure-box">
+
+            </div>
+        </div> 
 
         <!-- renk ve olcu eklenecek. -->
 
