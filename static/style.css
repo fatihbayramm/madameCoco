@@ -264,7 +264,7 @@ input {
 
 .product_detail_info {
     width: 626px;
-    height: 1084.5px;
+    height: auto;
 }
 
 .product-info-head,
@@ -427,7 +427,6 @@ input {
 
 .active:after {
     content: "\2212";
-    float: right;
 }
 
 .panel {
@@ -435,7 +434,6 @@ input {
     overflow: hidden;
     transition: max-height 0.2s ease-out;
     font-size: 16px;
-    flex-grow: 1;
 }
 
 .attributes {
