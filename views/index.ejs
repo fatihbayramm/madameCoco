@@ -1,5 +1,26 @@
 <%- include('header'); -%>
 
+<!-- <div class="filter-div">
+  <div class="color">
+    Renk
+    <form action="#">
+      <select name="colors" id="selectcolor">
+        <option value="blue">Mavi</option>
+        <option value="red">Kırmızı</option>
+      </select>
+    </form>
+  </div>
+  <div class="measurement">
+    Ölçü
+  </div>
+  <div class="material">
+    Materyal
+  </div>
+  <div class="price">
+    Fiyat
+  </div>
+</div> -->
+
 <div class="header-bottom">
   
   <% facets[0].data.choices.forEach(category => { %>
@@ -15,16 +36,18 @@
 <div class="list-content">
   <div class="list-views">
     <div class="filter">
-      Filtrele
-      <i class="bi bi-filter" style="font-size: 24px;"></i>
+      <button class="filter-button">
+        Filtrele
+        <i class="bi bi-filter" style="font-size: 24px;"></i>
+      </button>
     </div>
     <div class="order">
-      Gelişmiş Sıralama
-      <i class="bi bi-sort-alpha-down" style="font-size: 24px;"></i>
+      <button class="order-button">
+        Gelişmiş Sıralama
+        <i class="bi bi-sort-alpha-down" style="font-size: 24px;"></i>
+      </button>
     </div>
   </div>
-
-  <!-- burada butonlara basinca grid yapisi degisecek.-->
   <div class="layout">
     <div class="text-view">
       Görünüm
@@ -64,18 +87,18 @@
             <%= product.name %>
           </a>
           <br>
-        <span>
-          <%= product.price %> TL |
-          <i class="bi bi-bag-check" style="color: #760C0C;"></i>
-            <% product.basket_offers.forEach(basketOffer => { %>  
-                <b style="color: #760C0C; font-size: 14px;">
-                  <%= basketOffer.label %>
-                </b>
-                <b style="color: #760C0C; font-size: 18px;">
-                  <%= basketOffer.listing_kwargs.discounted_total_price %> TL
-                </b>
-            <% }); %>
-        </span>
+          <span>
+            <%= product.price %> TL |
+            <i class="bi bi-bag-check" style="color: #760C0C;"></i>
+              <% product.basket_offers.forEach(basketOffer => { %>  
+                  <b style="color: #760C0C; font-size: 14px;">
+                    <%= basketOffer.label %>
+                  </b>
+                  <b style="color: #760C0C; font-size: 18px;">
+                    <%= basketOffer.listing_kwargs.discounted_total_price %> TL
+                  </b>
+              <% }); %>
+          </span>
         </p>
       </div>  
     </div>

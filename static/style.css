@@ -1,8 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Karma:wght@300&family=Montserrat:wght@200&family=Plus+Jakarta+Sans:wght@200&family=Rajdhani:wght@300&family=Signika+Negative:wght@700&display=swap');
+/* yazi fontunu degistirmeye bak. */
+/* @import url('https://fonts.googleapis.com/css2?family=Karma:wght@300&family=Montserrat:wght@200&family=Plus+Jakarta+Sans:wght@200&family=Rajdhani:wght@300&family=Signika+Negative:wght@700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant&family=Karma:wght@300&family=Montserrat:wght@200&family=Plus+Jakarta+Sans:wght@200&family=Rajdhani:wght@300&family=Signika+Negative:wght@700&family=Spectral:wght@200&display=swap');
+
 * {
     margin: 0;
     padding: 0;
+    /* font-family: 'Karma', serif; */
+    font-family: 'Cormorant', serif;
     font-family: 'Karma', serif;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Signika Negative', sans-serif;
+    font-family: 'Spectral', serif;
+
+
+
     box-sizing: border-box;
 }
 
@@ -49,6 +62,7 @@ input {
     padding: 30px;
     padding-bottom: 100px;
     justify-content: center;
+ 
 }
 
 .btn {
@@ -138,13 +152,36 @@ input {
     padding: 5px;
 }
 
-.filter,
-.order,
 .btn,
 .layout-icons svg{
     cursor: pointer;
 }
 
+.filter-button, .order-button {
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: #323E48;
+}
+
+.filter-div {
+    display: flex;
+    justify-content: flex-start;
+    gap: 25px;
+}
+
+.filter-div div {
+    width: 224px;
+    height: 41px;
+    border-bottom: 1px solid #dcdcdc;
+    color: #000000;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 5px;
+}
 .layout-icons button {
     border: none;
     background: none;
@@ -183,10 +220,21 @@ input {
 
 .product_list_hexa {
     display: grid;
-    grid-template: repeat(4, 490px) / repeat(6, 333px);
+    justify-content: center;
+    grid-template: repeat(4, 288px) / repeat(6, 220px);
     row-gap: 20px;
     column-gap: 13px;
     padding: 40px;
+    padding-top: 15px;
+}
+
+.product_list_hexa .product-image {
+    width: 220px;
+    height: 288px;
+}
+
+.product_list_hexa .product-info {
+    display: none;
 }
 
 .product-info {
@@ -212,7 +260,6 @@ input {
     display: flex;
     justify-content: center;
     gap: 60px;
-    padding-top: 50px;
 }
 
 .product_detail_info {
@@ -340,23 +387,14 @@ input {
     padding-top: 50px;
 }
 
-.detail,
-.exchange,
-.installment,
-.comments,
-.find-in-store {
+.detail {
     display: flex;
     padding: 15px;
     align-items: center;
     justify-content: space-between;
     gap: 15px;
-}
-
-.detail,
-.exchange,
-.installment,
-.comments {
     border-bottom: 1px solid #dddddd;
+    width: 100%;
 }
 
 .detail-divs {
@@ -364,13 +402,50 @@ input {
     gap: 15px;
 }
 
-.product-everything p {
+.product-everything .title {
     font-size: 18px;
     color: #383838;
 }
 
 .bi-plus {
     font-size: 30px;
+}
+
+.accordion {
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: 0.4s;
+    font-size: 40px;
+    display: flex;
+    width: 100%;
+}
+
+.accordion:after {
+    content: "\002B";
+}
+
+.active:after {
+    content: "\2212";
+    float: right;
+}
+
+.panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    font-size: 16px;
+    flex-grow: 1;
+}
+
+.attributes {
+    padding: 10px;
+}
+
+.plus button {
+    border: none;
+    background: none;
+    cursor: pointer;
 }
 
 .icon {

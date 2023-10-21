@@ -1,4 +1,73 @@
-<%- include('header'); -%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= product.name %> | Madame Coco
+    </title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+<body>
+    <div class="header">
+        <div class="header-band">
+            <a href="#">Kampanyalar</a>
+            <a href="#">Sipariş Takibi</a>
+            <a href="#">Mağazalar</a>
+            <a href="#">İletişim</a>
+            <a href="#"><span style="font-weight: bold;">TR</span> | EN</a>
+        </div>
+    </div>    
+    <div class="main-container">
+        <div class="container">
+            <header>
+                <div class="menu-button">
+                    <button class="btn">
+                        <i class="bi bi-list" style="font-size: 36px;"></i>
+                    </button>
+                </div>
+                <div class="madame-coco">
+                    <a href="http://localhost:3000/">
+                        <h1>MADAME COCO</h1>
+                    </a>
+                </div>
+                <!-- arama yerine tiklayinca madamecoconun sitesindeki gibi olacak.-->
+                <div class="search-mark">
+                    <i class="bi bi-search" style="font-size: 26px;"></i>
+                </div>
+                <div class="form">
+                    <form action="#">
+                        <input type="text" autocomplete="off" placeholder="Aradığınız ürünü giriniz">
+                    </form>
+                </div>
+                <div class="notification">
+                    <button class="btn">
+                        <i class="bi bi-bell" style="font-size: 32px;"></i>
+                    </button>
+                </div>
+                <div class="profile">
+                    <button class="btn">
+                        <i class="bi bi-person" style="font-size: 32px;"></i>
+                    </button>
+                </div>
+                <div class="favorite-products">
+                    <button class="btn">
+                        <i class="bi bi-heart" style="font-size: 32px;"></i>
+                    </button>
+                </div>
+                <div class="basket">
+                    <button class="btn">
+                        <i class="bi bi-bag-check" style="font-size: 32px;"></i>
+                    </button>
+                </div>
+
+                
+            </header>
+
+                    
+
+
 <!-- header menusunu yapiskan yap bu sayfada. -->
 <div class="product_detail_wrapper">
     <div>
@@ -23,6 +92,7 @@
                 <i class="bi bi-share"></i>
             </div>
         </div>
+
         <div class="product-price">
             <div class="price">
                 <%= product.price %> TL | 
@@ -39,17 +109,20 @@
                 <% }); %>
             </div>
         </div>
+
         <div class="product-opportunity-content">
             <div class="opportunity-image">
                 <img src="https://akn-coco.a-cdn.akinoncloud.com/cms/2023/07/01/4767acef-49c2-4dca-8eb1-e87fe1c280b0.jpg"
                 alt="Bu dosyanın uzantısı tarayıcınız tarafından desteklenmiyor." style="width: 48px; height: 48px;">
             </div>
             <div class="opportunity-content">
+                <!-- burayi siteye bakarak duzelt. -->
                 <p>Bonus'a Özel Tüm Alışverişlerde Peşin Fiyatına 2+4 Taksit!</p>
             </div>
         </div>
+
         <!-- renk ve olcu eklenecek. -->
-        <!-- sayaci yapmayi unutma. -->
+
         <div class="add-to-basket-and-quantity">
             <div class="product-quantity">
                 <div class="quantity-buttons">
@@ -57,9 +130,7 @@
                         <i class="bi bi-dash" style="font-size: 32px;"></i>
                     </button>
                 </div>
-                <div class="quantity">
-                    1
-                </div>
+                <div class="quantity"></div>
                 <div class="quantity-buttons">
                     <button id="increaseButton">
                         <i class="bi bi-plus" style="font-size: 32px;"></i>
@@ -72,82 +143,85 @@
                 </button>  
             </div>
         </div>
+
         <div class="product-everything">
-            <div class="detail">
-                <div class="detail-divs">
-                    <div class="icon">
-                        <i class="bi bi-bookmark"></i>
+            <button class="accordion">
+                <div class="detail">
+                    <div class="detail-divs">
+                        <div class="icon">
+                            <i class="bi bi-bookmark"></i>
+                        </div>
+                        <div class="title">
+                            <p>Ürün Detayı</p>
+                        </div>
                     </div>
-                    <div>
-                        <p>Ürün Detayı</p>
-                        <%= product.attributes.aciklama %> 
-                    </div>
-                    
                 </div>
-                <div class="plus">
-                    <i class="bi bi-plus"></i>
+            </button>
+            <div class="panel">
+                <div class="attributes">
+                    <%- product.attributes.aciklama %>
+                </div>
+                <div class="attributes">
+                    <%- product.attributes.teknik_ozellik %>
+                </div>
+                <div class="attributes">
+                    <%- product.attributes.paket_icerik %>
                 </div>
             </div>
-            <div class="exchange">
-                <div class="detail-divs">
-                    <div class="icon">
-                        <i class="bi bi-shuffle"></i>
-                    </div>
-                    <div>
-                        <p>İade ve Değişim</p>
+
+            <button class="accordion">
+                <div class="detail">
+                    <div class="detail-divs">
+                        <div class="icon">
+                            <i class="bi bi-shuffle"></i>
+                        </div>
+                        <div class="title">
+                            <p>İade ve Değişim</p>
+                        </div>
                     </div>
                 </div>
-                <div class="plus">
-                    <i class="bi bi-plus"></i>
-                </div>
+            </button>
+            <div class="panel">
+                Satın aldığınız ürünlerden memnun kalmamanız durumunda, teslim aldığınız tarihten itibaren
+                ürünleri kullanılmamış ve orijinal ambalajları bozulmamış şekilde faturasıyla birlikte <strong>14 gün</strong>
+                içerisinde ücretsiz olarak <strong>PTT Kargo</strong> ile iade edebilirsiniz. <br> <br> <br>Web sitemiz üzerinden
+                alınan ürünlerde değişim yapılmamaktadır, herhangi bir MADAME COCO mağazasından ürün değişimi işlemlerinizi
+                yapabilirsiniz. <br> <br> <br> Kozmetik ve kişisel bakım ürünlerinde ambalajı açılmış, denenmiş ve kullanılmış,
+                tekrar satılamaz durumdaki ürünlerin iadesi kabul edilmemektedir. <br> <br> <br> Detaylı bilgi için lütfen
+                <a href="#" target="_blank" style="color: #000000; text-decoration: none;">tıklayınız.</a>
             </div>
-            <div class="installment">
-                <div class="detail-divs">
-                    <div class="icon">
-                        <i class="bi bi-credit-card-2-back"></i>
-                    </div>
-                    <div>
-                        <p>Taksit Seçenekleri</p>
-                    </div>
-                </div>
-                <div class="plus">
-                    <i class="bi bi-plus"></i>
-                </div>
-            </div>
-            <div class="comments">
-                <div class="detail-divs">
-                    <div class="icon">
-                        <i class="bi bi-chat"></i>
-                    </div>
-                    <div>
-                        <p>Yorumlar</p>
-                    </div> 
-                </div>
-                <div class="plus">
-                    <i class="bi bi-plus"></i>
-                </div>
-            </div>
-            <div class="find-in-store">
-                <div class="detail-divs">
-                    <div class="icon">
-                        <i class="bi bi-shop"></i>
-                    </div>
-                    <div>
-                        <p>Mağazada Bul</p>
+
+            <button class="accordion">
+                <div class="detail">
+                    <div class="detail-divs">
+                        <div class="icon">
+                            <i class="bi bi-chat"></i>
+                        </div>
+                        <div class="title">
+                            <p>Yorumlar</p>
+                        </div>
                     </div>
                 </div>
-                <div class="plus">
-                    <i class="bi bi-plus"></i>
+            </button>
+            <div class="panel"></div>
+
+            <button class="accordion">
+                <div class="detail">
+                    <div class="detail-divs">
+                        <div class="icon">
+                            <i class="bi bi-shop"></i>
+                        </div>
+                        <div class="title">
+                            <p>Mağazada Bul</p>
+                        </div>
+                    </div>
                 </div>
+            </button>
+            <div class="panel">
+                Buraya yazilacak.
             </div>
         </div>
-        
-            <!-- <%= product.attributes.aciklama %> -->
-
-
-        
     </div>
-
 </div>
 
 <%- include('footer'); -%>
