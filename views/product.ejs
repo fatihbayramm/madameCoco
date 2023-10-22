@@ -127,14 +127,26 @@
                     <span style="color: #8E502B; margin-left: 3px;">
                         <%= product.attributes.renk %>
                         <!-- <%= product.attributes.filtre_renk2 %> bunu altta gelecek resmin ustune tiklayinca yazdir. -->
+                        <!-- farki bir renge tiklandiginda sayfa yenilenecek ve rengi o olan urunun resmi gelecek.-->
                     </span>
                 </p>
             </div>
             <div class="product-color-images">
-
+                <button class="image-button">
+                    <div class="image-1">
+                        <img src="<%= product.productimage_set[0].image %>"
+                        alt="Bu dosyanın uzantısı tarayıcınız tarafından desteklenmiyor.">
+                    </div>
+                </button>
             </div>
             <div class="product-measure">
-                <p>Ölçü: <span style="color: #8E502B; margin-left: 3px;"><%= product.attributes.boyut %></span></p>
+                <p>
+                    Ölçü:
+                     <span style="color: #8E502B; margin-left: 3px;">
+                        <%= product.attributes.boyut %>
+                        <!-- farkli bir olcuye tikladiginda sayfa yenilenecek ve o olculu olan urunun resmi gelecek. -->
+                    </span>
+                </p>
             </div>
             <div class="product-measure-box">
 

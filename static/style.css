@@ -384,6 +384,26 @@ input {
     padding: 20px 20px 20px 0px;
 }
 
+.product-color-images {
+    padding: 15px 0px 15px 0px;
+}
+
+
+.product-color-images .image-1 img {
+    width: 40px;
+    height: 40px;
+    padding: 3px;
+    border: 1px solid black;
+    border-radius: 100px;
+}
+
+.image-button {
+    background: none;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
 .product-everything {
     padding-top: 50px;
 }
