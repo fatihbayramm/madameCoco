@@ -1,36 +1,16 @@
 <%- include('header'); -%>
-
-<!-- <div class="filter-div">
-  <div class="color">
-    Renk
-    <form action="#">
-      <select name="colors" id="selectcolor">
-        <option value="blue">Mavi</option>
-        <option value="red">Kırmızı</option>
-      </select>
-    </form>
-  </div>
-  <div class="measurement">
-    Ölçü
-  </div>
-  <div class="material">
-    Materyal
-  </div>
-  <div class="price">
-    Fiyat
-  </div>
-</div> -->
-
 <div class="header-bottom">
   
   <% facets[0].data.choices.forEach(category => { %>
     <a href="#">
       <div class="categories">
-        <%= category.label %> (<%= category.quantity %>) 
+        <%= category.label %>
       </div> 
     </a>
   <% }); %>
 </div>
+
+
 
 <!-- filtreleme ve ordering yapilacak. -->
 <div class="list-content">
@@ -48,6 +28,7 @@
       </button>
     </div>
   </div>
+  
   <div class="layout">
     <div class="text-view">
       Görünüm
@@ -70,6 +51,32 @@
   </div>
 </div>
 
+<div class="filter-div">
+  <button class="filter-box-buttons">
+    <div class="filter-box">
+      <h2 class="filter-titles">Renk</h2>
+      <i class="bi bi-chevron-down"></i>
+    </div>
+  </button>
+  <button class="filter-box-buttons">
+    <div class="filter-box">
+      <h2 class="filter-titles">Ölçü</h2>
+      <i class="bi bi-chevron-down"></i>
+    </div>
+  </button>
+  <button class="filter-box-buttons">
+    <div class="filter-box">
+      <h2 class="filter-titles">Materyal</h2>
+      <i class="bi bi-chevron-down"></i>
+    </div>
+  </button>
+  <button class="filter-box-buttons">
+    <div class="filter-box">
+      <h2 class="filter-titles">Fiyat</h2>
+      <i class="bi bi-chevron-down"></i>
+    </div>
+  </button>
+</div>
 <!-- burada image slider yapilacak. -->
 <div class="product-list-top">
   <div class="product-list">
@@ -89,7 +96,7 @@
           <br>
           <span>
             <%= product.price %> TL |
-            <i class="bi bi-bag-check" style="color: #760C0C;"></i>
+            <i class="bi bi-bag-check" stybox: #760C0C;"></i>
               <% product.basket_offers.forEach(basketOffer => { %>  
                   <b style="color: #760C0C; font-size: 14px;">
                     <%= basketOffer.label %>

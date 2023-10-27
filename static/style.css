@@ -13,6 +13,7 @@
     font-family: 'Rajdhani', sans-serif;
     font-family: 'Signika Negative', sans-serif;
     font-family: 'Spectral', serif;
+    
     box-sizing: border-box;
 }
 
@@ -59,7 +60,6 @@ input {
     padding: 30px;
     padding-bottom: 100px;
     justify-content: center;
- 
 }
 
 .btn {
@@ -95,7 +95,6 @@ input {
 
 .header-bottom{
     display: flex;
-    gap: 15px;
     justify-content: space-evenly;
     padding-bottom: 30px;
 }
@@ -111,9 +110,9 @@ input {
 
 .header-bottom div {
     text-align: center;
-    width: 165px ;
+    width: 140px ;
     height: 36px;
-    padding: 10px;
+    padding: 5px;
     background-color: #E8E8E8;
     color: #323E48;
     font-size: 16px;
@@ -122,12 +121,12 @@ input {
 
 .list-content {
     display: flex;
-    justify-content: space-around;
-    gap: 490px;
+    justify-content: space-between;
     position: sticky;
     position: -webkit-sticky;
     top: 0;
     padding: 20px;
+    padding-left: 40px;
     font-size: 18px;
     color: #323E48;
     background-color: #FFFFFF;
@@ -154,7 +153,7 @@ input {
     cursor: pointer;
 }
 
-.filter-button, .order-button {
+.order-button {
     cursor: pointer;
     background: none;
     border: none;
@@ -162,23 +161,49 @@ input {
     color: #323E48;
 }
 
+.filter-button {
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 18px;
+}
+
 .filter-div {
-    display: flex;
+    padding: 20px 0px 30px 40px;
     justify-content: flex-start;
-    gap: 25px;
+    gap: 30px;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 75px;
+    background-color: white;
 }
 
 .filter-div div {
     width: 224px;
     height: 41px;
-    border-bottom: 1px solid #dcdcdc;
-    color: #000000;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding-left: 5px;
+    border-bottom: 1px solid black;
+    padding-top: 10px;
 }
+
+.filter-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.filter-box-buttons {
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+}
+
+.filter-titles {
+    font-size: 18px;
+    font-weight: bolder;
+}
+
 .layout-icons button {
     border: none;
     background: none;
@@ -193,6 +218,7 @@ input {
     padding: 40px;
     padding-top: 15px;
     justify-content: center;
+    height: auto;
 }
 
 .product-image {

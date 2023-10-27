@@ -43,12 +43,15 @@ function hexaLayout() {
 }
 
 function productCounter() {
-    const deacreseBtnDOM = document.querySelector("#deacreaseButton");
-    const increseBtnDOM = document.querySelector("#increaseButton");
+    const deacreaseBtnDOM = document.querySelector("#deacreaseButton");
+    const increaseBtnDOM = document.querySelector("#increaseButton");
     const quantityDOM = document.querySelector(".quantity");
+    if (!deacreaseBtnDOM) {
+        return
+    } 
     let number = 1;
     quantityDOM.innerHTML = number;
-    deacreseBtnDOM.addEventListener("click", () => {
+    deacreaseBtnDOM.addEventListener("click", () => {
         if (number == 1 ) {
             return 
         } 
@@ -56,7 +59,7 @@ function productCounter() {
         quantityDOM.innerHTML = number;
     })
     
-    increseBtnDOM.addEventListener("click", () => {
+    increaseBtnDOM.addEventListener("click", () => {
         number++;
         quantityDOM.innerHTML = number;
     })
@@ -78,12 +81,35 @@ function accordionMenu() {
       }
 }
 
+function filterProducts() {
+    const filterBtnDOM = document.querySelector(".filter-button");
+    const filterDivDOM = document.querySelector(".filter-div");
+    filterDivDOM.style.display = "none";
+    let counter = 0;
+    if(!filterBtnDOM) {
+        return
+    }
+    filterBtnDOM.addEventListener("click", () => {
+        counter++;
+        let filterStyle = filterBtnDOM.style;
+        if(counter % 2 == 1) {
+            filterBtnDOM.style.color = "#B94E0C";
+            filterDivDOM.style.display = "flex";
+            filterDivDOM.style.borderTop = "1px solid black";
+        } else {
+            filterBtnDOM.style.color = "#323E48";
+            filterDivDOM.style.display = "none";
+        } 
+    })
+}
 
 doubleLayout ();
 defaultLayout ();
 hexaLayout ();
-productCounter();
 accordionMenu();
+productCounter();
+filterProducts();
+
 
 console.log("Fatih Bayram is here !");
 
