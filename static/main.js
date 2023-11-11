@@ -81,18 +81,18 @@ function accordionMenu() {
       }
 }
 
-function filterProducts() {
+function runFilterBox() {
     const filterBtnDOM = document.querySelector(".filter-button");
-    const filterDivDOM = document.querySelector(".filter-div");
-    filterDivDOM.style.display = "none";
-    let counter = 0;
     if(!filterBtnDOM) {
         return
     }
+    const filterDivDOM = document.querySelector(".filter-div");
+    filterDivDOM.style.display = "none";
+    let counter = 0;
     filterBtnDOM.addEventListener("click", () => {
         counter++;
         let filterStyle = filterBtnDOM.style;
-        if(counter % 2 == 1) {
+        if (counter % 2 == 1) {
             filterBtnDOM.style.color = "#B94E0C";
             filterDivDOM.style.display = "flex";
             filterDivDOM.style.borderTop = "1px solid black";
@@ -103,12 +103,90 @@ function filterProducts() {
     })
 }
 
+function runColorFilter(event) {
+    event.stopPropagation();
+    document.getElementById("colorDropdown").classList.toggle("show");
+}
+  window.onclick = function(event) {
+    if (!event.target.matches(".colorFilterButton")) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains("show")) {
+            openDropdown.classList.remove("show");
+        }
+      }
+    } 
+}
+
+function runMeasureFilter(event) {
+    event.stopPropagation();
+    document.getElementById("measureDropdown").classList.toggle("show");
+}
+
+window.onclick = function(event) {
+    if (!event.target.matches(".measureFilterButton")) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains("show")) {
+            openDropdown.classList.remove("show");
+        }
+      }
+    } 
+}
+
+function runMaterialFilter(event) {
+    event.stopPropagation();
+    document.getElementById("materialDropdown").classList.toggle("show");
+}
+
+window.onclick = function(event) {
+    if (!event.target.matches(".materialFilterButton")) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains("show")) {
+            openDropdown.classList.remove("show");
+        }
+      }
+    } 
+}
+
+function runPriceFilter(event) {
+    event.stopPropagation();
+    document.getElementById("priceDropdown").classList.toggle("show");
+}
+
+window.onclick = function(event) {
+    if (!event.target.matches(".priceFilterButton")) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains("show")) {
+            openDropdown.classList.remove("show");
+        }
+      }
+    } 
+}
+
+
+
+
+
+
 doubleLayout ();
 defaultLayout ();
 hexaLayout ();
 accordionMenu();
 productCounter();
-filterProducts();
+runFilterBox();
+
+
 
 
 console.log("Fatih Bayram is here !");

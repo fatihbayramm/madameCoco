@@ -10,8 +10,6 @@
   <% }); %>
 </div>
 
-
-
 <!-- filtreleme ve ordering yapilacak. -->
 <div class="list-content">
   <div class="list-views">
@@ -52,31 +50,111 @@
 </div>
 
 <div class="filter-div">
-  <button class="filter-box-buttons">
-    <div class="filter-box">
-      <h2 class="filter-titles">Renk</h2>
-      <i class="bi bi-chevron-down"></i>
+  <div class="dropdown">
+    <button onclick="runColorFilter(event)" class="colorFilterButton">
+      <div class="filter-box">
+        <h2 class="filter-titles">Renk</h2>
+        <i class="bi bi-chevron-down"></i> 
+      </div>
+    </button>
+  
+    <div id="colorDropdown" class="dropdown-content">
+      <% facets.forEach(facet => { %>
+        <% if (facet.name === "Renk") { %>
+          <% facet.data.choices.forEach(color => { %>
+              <a href="#">
+                <%= color.value %>
+                <span class="color-quantity">
+                  (<%= color.quantity %>)
+                </span>
+                <input type="checkbox" name="colorCheckbox" class="filterCheckbox">
+              </a>
+          <% }); %>
+        <% } %>
+      <% }); %>
+    
     </div>
-  </button>
-  <button class="filter-box-buttons">
-    <div class="filter-box">
-      <h2 class="filter-titles">Ölçü</h2>
-      <i class="bi bi-chevron-down"></i>
+  </div>
+
+  <div class="dropdown">
+    <button onclick="runMeasureFilter(event)" class="measureFilterButton">
+      <div class="filter-box">
+        <h2 class="filter-titles">Ölçü</h2>
+        <i class="bi bi-chevron-down"></i>
+      </div>
+    </button>
+
+    <div id="measureDropdown" class="dropdown-content">
+      <% facets.forEach(facet => { %>
+        <% if (facet.name === "Ölçü") { %>
+          <% facet.data.choices.forEach(measure => { %>
+              <a href="#">
+                <%= measure.value %>
+                <span class="color-quantity">
+                  (<%= measure.quantity %>)
+                </span>
+                <input type="checkbox" name="measureCheckbox" class="filterCheckbox">
+              </a>
+          <% }); %>
+        <% } %>
+      <% }); %>
     </div>
-  </button>
-  <button class="filter-box-buttons">
+  </div>
+
+  <div class="drodown">
+
+  <button onclick="runMaterialFilter(event)" class="materialFilterButton">
     <div class="filter-box">
       <h2 class="filter-titles">Materyal</h2>
       <i class="bi bi-chevron-down"></i>
     </div>
   </button>
-  <button class="filter-box-buttons">
-    <div class="filter-box">
-      <h2 class="filter-titles">Fiyat</h2>
-      <i class="bi bi-chevron-down"></i>
+
+  <div id="materialDropdown" class="dropdown-content">
+    <% facets.forEach(facet => { %>
+      <% if (facet.name === "Materyal") { %>
+        <% facet.data.choices.forEach(material => { %>
+            <a href="#">
+              <%= material.value %>
+              <span class="color-quantity">
+                (<%= material.quantity %>)
+              </span>
+              <input type="checkbox" name="materialCheckbox" class="filterCheckbox">
+            </a>
+        <% }); %>
+      <% } %>
+    <% }); %>
+  </div>  
+  </div>
+
+  <div class="dropdown">
+    <button onclick="runPriceFilter(event)" class="priceFilterButton">
+      <div class="filter-box">
+        <h2 class="filter-titles">Fiyat</h2>
+        <i class="bi bi-chevron-down"></i>
+      </div>
+    </button>
+    <div id="priceDropdown" class="dropdown-content">
+      <% facets.forEach(facet => { %>
+        <% if (facet.name === "Fiyat") { %>
+          <% facet.data.choices.forEach(price => { %>
+              <a href="#">
+                <%= price.label %>
+                <span class="color-quantity">
+                  (<%= price.quantity %>)
+                </span>
+                <input type="checkbox" name="priceCheckbox" class="filterCheckbox">
+              </a>
+          <% }); %>
+        <% } %>
+      <% }); %>
     </div>
-  </button>
+  </div>
+
+
+ 
 </div>
+
 <!-- burada image slider yapilacak. -->
 <div class="product-list-top">
   <div class="product-list">
