@@ -153,12 +153,22 @@ input {
     cursor: pointer;
 }
 
-.order-button {
+.orderButton {
     cursor: pointer;
     background: none;
     border: none;
     font-size: 18px;
     color: #323E48;
+}
+
+.orderDropdownContent a {
+    font-size: 16px;
+    text-decoration: none;
+    color: #323E48;
+}
+
+.orderDropdownContent a:hover {
+    background-color: #848484;
 }
 
 .filter-button {
@@ -211,6 +221,23 @@ input {
 .dropdown {
     position: relative;
     display: inline-block;
+}
+
+.orderDropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.orderDropdownContent {
+    display: none;
+    position: absolute;
+    min-width: 152px;
+    min-height: 176px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    background-color: white;
+    border: none;
 }
 
 .dropdown-content {

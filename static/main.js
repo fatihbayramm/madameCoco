@@ -1,7 +1,4 @@
-const productListDOM = document.querySelector(".product-list");
-const filterBtnDOM = document.querySelector(".filter-button");
-const orderBtnDOM = document.querySelector(".order-button");
-
+const productListDOM = document.querySelector(".js-product-list");
 // js ile etkilesimde olan element class veya idlerine js prefix i eklenecek.
 // ornek #doublelayout #js-doublelayout ek olarak js prefix li bir class asla 
 // css dosyasinda olmamali.
@@ -27,7 +24,7 @@ function defaultLayout() {
     }
     defaultLayoutDOM.addEventListener("click", () => {
         removeClass();
-        productListDOM.classList.add("product-list");
+        productListDOM.classList.add("js-product-list");
 })
 }
 
@@ -82,7 +79,7 @@ function accordionMenu() {
 }
 
 function runFilterBox() {
-    const filterBtnDOM = document.querySelector(".filter-button");
+    const filterBtnDOM = document.querySelector(".js-filter-button");
     if(!filterBtnDOM) {
         return
     }
@@ -102,6 +99,26 @@ function runFilterBox() {
         } 
     })
 }
+
+function runOrderFilter(event) {
+    event.stopPropagation();
+    document.getElementById("orderDropdown").classList.toggle("show");
+}
+
+window.onclick = function(event) {
+    if (!event.target.matches(".orderButton")) {
+      var dropdowns = document.getElementsByClassName("orderDropdownContent");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains("show")) {
+            openDropdown.classList.remove("show");
+        }
+      }
+    } 
+}
+
+
 
 function runColorFilter(event) {
     event.stopPropagation();
@@ -173,8 +190,6 @@ window.onclick = function(event) {
       }
     } 
 }
-
-
 
 
 

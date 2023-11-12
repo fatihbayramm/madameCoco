@@ -1,29 +1,43 @@
 <%- include('header'); -%>
 <div class="header-bottom">
-  
-  <% facets[0].data.choices.forEach(category => { %>
-    <a href="#">
-      <div class="categories">
-        <%= category.label %>
-      </div> 
-    </a>
+  <% facets.forEach(facet => { %>
+      <%
+        if(facet.widget_type == "category") {
+          facet.data.choices.forEach(category => { %>
+            <a href="<%= category.url %>">
+              <div class="categories">
+                <%= category.label %>
+              </div> 
+            </a>
+         <% });
+        }
+      %>
   <% }); %>
 </div>
 
-<!-- filtreleme ve ordering yapilacak. -->
+<!-- TODO: filtreleme ve ordering yapilacak. -->
 <div class="list-content">
   <div class="list-views">
     <div class="filter">
-      <button class="filter-button">
+      <button class="filter-button js-filter-button">
         Filtrele
         <i class="bi bi-filter" style="font-size: 24px;"></i>
       </button>
     </div>
-    <div class="order">
-      <button class="order-button">
+
+    
+    <div class="orderDropdown">
+      <button onclick="runOrderFilter(event)" class="orderButton">
         Gelişmiş Sıralama
         <i class="bi bi-sort-alpha-down" style="font-size: 24px;"></i>
       </button>
+      <div id="orderDropdown" class="orderDropdownContent">
+        <% sorters.forEach(order => { %>
+          <a href="#">
+            <%= order.label %>
+          </a> 
+        <% }); %>
+      </div>
     </div>
   </div>
   
@@ -157,7 +171,7 @@
 
 <!-- burada image slider yapilacak. -->
 <div class="product-list-top">
-  <div class="product-list">
+  <div class="product-list js-product-list">
     <% products.forEach(product => { %>
     <div class="product_list_div">
           <div>

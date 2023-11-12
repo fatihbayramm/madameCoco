@@ -13,19 +13,33 @@ app.use(express.static('static'));
 app.use('/api/', proxy(targetUrl));
 
 app.get('/', (req, res) => {
+  res.redirect("/list/");
+});
+
+app.get('/list/', (req, res) => {
+  let queryString = req.url.split("?").length > 1 ? `?${req.url.split("?")[1]}` : "";
+
   require('request').get(
-      `${targetUrl}/list/?format=json`, 
-      {},
+      `${targetUrl}/list/${queryString}`, 
+      {
+        headers: {
+          "Accept": "application/json"
+        },
+      },
       function(error, response, body){
         res.render('index', JSON.parse(body))
       }
   );
-})
+});
 
 app.get('/product/:id', (req, res) => {
   require('request').get(
-      `${targetUrl}/product/${req.params.id}/?format=json`, 
-      {},
+      `${targetUrl}/product/${req.params.id}/`, 
+      {
+        headers: {
+          "Accept": "application/json"
+        },
+      },
       function(error, response, body){
         res.render('product', JSON.parse(body))
       }
