@@ -20,7 +20,7 @@ app.get('/list/', (req, res) => {
   let queryString = req.url.split("?").length > 1 ? `?${req.url.split("?")[1]}` : "";
 
   require('request').get(
-      `${targetUrl}/list/${queryString}`, 
+      `${targetUrl}/list/?${queryString}`, 
       {
         headers: {
           "Accept": "application/json"
