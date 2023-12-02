@@ -27,11 +27,11 @@
 
     
     <div class="orderDropdown">
-      <button onclick="runOrderFilter(event)" class="orderButton">
+      <button onclick="runOrderFilter(event)" class="js-order-button order-button">
         Gelişmiş Sıralama
         <i class="bi bi-sort-alpha-down" style="font-size: 24px;"></i>
       </button>
-      <div id="orderDropdown" class="orderDropdownContent">
+      <div id="js-orderDropdown" class="js-order-dropdown-content order-dropdown-content">
         <% sorters.forEach(order => { %>
           <a href="#">
             <%= order.label %>
@@ -46,13 +46,13 @@
       Görünüm
     </div>
     <div class="layout-icons">
-      <button id="doublelayout">
+      <button id="js-DoubleLayout">
         <i class="bi bi-layout-split" style="font-size: 16px;"></i>
       </button>
-      <button id="defaultlayout">
+      <button id="js-default-layout">
         <i class="bi bi-grid" style="font-size: 14px;"></i>
       </button>
-      <button id="hexalayout">
+      <button id="js-hexa-layout">
         <i class="bi bi-grid-3x3-gap" style="font-size: 16px;"></i>
       </button>
     </div>
@@ -63,16 +63,16 @@
   </div>
 </div>
 
-<div class="filter-div">
+<div class="js-filter-div filter-div">
   <div class="dropdown">
-    <button onclick="runColorFilter(event)" class="colorFilterButton">
+    <button onclick="runColorFilter(event)" class="js-color-filter-button color-filter-button">
       <div class="filter-box">
         <h2 class="filter-titles">Renk</h2>
         <i class="bi bi-chevron-down"></i> 
       </div>
     </button>
   
-    <div id="colorDropdown" class="dropdown-content">
+    <div id="js-color-Dropdown" class="js-dropdown-content dropdown-content">
       <% facets.forEach(facet => { %>
         <% if (facet.name === "Renk") { %>
           <% facet.data.choices.forEach(color => { %>
@@ -91,14 +91,14 @@
   </div>
 
   <div class="dropdown">
-    <button onclick="runMeasureFilter(event)" class="measureFilterButton">
+    <button onclick="runMeasureFilter(event)" class="js-measure-filter-button measure-filter-button">
       <div class="filter-box">
         <h2 class="filter-titles">Ölçü</h2>
         <i class="bi bi-chevron-down"></i>
       </div>
     </button>
 
-    <div id="measureDropdown" class="dropdown-content">
+    <div id="js-measure-Dropdown" class="js-dropdown-content dropdown-content">
       <% facets.forEach(facet => { %>
         <% if (facet.name === "Ölçü") { %>
           <% facet.data.choices.forEach(measure => { %>
@@ -115,40 +115,40 @@
     </div>
   </div>
 
-  <div class="drodown">
+  <div class="dropdown">
 
-  <button onclick="runMaterialFilter(event)" class="materialFilterButton">
-    <div class="filter-box">
-      <h2 class="filter-titles">Materyal</h2>
-      <i class="bi bi-chevron-down"></i>
-    </div>
-  </button>
+    <button onclick="runMaterialFilter(event)" class="js-material-filter-button material-filter-button">
+      <div class="filter-box">
+        <h2 class="filter-titles">Materyal</h2>
+        <i class="bi bi-chevron-down"></i>
+      </div>
+    </button>
 
-  <div id="materialDropdown" class="dropdown-content">
-    <% facets.forEach(facet => { %>
-      <% if (facet.name === "Materyal") { %>
-        <% facet.data.choices.forEach(material => { %>
-            <a href="#">
-              <%= material.value %>
-              <span class="color-quantity">
-                (<%= material.quantity %>)
-              </span>
-              <input type="checkbox" name="materialCheckbox" class="filterCheckbox">
-            </a>
-        <% }); %>
-      <% } %>
-    <% }); %>
-  </div>  
+    <div id="js-material-Dropdown" class="js-dropdown-content dropdown-content">
+      <% facets.forEach(facet => { %>
+        <% if (facet.name === "Materyal") { %>
+          <% facet.data.choices.forEach(material => { %>
+              <a href="#">
+                <%= material.value %>
+                <span class="color-quantity">
+                  (<%= material.quantity %>)
+                </span>
+                <input type="checkbox" name="materialCheckbox" class="filterCheckbox">
+              </a>
+          <% }); %>
+        <% } %>
+      <% }); %>
+    </div>  
   </div>
 
   <div class="dropdown">
-    <button onclick="runPriceFilter(event)" class="priceFilterButton">
+    <button onclick="runPriceFilter(event)" class="js-price-filter-button price-filter-button">
       <div class="filter-box">
         <h2 class="filter-titles">Fiyat</h2>
         <i class="bi bi-chevron-down"></i>
       </div>
     </button>
-    <div id="priceDropdown" class="dropdown-content">
+    <div id="js-price-Dropdown" class="js-dropdown-content dropdown-content">
       <% facets.forEach(facet => { %>
         <% if (facet.name === "Fiyat") { %>
           <% facet.data.choices.forEach(price => { %>
