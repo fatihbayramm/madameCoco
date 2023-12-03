@@ -1,52 +1,49 @@
-const express = require('express');
-const proxy = require('express-http-proxy');
-const http = require('http');
+const express = require("express");
+const proxy = require("express-http-proxy");
+const http = require("http");
 
 const app = express();
-app.set('view engine', 'ejs')
+app.set("view engine", "ejs");
 
-const targetUrl = "https://www.madamecoco.com"; 
+const targetUrl = "https://www.madamecoco.com";
 
+app.use(express.static("static"));
 
-app.use(express.static('static'));
+app.use("/api/", proxy(targetUrl));
 
-app.use('/api/', proxy(targetUrl));
-
-app.get('/', (req, res) => {
+app.get("/", (req, res) => {
   res.redirect("/list/");
 });
 
-app.get('/list/', (req, res) => {
-  let queryString = req.url.split("?").length > 1 ? `?${req.url.split("?")[1]}` : "";
-
-  require('request').get(
-      `${targetUrl}/list/?${queryString}`, 
-      {
-        headers: {
-          "Accept": "application/json"
-        },
+app.get("/list/", (req, res) => {
+  let queryString =
+    req.url.split("?").length > 1 ? `?${req.url.split("?")[1]}` : "";
+  require("request").get(
+    `${targetUrl}/list/${queryString}`,
+    {
+      headers: {
+        Accept: "application/json",
       },
-      function(error, response, body){
-        res.render('index', JSON.parse(body))
-      }
+    },
+    function (error, response, body) {
+      res.render("index", JSON.parse(body));
+    }
   );
 });
 
-app.get('/product/:id', (req, res) => {
-  require('request').get(
-      `${targetUrl}/product/${req.params.id}/`, 
-      {
-        headers: {
-          "Accept": "application/json"
-        },
+app.get("/product/:id", (req, res) => {
+  require("request").get(
+    `${targetUrl}/product/${req.params.id}/`,
+    {
+      headers: {
+        Accept: "application/json",
       },
-      function(error, response, body){
-        res.render('product', JSON.parse(body))
-      }
+    },
+    function (error, response, body) {
+      res.render("product", JSON.parse(body));
+    }
   );
-})
-
-
+});
 
 const port = 3000;
 app.listen(port, () => {

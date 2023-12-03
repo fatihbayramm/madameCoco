@@ -74,12 +74,19 @@
   
     <div class="js-dropdown-content dropdown-content">
       <% facet.data.choices.forEach(choice => { %>
-          <a href="#">
+          <a href="#"> 
+            <!--  TODO: a kalkcak. span, p, div olabilir -->
             <%= choice.label %>
             <span>
               (<%= choice.quantity %>)
             </span>
-            <input type="checkbox" />
+            <input
+              type="checkbox"
+              name="<%= facet.data.search_key %>"
+              value="<%= choice.value %>"
+              class="js-filter-checkbox"
+              <% if(choice.is_selected) { %> checked <% } %>
+            />
           </a>
       <% }); %>
     </div>
@@ -89,7 +96,7 @@
 </div>
 
 <!-- TODO: burada image slider yapilacak. -->
-
+<div class="js-container">
 <div class="product-list-top">
   <div class="product-list js-product-list">
     <% products.forEach(product => { %>
@@ -126,6 +133,5 @@
   
 
 </div>
-
-
+</div>
 <%- include('footer'); -%>

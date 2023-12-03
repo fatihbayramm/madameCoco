@@ -120,24 +120,51 @@ window.onclick = function (event) {
 document.querySelectorAll(".js-filter-show-button").forEach(function (btn) {
   btn.addEventListener("click", function (e) {
     e.stopPropagation();
+    let currentDropdownContent = e.currentTarget.parentElement.querySelector(
+      ".js-dropdown-content"
+    );
     document.querySelectorAll(".js-dropdown-content").forEach(function (el) {
-      el.classList.remove("show");
+      if (el != currentDropdownContent) {
+        el.classList.remove("show");
+      } else {
+        currentDropdownContent.classList.toggle("show");
+      }
     });
-    e.currentTarget.parentElement
-      .querySelector(".js-dropdown-content")
-      .classList.toggle("show");
   });
 });
 
 window.onclick = function (event) {
-  console.log(event.target);
   document.querySelectorAll(".js-dropdown-content").forEach(function (el) {
     if (event.target !== el && !el.contains(event.target)) {
-      console.log("class kaldirildi.");
       el.classList.remove("show");
     }
   });
 };
+// TODO: aradiginiz sonuc bulunamadi yazisi gorseli eklenecek.
+// TODO: orderingi hallet.
+document.querySelectorAll(".js-filter-checkbox").forEach((checkbox) => {
+  checkbox.addEventListener("change", (event) => {
+    let params = new URLSearchParams(window.location.search);
+    if (event.target.checked) {
+      params.append(event.target.name, event.target.value);
+    } else {
+      params.delete(event.target.name, event.target.value);
+    }
+
+    window.history.pushState(null, "", "?" + params.toString());
+    let url = window.location.href;
+    fetch(url)
+      .then(function (resp) {
+        return resp.text();
+      })
+      .then(function (resp) {
+        const parser = new DOMParser();
+        const html = parser.parseFromString(resp, "text/html");
+        let containerInHTML = html.querySelector(".js-container").innerHTML;
+        document.querySelector(".js-container").innerHTML = containerInHTML;
+      });
+  });
+});
 
 doubleLayout();
 defaultLayout();
