@@ -136,7 +136,7 @@ window.onclick = function (event) {
 
 function runMeasureFilter(event) {
   event.stopPropagation();
-  document.getElementById("js-measure-Dropdown").classList.toggle("show");
+  document.getElementById("js-measure-dropdown").classList.toggle("show");
 }
 
 window.onclick = function (event) {
