@@ -191,20 +191,12 @@ input {
   padding-top: 10px;
 }
 
-.filter-box {
+.filter-show-button {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-bottom: 10px;
   border-bottom: 1px solid black;
-}
-
-.color-filter-button,
-.measure-filter-button,
-.material-filter-button,
-.price-filter-button {
-  border: none;
-  outline: none;
   background: none;
   cursor: pointer;
 }
@@ -256,19 +248,19 @@ input {
   font-size: 15px;
 }
 
-.color-quantity {
+.dropdown-content a:hover {
+  cursor: pointer;
+}
+
+.dropdown-content span {
   font-size: 12px;
 }
 
-.filterCheckbox {
+.dropdown-content input {
   float: right;
   margin-right: 15px;
   width: 22px;
   height: 22px;
-}
-
-.dropdown-content a:hover {
-  cursor: pointer;
 }
 
 .show {

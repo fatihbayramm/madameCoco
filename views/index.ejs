@@ -64,109 +64,28 @@
 </div>
 
 <div class="js-filter-div filter-div">
+  <% facets.forEach(facet => { %>
+  <% if (facet.search_key != "category_ids") { %>
   <div class="dropdown">
-    <button onclick="runColorFilter(event)" class="js-color-filter-button color-filter-button">
-      <div class="filter-box">
-        <h2 class="filter-titles">Renk</h2>
-        <i class="bi bi-chevron-down"></i> 
-      </div>
-    </button>
+    <div class="js-filter-show-button filter-show-button">
+      <h2 class="filter-titles"><%= facet.name %></h2>
+      <i class="bi bi-chevron-down"></i> 
+    </div>
   
-    <div id="js-color-Dropdown" class="js-dropdown-content dropdown-content">
-      <% facets.forEach(facet => { %>
-        <% if (facet.name === "Renk") { %>
-          <% facet.data.choices.forEach(color => { %>
-              <a href="#">
-                <%= color.value %>
-                <span class="color-quantity">
-                  (<%= color.quantity %>)
-                </span>
-                <input type="checkbox" name="colorCheckbox" class="filterCheckbox">
-              </a>
-          <% }); %>
-        <% } %>
-      <% }); %>
-    
-    </div>
-  </div>
-
-  <div class="dropdown">
-    <button onclick="runMeasureFilter(event)" class="js-measure-filter-button measure-filter-button">
-      <div class="filter-box">
-        <h2 class="filter-titles">Ölçü</h2>
-        <i class="bi bi-chevron-down"></i>
-      </div>
-    </button>
-
-    <div id="js-measure-dropdown" class="js-dropdown-content dropdown-content">
-      <% facets.forEach(facet => { %>
-        <% if (facet.name === "Ölçü") { %>
-          <% facet.data.choices.forEach(measure => { %>
-              <a href="#">
-                <%= measure.value %>
-                <span class="color-quantity">
-                  (<%= measure.quantity %>)
-                </span>
-                <input type="checkbox" name="measureCheckbox" class="filterCheckbox">
-              </a>
-          <% }); %>
-        <% } %>
+    <div class="js-dropdown-content dropdown-content">
+      <% facet.data.choices.forEach(choice => { %>
+          <a href="#">
+            <%= choice.label %>
+            <span>
+              (<%= choice.quantity %>)
+            </span>
+            <input type="checkbox" />
+          </a>
       <% }); %>
     </div>
   </div>
-
-  <div class="dropdown">
-
-    <button onclick="runMaterialFilter(event)" class="js-material-filter-button material-filter-button">
-      <div class="filter-box">
-        <h2 class="filter-titles">Materyal</h2>
-        <i class="bi bi-chevron-down"></i>
-      </div>
-    </button>
-
-    <div id="js-material-Dropdown" class="js-dropdown-content dropdown-content">
-      <% facets.forEach(facet => { %>
-        <% if (facet.name === "Materyal") { %>
-          <% facet.data.choices.forEach(material => { %>
-              <a href="#">
-                <%= material.value %>
-                <span class="color-quantity">
-                  (<%= material.quantity %>)
-                </span>
-                <input type="checkbox" name="materialCheckbox" class="filterCheckbox">
-              </a>
-          <% }); %>
-        <% } %>
-      <% }); %>
-    </div>  
-  </div>
-
-  <div class="dropdown">
-    <button onclick="runPriceFilter(event)" class="js-price-filter-button price-filter-button">
-      <div class="filter-box">
-        <h2 class="filter-titles">Fiyat</h2>
-        <i class="bi bi-chevron-down"></i>
-      </div>
-    </button>
-    <div id="js-price-Dropdown" class="js-dropdown-content dropdown-content">
-      <% facets.forEach(facet => { %>
-        <% if (facet.name === "Fiyat") { %>
-          <% facet.data.choices.forEach(price => { %>
-              <a href="#">
-                <%= price.label %>
-                <span class="color-quantity">
-                  (<%= price.quantity %>)
-                </span>
-                <input type="checkbox" name="priceCheckbox" class="filterCheckbox">
-              </a>
-          <% }); %>
-        <% } %>
-      <% }); %>
-    </div>
-  </div>
-
-
- 
+  <% } %>
+  <% }); %> 
 </div>
 
 <!-- TODO: burada image slider yapilacak. -->

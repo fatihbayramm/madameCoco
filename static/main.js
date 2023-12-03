@@ -117,75 +117,26 @@ window.onclick = function (event) {
   }
 };
 
-function runColorFilter(event) {
-  event.stopPropagation();
-  document.getElementById("js-color-Dropdown").classList.toggle("show");
-}
-window.onclick = function (event) {
-  if (!event.target.matches(".js-color-Filter-Button")) {
-    var dropdowns = document.getElementsByClassName("js-dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains("show")) {
-        openDropdown.classList.remove("show");
-      }
-    }
-  }
-};
-
-function runMeasureFilter(event) {
-  event.stopPropagation();
-  document.getElementById("js-measure-dropdown").classList.toggle("show");
-}
+document.querySelectorAll(".js-filter-show-button").forEach(function (btn) {
+  btn.addEventListener("click", function (e) {
+    e.stopPropagation();
+    document.querySelectorAll(".js-dropdown-content").forEach(function (el) {
+      el.classList.remove("show");
+    });
+    e.currentTarget.parentElement
+      .querySelector(".js-dropdown-content")
+      .classList.toggle("show");
+  });
+});
 
 window.onclick = function (event) {
-  if (!event.target.matches(".js-measure-Filter-Button")) {
-    var dropdowns = document.getElementsByClassName("js-dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains("show")) {
-        openDropdown.classList.remove("show");
-      }
+  console.log(event.target);
+  document.querySelectorAll(".js-dropdown-content").forEach(function (el) {
+    if (event.target !== el && !el.contains(event.target)) {
+      console.log("class kaldirildi.");
+      el.classList.remove("show");
     }
-  }
-};
-
-function runMaterialFilter(event) {
-  event.stopPropagation();
-  document.getElementById("js-material-Dropdown").classList.toggle("show");
-}
-
-window.onclick = function (event) {
-  if (!event.target.matches(".js-material-Filter-Button")) {
-    var dropdowns = document.getElementsByClassName("js-dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains("show")) {
-        openDropdown.classList.remove("show");
-      }
-    }
-  }
-};
-
-function runPriceFilter(event) {
-  event.stopPropagation();
-  document.getElementById("js-price-Dropdown").classList.toggle("show");
-}
-
-window.onclick = function (event) {
-  if (!event.target.matches(".js-price-Filter-Button")) {
-    var dropdowns = document.getElementsByClassName("js-dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains("show")) {
-        openDropdown.classList.remove("show");
-      }
-    }
-  }
+  });
 };
 
 doubleLayout();
