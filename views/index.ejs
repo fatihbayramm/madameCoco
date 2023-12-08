@@ -15,7 +15,7 @@
   <% }); %>
 </div>
 
-<!-- TODO: filtreleme ve ordering yapilacak. -->
+<!-- TODO:ordering yapilacak. -->
 <div class="list-content">
   <div class="list-views">
     <div class="filter">
@@ -33,9 +33,9 @@
       </button>
       <div id="js-orderDropdown" class="js-order-dropdown-content order-dropdown-content">
         <% sorters.forEach(order => { %>
-          <a href="#">
+          <div href="#">
             <%= order.label %>
-          </a> 
+          </div> 
         <% }); %>
       </div>
     </div>
@@ -46,7 +46,7 @@
       Görünüm
     </div>
     <div class="layout-icons">
-      <button id="js-DoubleLayout">
+      <button id="js-double-layout">
         <i class="bi bi-layout-split" style="font-size: 16px;"></i>
       </button>
       <button id="js-default-layout">
@@ -56,7 +56,7 @@
         <i class="bi bi-grid-3x3-gap" style="font-size: 16px;"></i>
       </button>
     </div>
-    <div class="product-quantitiy">
+    <div class="product-quantity">
       <%= pagination.total_count %> Ürün
     </div>
 
@@ -65,17 +65,18 @@
 
 <div class="js-filter-div filter-div">
   <% facets.forEach(facet => { %>
-  <% if (facet.search_key != "category_ids") { %>
+  <% if (facet.search_key != "category_ids" && facet.search_key != "in_stock") { %>
   <div class="dropdown">
     <div class="js-filter-show-button filter-show-button">
-      <h2 class="filter-titles"><%= facet.name %></h2>
+      <h2 class="filter-titles">
+        <%= facet.name %>
+        </h2>
       <i class="bi bi-chevron-down"></i> 
     </div>
   
     <div class="js-dropdown-content dropdown-content">
       <% facet.data.choices.forEach(choice => { %>
-          <a href="#"> 
-            <!--  TODO: a kalkcak. span, p, div olabilir -->
+          <div> 
             <%= choice.label %>
             <span>
               (<%= choice.quantity %>)
@@ -87,7 +88,7 @@
               class="js-filter-checkbox"
               <% if(choice.is_selected) { %> checked <% } %>
             />
-          </a>
+          </div>
       <% }); %>
     </div>
   </div>

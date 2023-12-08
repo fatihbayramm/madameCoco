@@ -1,10 +1,21 @@
+// TODO: aradiginiz sonuc bulunamadi yazisi gorseli eklenecek.
+// TODO: orderingi hallet.
+// TODO: projeyi responsive yap.
+// TODO: sag ustte gozuken filtering yapinca yanlis gozuken urun sayisi sorununu duzelt.
+// TODO: layout fonksiyonlarini da dinamik yapmayi dene.
+// TODO: Filtering i sayfada yapiskan yap.
+// TODO: search olayi yapilacak.
+// TODO: tum filtreleri temizle yap.
+// TODO: checboxlarda yaziya tiklayinca da calissin.
+// TODO: urun detay sayfasinda urunlerun kucuk resimlerini yap. secili olan renk halka icinde olacak.
 const productListDOM = document.querySelector(".js-product-list");
+
 function removeClass() {
   productListDOM.removeAttribute("class");
 }
 
 function doubleLayout() {
-  const doubleLayoutDOM = document.querySelector("#js-DoubleLayout");
+  const doubleLayoutDOM = document.querySelector("#js-double-layout");
   if (!doubleLayoutDOM) {
     return;
   }
@@ -140,8 +151,7 @@ window.onclick = function (event) {
     }
   });
 };
-// TODO: aradiginiz sonuc bulunamadi yazisi gorseli eklenecek.
-// TODO: orderingi hallet.
+
 document.querySelectorAll(".js-filter-checkbox").forEach((checkbox) => {
   checkbox.addEventListener("change", (event) => {
     let params = new URLSearchParams(window.location.search);
@@ -165,6 +175,21 @@ document.querySelectorAll(".js-filter-checkbox").forEach((checkbox) => {
       });
   });
 });
+
+// let url2 = window.location.href;
+// fetch(url2)
+//   .then(function (resp) {
+//     return resp.status;
+//   })
+//   .then(function (statusCode) {
+//     if (statusCode == "500") {
+//       console.log("500 aldin fatihh");
+//     } else {
+//       console.log("suan sorun yok.");
+//       console.log(statusCode);
+//     }
+//   });
+// console.log(window.location.href);
 
 doubleLayout();
 defaultLayout();

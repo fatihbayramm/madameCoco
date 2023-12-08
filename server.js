@@ -40,6 +40,21 @@ app.get("/product/:id", (req, res) => {
       },
     },
     function (error, response, body) {
+      if (error) {
+        console.error("Hata:", error);
+        res.status(500).send("Sunucu hatası");
+        return;
+      }
+
+      if (response.statusCode !== 200) {
+        console.error("HTTP Hatası:", response.statusCode);
+        res.render("error", {
+          statusCode: response.statusCode,
+          message: "Bir hata oluştu",
+        });
+        return;
+      }
+
       res.render("product", JSON.parse(body));
     }
   );
