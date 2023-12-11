@@ -1,0 +1,213 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant&family=Karma:wght@300&family=Montserrat:wght@200&family=Plus+Jakarta+Sans:wght@200&family=Rajdhani:wght@300&family=Signika+Negative:wght@700&family=Spectral:wght@200&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Cormorant", serif;
+  font-family: "Karma", serif;
+  font-family: "Montserrat", sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family: "Rajdhani", sans-serif;
+  font-family: "Signika Negative", sans-serif;
+  font-family: "Spectral", serif;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+input {
+  font-family: "Karma", serif;
+  font-size: 18px;
+}
+.header {
+  width: 100%;
+  height: 43px;
+  background-color: #f5efec;
+}
+
+.header .header-band {
+  display: flex;
+  justify-content: flex-end;
+  background-color: #f5efec;
+  gap: 50px;
+  margin-right: 250px;
+  font-size: 16px;
+  padding: 10px;
+}
+
+.header .header-band a {
+  text-decoration: none;
+  color: #323e48;
+}
+
+.main-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.container header {
+  display: flex;
+  gap: 50px;
+  padding: 30px;
+  padding-bottom: 100px;
+  justify-content: center;
+}
+
+.btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.madame-coco a {
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+}
+
+.madame-coco {
+  margin-right: 50px;
+}
+
+.search-mark {
+  position: absolute;
+  left: 440px;
+}
+
+.form input {
+  width: 608px;
+  height: 36px;
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+.form input:focus {
+  outline: none;
+}
+
+footer {
+  display: flex;
+}
+
+footer .footer-menu ul li {
+  padding: 15px;
+}
+
+.footer {
+  border-top: 1px solid black;
+  color: #222222;
+}
+.footer footer div {
+  padding: 10px;
+  margin-top: 10px;
+}
+
+footer h1 {
+  display: inline;
+}
+
+footer div {
+  display: inline-block;
+}
+
+#email {
+  width: 320px;
+  height: 40px;
+  outline: none;
+}
+
+.checkbox {
+  margin-right: 5px;
+  width: 20px;
+  height: 20px;
+}
+
+.check {
+  display: inline-block;
+}
+
+.check span {
+  text-decoration: underline;
+}
+
+.check p {
+  display: inline;
+  font-size: 14px;
+}
+
+span a {
+  color: black;
+}
+
+span p {
+  text-decoration: none;
+  font-size: 10px;
+}
+
+.footer-social a {
+  text-decoration: none;
+  color: black;
+  margin-right: 40px;
+}
+
+.footer-right {
+  display: flex;
+  height: auto;
+}
+
+.footer-menu-title {
+  font-size: 16px;
+  color: #323e48;
+}
+
+.footer-menu ul li {
+  list-style-type: none;
+}
+
+.footer-menu ul li a {
+  text-decoration: none;
+  font-size: 14px;
+  color: #222222;
+}
+
+.footer-base {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-copyright {
+  font-size: 14px;
+  color: #848484;
+  display: flex;
+  align-items: center;
+}
+
+.footer-base-award {
+  display: flex;
+  align-items: center;
+}
+
+.footer-base-phone {
+  display: flex;
+}
+
+.footer-base-phone div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 150px;
+}
+
+.footer-base-phone a {
+  color: green;
+  text-decoration: none;
+}
+
+.footer-base-phone a p {
+  color: #222222;
+  font-size: 20px;
+}

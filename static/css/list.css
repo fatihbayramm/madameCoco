@@ -1,0 +1,244 @@
+.header-bottom {
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 30px;
+}
+
+.header-bottom h1 {
+  position: relative;
+  bottom: 0px;
+}
+
+.header-bottom a {
+  text-decoration: none;
+}
+
+.header-bottom div {
+  text-align: center;
+  width: 140px;
+  height: 36px;
+  padding: 5px;
+  background-color: #e8e8e8;
+  color: #323e48;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.list-content {
+  display: flex;
+  justify-content: space-between;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  padding: 10px 20px 10px 40px;
+  font-size: 18px;
+  color: #323e48;
+  background-color: #ffffff;
+}
+
+.list-views {
+  display: flex;
+  gap: 20px;
+}
+
+.list-views svg {
+  padding-top: 3px;
+}
+
+.layout {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  padding: 5px;
+}
+
+.layout-icons svg {
+  cursor: pointer;
+}
+
+.order-button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #323e48;
+}
+
+.order-dropdown-content div {
+  font-size: 16px;
+  text-decoration: none;
+  color: #323e48;
+}
+
+.order-dropdown-content div:hover {
+  background-color: #848484;
+  cursor: pointer;
+}
+
+.filter-button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 18px;
+}
+
+.filter-div {
+  padding: 15px 40px 30px 40px;
+  display: flex;
+  justify-content: flex-start;
+  gap: 21px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 75px;
+  background-color: white;
+}
+
+.filter-div div {
+  width: 210px;
+  height: 41px;
+  padding-top: 10px;
+}
+
+.filter-show-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid black;
+  background: none;
+  cursor: pointer;
+}
+
+.filter-titles {
+  font-size: 18px;
+  font-weight: bolder;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.orderDropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.order-dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 152px;
+  min-height: 176px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  background-color: white;
+  border: none;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 210px;
+  min-height: 240px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  background-color: white;
+  border: none;
+}
+.dropdown-content div {
+  padding-left: 7px;
+}
+
+.dropdown-content div:hover {
+  cursor: pointer;
+}
+
+.dropdown-content span {
+  font-size: 12px;
+}
+
+.dropdown-content input {
+  float: right;
+  margin-right: 15px;
+  width: 22px;
+  height: 22px;
+}
+
+.show {
+  display: block;
+}
+
+.layout-icons button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.product-list {
+  display: grid;
+  grid-template: repeat(6, 490px) / repeat(4, 333px);
+  row-gap: 20px;
+  column-gap: 15px;
+  padding: 40px;
+  padding-top: 15px;
+  justify-content: center;
+  height: auto;
+}
+
+.product-image {
+  width: 333px;
+  height: 416px;
+}
+
+.product_list_double {
+  display: grid;
+  grid-template: repeat(6, 561px) / repeat(2, 478px);
+  row-gap: 20px;
+  column-gap: 23px;
+  padding: 40px;
+  padding-top: 15px;
+  justify-content: center;
+}
+
+.product_list_double .product-image {
+  width: 478px;
+  height: 512px;
+}
+
+.product_list_hexa {
+  display: grid;
+  justify-content: center;
+  grid-template: repeat(4, 288px) / repeat(6, 220px);
+  row-gap: 20px;
+  column-gap: 13px;
+  padding: 40px;
+  padding-top: 15px;
+}
+
+.product_list_hexa .product-image {
+  width: 220px;
+  height: 288px;
+}
+
+.product_list_hexa .product-info {
+  display: none;
+}
+
+.product-info {
+  width: 333px;
+  height: 65px;
+}
+
+.product-info p {
+  font-size: 16px;
+}
+
+.product-info a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.product-info span {
+  font-size: 18px;
+  font-weight: bolder;
+}

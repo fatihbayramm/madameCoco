@@ -1,0 +1,210 @@
+.product_detail_wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+}
+
+.product_detail_info {
+  width: 626px;
+  height: auto;
+}
+
+.product-info-head,
+.product-info-code {
+  display: flex;
+  justify-content: space-between;
+}
+
+.product-info-heart {
+  width: 60px;
+  height: 40px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 25px;
+  position: relative;
+  left: 17px;
+}
+
+.product-info-heart:hover {
+  background-color: #eee;
+  transition: 0.5s all;
+}
+
+.product-code {
+  color: #696969;
+  font-size: 16px;
+}
+
+.share-button {
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.product-price {
+  display: flex;
+  padding-top: 15px;
+}
+
+.basket-offer-price {
+  padding-left: 10px;
+}
+
+.price {
+  font-size: 32px;
+  font-weight: bolder;
+}
+
+.product-opportunity-content {
+  padding-top: 15px;
+  display: flex;
+}
+
+.opportunity-content {
+  padding-left: 15px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.product-quantity {
+  display: flex;
+  gap: 20px;
+}
+
+.deacrease-button,
+.increase-button,
+#addtobasket {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.add-to-basket-and-quantity {
+  display: flex;
+  padding-top: 30px;
+  justify-content: space-between;
+}
+
+.quantity-buttons {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-color: #efefef;
+  text-align: center;
+}
+
+.quantity {
+  color: #323e48;
+  font-size: 32px;
+}
+
+.add-to-card {
+  background-color: #323e48;
+  width: 432px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-to-card:hover {
+  background-color: #ffffff;
+  border: 1px solid black;
+  transition: 0.2s all;
+}
+
+#addtobasket {
+  color: #ffffff;
+  font-size: 14px;
+  width: 432px;
+  height: 36px;
+}
+
+#addtobasket:hover {
+  color: #000000;
+}
+
+.product-variants {
+  font-size: 18px;
+  padding: 20px 20px 20px 0px;
+}
+
+.product-color-images {
+  padding: 15px 0px 15px 0px;
+}
+
+.product-color-images .image-1 img {
+  width: 40px;
+  height: 40px;
+  padding: 3px;
+  border: 1px solid black;
+  border-radius: 100px;
+}
+
+.image-button {
+  background: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.product-everything {
+  padding-top: 50px;
+}
+
+.detail {
+  display: flex;
+  padding: 15px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  border-bottom: 1px solid #dddddd;
+  width: 100%;
+}
+
+.detail-divs {
+  display: flex;
+  gap: 15px;
+}
+
+.product-everything .title {
+  font-size: 18px;
+  color: #383838;
+}
+
+.bi-plus {
+  font-size: 30px;
+}
+
+.accordion {
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: 0.4s;
+  font-size: 40px;
+  display: flex;
+  width: 100%;
+}
+
+.accordion:after {
+  content: "\002B";
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  font-size: 16px;
+}
+
+.attributes {
+  padding: 10px;
+}
+
+.icon {
+  font-size: 22px;
+}
