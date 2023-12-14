@@ -27,14 +27,14 @@
 
     
     <div class="orderDropdown">
-      <button onclick="runOrderFilter(event)" class="js-order-button order-button">
+      <div class="js-order-button order-button">
         Gelişmiş Sıralama
         <i class="bi bi-sort-alpha-down" style="font-size: 24px;"></i>
-      </button>
-      <div id="js-orderDropdown" class="js-order-dropdown-content order-dropdown-content">
-        <% sorters.forEach(order => { %>
-          <div href="#">
-            <%= order.label %>
+      </div>
+      <div id="js-order-dropdown" class="js-order-dropdown-content order-dropdown-content">
+        <% sorters.forEach(sort => { %>
+          <div class="order js-orders" href="#">
+            <%= sort.label %>
           </div> 
         <% }); %>
       </div>
@@ -76,7 +76,7 @@
   
     <div class="js-dropdown-content dropdown-content">
       <% facet.data.choices.forEach(choice => { %>
-          <div> 
+          <div class="choice"> 
             <%= choice.label %>
             <span>
               (<%= choice.quantity %>)

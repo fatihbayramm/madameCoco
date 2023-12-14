@@ -3,7 +3,9 @@
 // TODO: projeyi responsive yap.
 // TODO: sag ustte gozuken filtering yapinca yanlis gozuken urun sayisi sorununu duzelt.
 // TODO: layout fonksiyonlarini da dinamik yapmayi dene.
+
 // TODO: Filtering i sayfada yapiskan yap.
+
 // TODO: search olayi yapilacak.
 // TODO: tum filtreleri temizle yap.
 
@@ -14,3 +16,4 @@
 // TODO: sepet checkout satin alma olayi falan yapilacak.
 // TODO: kategorileri kaldirmayi abinle bi konus.
 // TODO: kategorilerden birine tiklayinca kategoriler kayiyor, bozuluyor.
+// TODO: Detay sayfasinin headerina bir bak ortak degil. kendine ozel. o da yapiskan olacak.
