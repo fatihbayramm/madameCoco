@@ -1,5 +1,5 @@
 // TODO: aradiginiz sonuc bulunamadi yazisi gorseli eklenecek.
-// TODO: orderingi hallet.      ILK BUNA BAKKKKKKKKKKKKKKKKK
+// TODO: secili olan orderin rengi #D8B892 olsun. order z index ayarla.
 // TODO: projeyi responsive yap.
 // TODO: sag ustte gozuken filtering yapinca yanlis gozuken urun sayisi sorununu duzelt.
 // TODO: layout fonksiyonlarini da dinamik yapmayi dene.
@@ -16,4 +16,5 @@
 // TODO: sepet checkout satin alma olayi falan yapilacak.
 // TODO: kategorileri kaldirmayi abinle bi konus.
 // TODO: kategorilerden birine tiklayinca kategoriler kayiyor, bozuluyor.
-// TODO: Detay sayfasinin headerina bir bak ortak degil. kendine ozel. o da yapiskan olacak.
+
+// TODO: filter dropdown contenti baska yere tiklayinca kapanmiyor hallet.

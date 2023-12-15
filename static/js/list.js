@@ -39,11 +39,10 @@ function hexaLayout() {
 
 function runFilterBox() {
   const filterBtnDOM = document.querySelector(".js-filter-button");
+  if (!filterBtnDOM) return;
   const filterDivDOM = document.querySelector(".js-filter-div");
   filterDivDOM.style.display = "none";
   let counter = 0;
-
-  if (!filterBtnDOM) return;
 
   filterBtnDOM.addEventListener("click", () => {
     counter++;
@@ -106,11 +105,6 @@ document.querySelectorAll(".js-filter-checkbox").forEach((checkbox) => {
   });
 });
 
-// function runOrderFilter(event) {
-//   event.stopPropagation();
-//   document.getElementById("js-order-dropdown").classList.toggle("show");
-// }
-
 document.querySelectorAll(".js-order-button").forEach((btn) => {
   btn.addEventListener("click", function (e) {
     e.stopPropagation();
@@ -142,18 +136,21 @@ window.onclick = function (event) {
 document.querySelectorAll(".js-orders").forEach((order) => {
   order.addEventListener("click", (event) => {
     let params = new URLSearchParams(window.location.search);
-    if (event.target) {
-      params.append(event.target.label, event.target.value);
-      console.log(event.target.label, event.target.value);
+    if (event.target && event.target.classList.contains("js-orders")) {
+      const value = event.target.getAttribute("data-value");
+      params.set("sorter", value);
     } else {
-      params.delete(event.target.label, event.target.value);
+      params.delete("sorter", value);
     }
 
     window.history.pushState(null, "", "?" + params.toString());
-    let url = window.location.href;
 
+    let url = window.location.href;
     fetch(url)
       .then(function (resp) {
+        if (!resp.ok) {
+          throw new Error(`HTTP error! Status: ${resp.status}`);
+        }
         return resp.text();
       })
       .then(function (resp) {
@@ -161,50 +158,12 @@ document.querySelectorAll(".js-orders").forEach((order) => {
         const html = parser.parseFromString(resp, "text/html");
         let containerInHTML = html.querySelector(".js-container").innerHTML;
         document.querySelector(".js-container").innerHTML = containerInHTML;
+      })
+      .catch(function (error) {
+        console.error("Fetch or parsing error:", error);
       });
   });
 });
-
-// document.querySelectorAll(".js-filter-checkbox").forEach((checkbox) => {
-//   checkbox.addEventListener("change", (event) => {
-//     let params = new URLSearchParams(window.location.search);
-//     if (event.target.checked) {
-//       params.append(event.target.name, event.target.value);
-//     } else {
-//       params.delete(event.target.name, event.target.value);
-//     }
-
-//     window.history.pushState(null, "", "?" + params.toString());
-//     let url = window.location.href;
-//     fetch(url)
-//       .then(function (resp) {
-//         return resp.text();
-//       })
-//       .then(function (resp) {
-//         const parser = new DOMParser();
-//         const html = parser.parseFromString(resp, "text/html");
-//         let containerInHTML = html.querySelector(".js-container").innerHTML;
-//         document.querySelector(".js-container").innerHTML = containerInHTML;
-//       });
-//   });
-// });
-
-// normalde order-dropdown menu
-
-// window.onclick = function (event) {
-//   if (!event.target.matches(".js-order-button")) {
-//     var dropdowns = document.getElementsByClassName(
-//       "js-order-dropdown-content"
-//     );
-//     var i;
-//     for (i = 0; i < dropdowns.length; i++) {
-//       var openDropdown = dropdowns[i];
-//       if (openDropdown.classList.contains("show")) {
-//         openDropdown.classList.remove("show");
-//       }
-//     }
-//   }
-// };
 
 doubleLayout();
 defaultLayout();
