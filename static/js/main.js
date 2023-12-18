@@ -18,3 +18,5 @@
 // TODO: kategorilerden birine tiklayinca kategoriler kayiyor, bozuluyor.
 
 // TODO: filter dropdown contenti baska yere tiklayinca kapanmiyor hallet.
+
+// TODO: commit atilmiyor soyle abine.
