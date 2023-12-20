@@ -26,11 +26,11 @@
       </div>
 
       <div class="orderDropdown">
-        <div class="js-order-button order-button">
+        <div class="order-button js-order-button">
           Gelişmiş Sıralama
           <i class="bi bi-sort-alpha-down" style="font-size: 24px;"></i>
         </div>
-        <div id="js-order-dropdown" class="js-order-dropdown-content order-dropdown-content">
+        <div id="js-order-dropdown" class="order-dropdown-content js-order-dropdown-content">
           <% sorters.forEach(sort => { %>
             <div class="orders js-orders" data-value="<%= sort.value %>">
               <%= sort.label %>
@@ -61,18 +61,18 @@
     </div>
   </div>
 
-  <div class="js-filter-div filter-div">
+  <div class="filter-div js-filter-div">
     <% facets.forEach(facet => { %>
     <% if (facet.search_key != "category_ids" && facet.search_key != "in_stock") { %>
     <div class="dropdown">
-      <div class="js-filter-show-button filter-show-button">
+      <div class="filter-show-button js-filter-show-button">
         <h2 class="filter-titles">
           <%= facet.name %>
           </h2>
         <i class="bi bi-chevron-down"></i> 
       </div>
     
-      <div class="js-dropdown-content dropdown-content">
+      <div class="dropdown-content js-filter-dropdown-content">
         <% facet.data.choices.forEach(choice => { %>
             <div class="choice"> 
               <%= choice.label %>
@@ -93,6 +93,18 @@
     <% } %>
     <% }); %> 
   </div>
+  <div class="selected-filters js-selected-filters">
+    <div class="clear-all-filters-btn js-clear-all-filters-btn">
+      <div class="clear-all-filters js-clear-all-filters">
+        <span>
+          Tüm Filtreleri Temizle
+        </span>
+        <div class="clear-all-filters-icon">
+          <i class="bi bi-x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 
@@ -108,6 +120,7 @@
               <img src="<%= product.productimage_set[0].image %>" class="product-image"
               alt="Bu dosyanın uzantısı tarayıcınız tarafından desteklenmiyor.">    
             </a>
+
           </div>
       <div class="product-info">
         <p>

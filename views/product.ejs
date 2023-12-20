@@ -141,7 +141,6 @@
                   Renk:
                   <span style="color: #8e502b; margin-left: 3px">
                     <%= product.attributes.renk %>
-                    <!-- <%= product.attributes.filtre_renk2 %> TODO: bunu altta gelecek resmin ustune tiklayinca yazdir. -->
                     <!-- TODO: farki bir renge tiklandiginda sayfa yenilenecek ve rengi o olan urunun resmi gelecek.-->
                   </span>
                 </p>
@@ -149,10 +148,15 @@
               <div class="product-color-images">
                 <button class="image-button">
                   <div class="image-1">
-                    <img
-                      src="<%= product.productimage_set[0].image %>"
-                      alt="Bu dosyanın uzantısı tarayıcınız tarafından desteklenmiyor."
-                    />
+                    <a href="#">
+                      <img
+                        src="<%= product.productimage_set[0].image %>"
+                        alt="Bu dosyanın uzantısı tarayıcınız tarafından desteklenmiyor."
+                      />
+                    </a>
+                    <a href="/product/<%= product.pk %>">
+                      <img src="" alt="" />
+                    </a>
                   </div>
                 </button>
               </div>
@@ -171,13 +175,13 @@
             <div class="add-to-basket-and-quantity">
               <div class="product-quantity">
                 <div class="quantity-buttons">
-                  <button class="js-deacrease-button deacrease-button">
+                  <button class="deacrease-button js-deacrease-button">
                     <i class="bi bi-dash" style="font-size: 32px"></i>
                   </button>
                 </div>
-                <div class="js-quantity quantity"></div>
+                <div class="quantity js-quantity"></div>
                 <div class="quantity-buttons">
-                  <button class="js-increase-button increase-button">
+                  <button class="increase-button js-increase-button">
                     <i class="bi bi-plus" style="font-size: 32px"></i>
                   </button>
                 </div>
@@ -191,7 +195,7 @@
             </div>
 
             <div class="product-everything">
-              <button class="js-accordion accordion">
+              <button class="accordion js-accordion">
                 <div class="detail">
                   <div class="detail-divs">
                     <div class="icon">
@@ -213,7 +217,27 @@
                 </div>
               </div>
 
-              <button class="js-accordion accordion">
+              <% if(product.attributes.bakim_talimati) { %>
+              <button class="accordion js-accordion">
+                <div class="detail">
+                  <div class="detail-divs">
+                    <div class="icon">
+                      <i class="bi bi-moisture"></i>
+                    </div>
+                    <div class="title">
+                      <p>Bakım</p>
+                    </div>
+                  </div>
+                </div>
+              </button>
+              <div class="panel">
+                <div class="attributes">
+                  <%- product.attributes.bakim_talimati %>
+                </div>
+              </div>
+              <% } %>
+
+              <button class="accordion js-accordion">
                 <div class="detail">
                   <div class="detail-divs">
                     <div class="icon">
@@ -226,33 +250,35 @@
                 </div>
               </button>
               <div class="panel">
-                Satın aldığınız ürünlerden memnun kalmamanız durumunda, teslim
-                aldığınız tarihten itibaren ürünleri kullanılmamış ve orijinal
-                ambalajları bozulmamış şekilde faturasıyla birlikte
-                <strong>14 gün</strong> içerisinde ücretsiz olarak
-                <strong>PTT Kargo</strong> ile iade edebilirsiniz. <br />
-                <br />
-                <br />Web sitemiz üzerinden alınan ürünlerde değişim
-                yapılmamaktadır, herhangi bir MADAME COCO mağazasından ürün
-                değişimi işlemlerinizi yapabilirsiniz. <br />
-                <br />
-                <br />
-                Kozmetik ve kişisel bakım ürünlerinde ambalajı açılmış, denenmiş
-                ve kullanılmış, tekrar satılamaz durumdaki ürünlerin iadesi
-                kabul edilmemektedir. <br />
-                <br />
-                <br />
-                Detaylı bilgi için lütfen
-                <a
-                  href="#"
-                  target="_blank"
-                  style="color: #000000; text-decoration: none"
-                >
-                  <strong>tıklayınız.</strong>
-                </a>
+                <div class="attributes">
+                  Satın aldığınız ürünlerden memnun kalmamanız durumunda, teslim
+                  aldığınız tarihten itibaren ürünleri kullanılmamış ve orijinal
+                  ambalajları bozulmamış şekilde faturasıyla birlikte
+                  <strong>14 gün</strong> içerisinde ücretsiz olarak
+                  <strong>PTT Kargo</strong> ile iade edebilirsiniz. <br />
+                  <br />
+                  <br />Web sitemiz üzerinden alınan ürünlerde değişim
+                  yapılmamaktadır, herhangi bir MADAME COCO mağazasından ürün
+                  değişimi işlemlerinizi yapabilirsiniz. <br />
+                  <br />
+                  <br />
+                  Kozmetik ve kişisel bakım ürünlerinde ambalajı açılmış,
+                  denenmiş ve kullanılmış, tekrar satılamaz durumdaki ürünlerin
+                  iadesi kabul edilmemektedir. <br />
+                  <br />
+                  <br />
+                  Detaylı bilgi için lütfen
+                  <a
+                    href="#"
+                    target="_blank"
+                    style="color: #000000; text-decoration: none"
+                  >
+                    <strong>tıklayınız.</strong>
+                  </a>
+                </div>
               </div>
 
-              <button class="js-accordion accordion">
+              <button class="accordion js-accordion">
                 <div class="detail">
                   <div class="detail-divs">
                     <div class="icon">
@@ -266,7 +292,7 @@
               </button>
               <div class="panel"></div>
 
-              <button class="js-accordion accordion">
+              <button class="accordion js-accordion">
                 <div class="detail">
                   <div class="detail-divs">
                     <div class="icon">
@@ -279,7 +305,9 @@
                 </div>
               </button>
               <!-- TODO: burayi hallet. -->
-              <div class="panel">Buraya yazilacak.</div>
+              <div class="panel">
+                <div class="attributes">Buraya yazilacak.</div>
+              </div>
             </div>
           </div>
         </div>

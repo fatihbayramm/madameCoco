@@ -173,6 +173,28 @@
   display: block;
 }
 
+.selected-filters {
+  padding: 15px 40px 15px 40px;
+  color: #696969;
+  display: none;
+}
+
+.clear-all-filters {
+  display: inline-flex;
+}
+
+.clear-all-filters span {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.clear-all-filters-icon i {
+  display: flex;
+  align-items: flex-end;
+  font-size: 28px;
+  cursor: pointer;
+}
+
 .layout-icons button {
   border: none;
   background: none;
