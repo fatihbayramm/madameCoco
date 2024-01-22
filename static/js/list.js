@@ -106,6 +106,56 @@ function runFilter() {
         params.delete(event.target.name, event.target.value);
       }
 
+      const clearSpecificFiltersDOM = document.querySelector(
+        ".js-clear-specific-filters"
+      );
+
+      let filtersHTML = [];
+      params.forEach((currentFilterName, currentFilterValue) => {
+        console.log(currentFilterName, currentFilterValue);
+        filtersHTML.push(
+          `
+        <div class="clear-specific-filters-box js-clear-specific-filters-box">
+          <p name="${currentFilterName}" value="${currentFilterValue}">${currentFilterName}</p>
+          <div class="js-clear-specific-filter-icon">
+            <i class="bi bi-x"></i>
+          </div>
+        </div>
+        `
+        );
+      });
+
+      console.log(params);
+
+      clearSpecificFiltersDOM.innerHTML = filtersHTML.join("");
+
+      document
+        .querySelectorAll(".js-clear-specific-filters-box")
+        .forEach((filterBox) => {
+          filterBox.addEventListener("click", (event) => {
+            const filterName = event.currentTarget.querySelector("p").name;
+            console.log(filterName);
+            const filterValue = event.currentTarget.querySelector("p").value;
+            console.log(filterValue);
+            params.delete(filterName, filterValue);
+            window.history.pushState(null, "", "?" + params.toString());
+            let url = window.location.href;
+            fetch(url)
+              .then(function (resp) {
+                return resp.text();
+              })
+              .then(function (resp) {
+                const parser = new DOMParser();
+                const html = parser.parseFromString(resp, "text/html");
+                let containerInHTML =
+                  html.querySelector(".js-container").innerHTML;
+                document.querySelector(".js-container").innerHTML =
+                  containerInHTML;
+                selectedFiltersDOM.style.display = "block";
+              });
+          });
+        });
+
       window.history.pushState(null, "", "?" + params.toString());
       let url = window.location.href;
       fetch(url)
