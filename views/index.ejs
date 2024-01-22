@@ -28,12 +28,12 @@
 
       <div class="orderDropdown">
         <div class="order-button js-order-button">
-          Gelişmiş Sıralama
+          <span><%= sorters.filter(sort => sort.is_selected)[0].label %></span>
           <i class="bi bi-sort-alpha-down" style="font-size: 24px;"></i>
         </div>
         <div id="js-order-dropdown" class="order-dropdown-content js-order-dropdown-content">
           <% sorters.forEach(sort => { %>
-            <div class="orders js-orders" data-value="<%= sort.value %>">
+            <div class="orders js-orders <%= sort.is_selected ? 'is_selected' : '' %>" data-value="<%= sort.value %>">
               <%= sort.label %>
             </div> 
           <% }); %>
@@ -124,7 +124,7 @@
     <div class="product_list_div">
           <div>
             <a href="/product/<%= product.pk %>">
-              <img src="<%= product.productimage_set[0].image %>" class="product-image"
+              <img src="<%= product.productimage_set[0] ? product.productimage_set[0].image : '' %>" class="product-image"
               alt="Bu dosyanın uzantısı tarayıcınız tarafından desteklenmiyor.">    
             </a>
 

@@ -99,6 +99,10 @@
   cursor: pointer;
 }
 
+.order-dropdown-content .orders.is_selected {
+  color: #d8b892;
+}
+
 .filter-button {
   cursor: pointer;
   background: none;

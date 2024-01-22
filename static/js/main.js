@@ -1,5 +1,4 @@
 // TODO: aradiginiz sonuc bulunamadi yazisi gorseli eklenecek.
-// TODO: secili olan orderin rengi #D8B892 olsun.
 // TODO: projeyi responsive yap.
 // TODO: sag ustte gozuken filtering yapinca yanlis gozuken urun sayisi sorununu duzelt.
 // TODO: js kodlarini daha dinamik yapmayi dene.

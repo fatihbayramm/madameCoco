@@ -6,7 +6,6 @@ const filterDropdownContentsDOM = document.querySelectorAll(
   ".js-filter-dropdown-content"
 );
 const filterCheckboxesDOM = document.querySelectorAll(".js-filter-checkbox");
-const orderBtnDOM = document.querySelectorAll(".js-order-button");
 const orderDropdownContentDOM = document.querySelectorAll(
   ".js-order-dropdown-content"
 );
@@ -174,19 +173,18 @@ function runFilter() {
 }
 
 function runOrderButton() {
-  orderBtnDOM.forEach((btn) => {
-    btn.addEventListener("click", function (e) {
-      e.stopPropagation();
-      let currentDropdownContent = e.currentTarget.parentElement.querySelector(
-        ".js-order-dropdown-content"
-      );
-      orderDropdownContentDOM.forEach(function (el) {
-        if (el != currentDropdownContent) {
-          el.classList.remove("show");
-        } else {
-          currentDropdownContent.classList.toggle("show");
-        }
-      });
+  let orderBtnDOM = document.querySelector(".js-order-button");
+  orderBtnDOM.addEventListener("click", function (e) {
+    e.stopPropagation();
+    let currentDropdownContent = e.currentTarget.parentElement.querySelector(
+      ".js-order-dropdown-content"
+    );
+    orderDropdownContentDOM.forEach(function (el) {
+      if (el != currentDropdownContent) {
+        el.classList.remove("show");
+      } else {
+        currentDropdownContent.classList.toggle("show");
+      }
     });
   });
 }
@@ -200,11 +198,21 @@ window.onclick = function (event) {
 };
 
 function runOrder() {
-  ordersDOM.forEach((order) => {
-    order.addEventListener("click", (event) => {
+  let orderBtnDOM = document.querySelectorAll(".js-orders");
+
+  orderBtnDOM.forEach((btn) => {
+    btn.addEventListener("click", (event) => {
       let params = new URLSearchParams(window.location.search);
+      let value = event.target.getAttribute("data-value");
       if (event.target && event.target.classList.contains("js-orders")) {
-        const value = event.target.getAttribute("data-value");
+        ordersDOM.forEach((el) => {
+          el.classList.remove("is_selected");
+        });
+        event.target.classList.add("is_selected");
+
+        document.querySelector(".js-order-button").firstElementChild.innerHTML =
+          event.target.innerHTML;
+
         params.set("sorter", value);
       } else {
         params.delete("sorter", value);
