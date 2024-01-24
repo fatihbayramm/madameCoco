@@ -1,0 +1,95 @@
+<div class="filters-container">
+  <div class="filters">
+    <div class="list-content">
+      <div class="list-views">
+        <div class="filter">
+          <button class="filter-button js-filter-button">
+            Filtrele
+            <i class="bi bi-filter" style="font-size: 24px"></i>
+          </button>
+        </div>
+
+        <div class="orderDropdown">
+          <div class="order-button js-order-button">
+            <span
+              ><%= sorters.filter(sort => sort.is_selected)[0].label %></span
+            >
+            <i class="bi bi-sort-alpha-down" style="font-size: 24px"></i>
+          </div>
+          <div
+            id="js-order-dropdown"
+            class="order-dropdown-content js-order-dropdown-content"
+          >
+            <% sorters.forEach(sort => { %>
+            <div
+              class="orders js-orders <%= sort.is_selected ? 'is_selected' : '' %>"
+              data-value="<%= sort.value %>"
+            >
+              <%= sort.label %>
+            </div>
+            <% }); %>
+          </div>
+        </div>
+      </div>
+
+      <div class="layout">
+        <div class="text-view">Görünüm</div>
+        <div class="layout-icons">
+          <button id="js-double-layout">
+            <i class="bi bi-layout-split" style="font-size: 16px"></i>
+          </button>
+          <button id="js-default-layout">
+            <i class="bi bi-grid" style="font-size: 14px"></i>
+          </button>
+          <button id="js-hexa-layout">
+            <i class="bi bi-grid-3x3-gap" style="font-size: 16px"></i>
+          </button>
+        </div>
+        <div class="product-quantity"><%= pagination.total_count %> Ürün</div>
+      </div>
+    </div>
+
+    <div class="filter-div js-filter-div">
+      <% facets.forEach(facet => { %> <% if (facet.search_key != "category_ids"
+      && facet.search_key != "in_stock") { %>
+      <div class="dropdown">
+        <div class="filter-show-button js-filter-show-button">
+          <h2 class="filter-titles"><%= facet.name %></h2>
+          <i class="bi bi-chevron-down"></i>
+        </div>
+
+        <div class="dropdown-content js-filter-dropdown-content">
+          <% facet.data.choices.forEach(choice => { %>
+          <div class="choice js-choice">
+            <%= choice.label %>
+            <span> (<%= choice.quantity %>) </span>
+            <input
+              type="checkbox"
+              name="<%= facet.data.search_key %>"
+              value="<%= choice.value %>"
+              class="js-filter-checkbox"
+              <%
+              if(choice.is_selected)
+              {
+              %
+            />
+            checked <% } %> />
+          </div>
+          <% }); %>
+        </div>
+      </div>
+      <% } %> <% }); %>
+    </div>
+    <div class="selected-filters js-selected-filters">
+      <div class="clear-all-filters-btn js-clear-all-filters-btn">
+        <div class="clear-all-filters js-clear-all-filters">
+          <span> Tüm Filtreleri Temizle </span>
+          <div class="clear-all-filters-icon">
+            <i class="bi bi-x"></i>
+          </div>
+        </div>
+        <div class="clear-specific-filters js-clear-specific-filters"></div>
+      </div>
+    </div>
+  </div>
+</div>

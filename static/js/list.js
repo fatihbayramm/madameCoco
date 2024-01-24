@@ -1,16 +1,4 @@
 const productListDOM = document.querySelector(".js-product-list");
-const filterShowButtonsDOM = document.querySelectorAll(
-  ".js-filter-show-button"
-);
-const filterDropdownContentsDOM = document.querySelectorAll(
-  ".js-filter-dropdown-content"
-);
-const filterCheckboxesDOM = document.querySelectorAll(".js-filter-checkbox");
-const orderDropdownContentDOM = document.querySelectorAll(
-  ".js-order-dropdown-content"
-);
-const ordersDOM = document.querySelectorAll(".js-orders");
-const selectedFiltersDOM = document.querySelector(".js-selected-filters");
 
 function removeClass() {
   productListDOM.removeAttribute("class");
@@ -70,180 +58,128 @@ function runFilterBox() {
 }
 
 function runFilterShowButton() {
-  filterShowButtonsDOM.forEach(function (btn) {
+  document.querySelectorAll(".js-filter-show-button").forEach(function (btn) {
     btn.addEventListener("click", function (e) {
       e.stopPropagation();
       let currentDropdownContent = e.currentTarget.parentElement.querySelector(
         ".js-filter-dropdown-content"
       );
-      filterDropdownContentsDOM.forEach(function (el) {
-        if (el != currentDropdownContent) {
-          el.classList.remove("show");
-        } else {
-          currentDropdownContent.classList.toggle("show");
-        }
-      });
+      document
+        .querySelectorAll(".js-filter-dropdown-content")
+        .forEach(function (el) {
+          if (el != currentDropdownContent) {
+            el.classList.remove("show");
+          } else {
+            currentDropdownContent.classList.toggle("show");
+          }
+        });
     });
   });
 }
 
 window.onclick = function (event) {
-  filterDropdownContentsDOM.forEach(function (el) {
-    if (event.target !== el && !el.contains(event.target)) {
-      el.classList.remove("show");
-    }
-  });
+  document
+    .querySelectorAll(".js-filter-dropdown-content")
+    .forEach(function (el) {
+      if (event.target !== el && !el.contains(event.target)) {
+        el.classList.remove("show");
+      }
+    });
 };
 
-function runFilter() {
-  filterCheckboxesDOM.forEach((checkbox) => {
-    checkbox.addEventListener("change", (event) => {
-      let params = new URLSearchParams(window.location.search);
-      if (event.target.checked) {
-        params.append(event.target.name, event.target.value);
-      } else {
-        params.delete(event.target.name, event.target.value);
+function fetchData(url) {
+  fetch(url)
+    .then(function (resp) {
+      if (!resp.ok) {
+        throw new Error(`HTTP error! Status: ${resp.status}`);
       }
+      return resp.text();
+    })
+    .then(function (resp) {
+      const parser = new DOMParser();
+      const html = parser.parseFromString(resp, "text/html");
+      let containerInHTML = html.querySelector(".js-container").innerHTML;
+      document.querySelector(".js-container").innerHTML = containerInHTML;
+      let productQuantityInHTML =
+        html.querySelector(".product-quantity").innerHTML;
+      document.querySelector(".product-quantity").innerHTML =
+        productQuantityInHTML;
+    })
+    .catch(function (error) {
+      console.error("Fetch or parsing error:", error);
+    });
+}
 
-      const clearSpecificFiltersDOM = document.querySelector(
-        ".js-clear-specific-filters"
-      );
-
-      let filtersHTML = [];
-      params.forEach((currentFilterName, currentFilterValue) => {
-        console.log(currentFilterName, currentFilterValue);
-        filtersHTML.push(
-          `
-        <div class="clear-specific-filters-box js-clear-specific-filters-box">
-          <p name="${currentFilterName}" value="${currentFilterValue}">${currentFilterName}</p>
-          <div class="js-clear-specific-filter-icon">
-            <i class="bi bi-x"></i>
-          </div>
-        </div>
-        `
-        );
-      });
-
-      console.log(params);
-
-      clearSpecificFiltersDOM.innerHTML = filtersHTML.join("");
-
-      document
-        .querySelectorAll(".js-clear-specific-filters-box")
-        .forEach((filterBox) => {
-          filterBox.addEventListener("click", (event) => {
-            const filterName = event.currentTarget.querySelector("p").name;
-            console.log(filterName);
-            const filterValue = event.currentTarget.querySelector("p").value;
-            console.log(filterValue);
-            params.delete(filterName, filterValue);
-            window.history.pushState(null, "", "?" + params.toString());
-            let url = window.location.href;
-            fetch(url)
-              .then(function (resp) {
-                return resp.text();
-              })
-              .then(function (resp) {
-                const parser = new DOMParser();
-                const html = parser.parseFromString(resp, "text/html");
-                let containerInHTML =
-                  html.querySelector(".js-container").innerHTML;
-                document.querySelector(".js-container").innerHTML =
-                  containerInHTML;
-                selectedFiltersDOM.style.display = "block";
-              });
-          });
-        });
-
+function runFilter() {
+  document.querySelectorAll(".js-choice").forEach((choiceDiv) => {
+    choiceDiv.addEventListener("click", () => {
+      const checkbox = choiceDiv.querySelector(".js-filter-checkbox");
+      checkbox.checked = !checkbox.checked;
+      checkbox.dispatchEvent(new Event("change"));
+      let params = new URLSearchParams(window.location.search);
+      if (checkbox.checked) {
+        params.append(checkbox.name, checkbox.value);
+      } else {
+        params.delete(checkbox.name, checkbox.value);
+      }
       window.history.pushState(null, "", "?" + params.toString());
       let url = window.location.href;
-      fetch(url)
-        .then(function (resp) {
-          return resp.text();
-        })
-        .then(function (resp) {
-          const parser = new DOMParser();
-          const html = parser.parseFromString(resp, "text/html");
-          let containerInHTML = html.querySelector(".js-container").innerHTML;
-          document.querySelector(".js-container").innerHTML = containerInHTML;
-
-          let productQuantityInHTML =
-            html.querySelector(".product-quantity").innerHTML;
-          console.log(productQuantityInHTML);
-          document.querySelector(".product-quantity").innerHTML =
-            productQuantityInHTML;
-
-          selectedFiltersDOM.style.display = "block";
-        });
+      fetchData(url);
+      document.querySelector(".js-selected-filters").style.display = "block";
     });
   });
 }
 
 function runOrderButton() {
   let orderBtnDOM = document.querySelector(".js-order-button");
+  if (!orderBtnDOM) return;
   orderBtnDOM.addEventListener("click", function (e) {
     e.stopPropagation();
     let currentDropdownContent = e.currentTarget.parentElement.querySelector(
       ".js-order-dropdown-content"
     );
-    orderDropdownContentDOM.forEach(function (el) {
-      if (el != currentDropdownContent) {
-        el.classList.remove("show");
-      } else {
-        currentDropdownContent.classList.toggle("show");
-      }
-    });
+    document
+      .querySelectorAll(".js-order-dropdown-content")
+      .forEach(function (el) {
+        if (el != currentDropdownContent) {
+          el.classList.remove("show");
+        } else {
+          currentDropdownContent.classList.toggle("show");
+        }
+      });
   });
 }
 
 window.onclick = function (event) {
-  orderDropdownContentDOM.forEach(function (el) {
-    if (event.target !== el && !el.contains(event.target)) {
-      el.classList.remove("show");
-    }
-  });
+  document
+    .querySelectorAll(".js-order-dropdown-content")
+    .forEach(function (el) {
+      if (event.target !== el && !el.contains(event.target)) {
+        el.classList.remove("show");
+      }
+    });
 };
 
 function runOrder() {
   let orderBtnDOM = document.querySelectorAll(".js-orders");
-
   orderBtnDOM.forEach((btn) => {
     btn.addEventListener("click", (event) => {
       let params = new URLSearchParams(window.location.search);
       let value = event.target.getAttribute("data-value");
       if (event.target && event.target.classList.contains("js-orders")) {
-        ordersDOM.forEach((el) => {
+        document.querySelectorAll(".js-orders").forEach((el) => {
           el.classList.remove("is_selected");
         });
         event.target.classList.add("is_selected");
-
         document.querySelector(".js-order-button").firstElementChild.innerHTML =
           event.target.innerHTML;
-
         params.set("sorter", value);
       } else {
         params.delete("sorter", value);
       }
-
       window.history.pushState(null, "", "?" + params.toString());
-
       let url = window.location.href;
-      fetch(url)
-        .then(function (resp) {
-          if (!resp.ok) {
-            throw new Error(`HTTP error! Status: ${resp.status}`);
-          }
-          return resp.text();
-        })
-        .then(function (resp) {
-          const parser = new DOMParser();
-          const html = parser.parseFromString(resp, "text/html");
-          let containerInHTML = html.querySelector(".js-container").innerHTML;
-          document.querySelector(".js-container").innerHTML = containerInHTML;
-        })
-        .catch(function (error) {
-          console.error("Fetch or parsing error:", error);
-        });
+      fetchData(url);
     });
   });
 }
@@ -258,20 +194,11 @@ function clearAllFilters() {
     params = "";
     window.history.pushState(null, "", "?" + params.toString());
     let url = window.location.href;
-    fetch(url)
-      .then(function (resp) {
-        return resp.text();
-      })
-      .then(function (resp) {
-        const parser = new DOMParser();
-        const html = parser.parseFromString(resp, "text/html");
-        let containerInHTML = html.querySelector(".js-container").innerHTML;
-        document.querySelector(".js-container").innerHTML = containerInHTML;
-        selectedFiltersDOM.style.display = "none";
-        filterCheckboxesDOM.forEach((checkbox) => {
-          checkbox.checked = false;
-        });
-      });
+    fetchData(url);
+    document.querySelector(".js-selected-filters").style.display = "none";
+    document.querySelectorAll(".js-filter-checkbox").forEach((checkbox) => {
+      checkbox.checked = false;
+    });
   });
 }
 
