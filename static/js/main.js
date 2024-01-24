@@ -15,3 +15,6 @@
 // TODO: list sayfasinda image slider yapilacak.
 // TODO: detay sayfasinda da image slider yapilacak.
 // TODO: order menusu acilinca filter menusu de acilsin orjinaldeki gibi.
+// TODO: fetch kodlarini dinamik yap.
+
+//TODO

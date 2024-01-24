@@ -166,6 +166,13 @@ function runFilter() {
           const html = parser.parseFromString(resp, "text/html");
           let containerInHTML = html.querySelector(".js-container").innerHTML;
           document.querySelector(".js-container").innerHTML = containerInHTML;
+
+          let productQuantityInHTML =
+            html.querySelector(".product-quantity").innerHTML;
+          console.log(productQuantityInHTML);
+          document.querySelector(".product-quantity").innerHTML =
+            productQuantityInHTML;
+
           selectedFiltersDOM.style.display = "block";
         });
     });
