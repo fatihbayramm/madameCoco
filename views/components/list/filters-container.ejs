@@ -50,8 +50,8 @@
     </div>
 
     <div class="filter-div js-filter-div">
-      <% facets.forEach(facet => { %> <% if (facet.search_key != "category_ids"
-      && facet.search_key != "in_stock") { %>
+      <% facets.forEach(facet => { if (facet.search_key != "category_ids" &&
+      facet.search_key != "in_stock") { %>
       <div class="dropdown">
         <div class="filter-show-button js-filter-show-button">
           <h2 class="filter-titles"><%= facet.name %></h2>
@@ -63,22 +63,14 @@
           <div class="choice js-choice">
             <%= choice.label %>
             <span> (<%= choice.quantity %>) </span>
-            <input
-              type="checkbox"
-              name="<%= facet.data.search_key %>"
-              value="<%= choice.value %>"
-              class="js-filter-checkbox"
-              <%
-              if(choice.is_selected)
-              {
-              %
-            />
-            checked <% } %> />
+            <input type="checkbox" name="<%= facet.data.search_key %>"
+            value="<%= choice.value %>" class="js-filter-checkbox" <%=
+            choice.is_selected ? "checked" : "" %> />
           </div>
           <% }); %>
         </div>
       </div>
-      <% } %> <% }); %>
+      <% } }); %>
     </div>
     <div class="selected-filters js-selected-filters">
       <div class="clear-all-filters-btn js-clear-all-filters-btn">
