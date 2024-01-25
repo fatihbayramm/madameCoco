@@ -31,50 +31,7 @@
     </div>
     <div class="main-container">
       <div class="container">
-        <header>
-          <div class="menu-button">
-            <button class="btn">
-              <i class="bi bi-list" style="font-size: 36px"></i>
-            </button>
-          </div>
-          <div class="madame-coco">
-            <a href="http://localhost:3000/">
-              <h1>MADAME COCO</h1>
-            </a>
-          </div>
-          <div class="search-mark">
-            <i class="bi bi-search" style="font-size: 26px"></i>
-          </div>
-          <div class="form">
-            <form action="#">
-              <input
-                type="text"
-                autocomplete="off"
-                placeholder="Aradığınız ürünü giriniz"
-              />
-            </form>
-          </div>
-          <div class="notification">
-            <button class="btn">
-              <i class="bi bi-bell" style="font-size: 32px"></i>
-            </button>
-          </div>
-          <div class="profile">
-            <button class="btn">
-              <i class="bi bi-person" style="font-size: 32px"></i>
-            </button>
-          </div>
-          <div class="favorite-products">
-            <button class="btn">
-              <i class="bi bi-heart" style="font-size: 32px"></i>
-            </button>
-          </div>
-          <div class="basket">
-            <button class="btn">
-              <i class="bi bi-bag-check" style="font-size: 32px"></i>
-            </button>
-          </div>
-        </header>
+        <%- include("components/product/product-header") -%>
 
         <div class="product_detail_wrapper">
           <div>
@@ -98,7 +55,6 @@
             <div class="product-info-code">
               <div class="product-code">Ürün Kodu: <%= product.sku %></div>
               <div class="share-button">
-                <!-- TODO: tiklaninca ekranin ortasina platformlarda paylasma gelicek. -->
                 <i class="bi bi-share"></i>
               </div>
             </div>
@@ -133,44 +89,7 @@
                 </p>
               </div>
             </div>
-
-            <div class="product-variants">
-              <div class="product-color">
-                <!-- farki renkleri de olabilir ona bak. -->
-                <p>
-                  Renk:
-                  <span style="color: #8e502b; margin-left: 3px">
-                    <%= product.attributes.renk %>
-                    <!-- TODO: farki bir renge tiklandiginda sayfa yenilenecek ve rengi o olan urunun resmi gelecek.-->
-                  </span>
-                </p>
-              </div>
-              <div class="product-color-images">
-                <button class="image-button">
-                  <div class="image-1">
-                    <a href="#">
-                      <img
-                        src="<%= product.productimage_set[0].image %>"
-                        alt="Bu dosyanın uzantısı tarayıcınız tarafından desteklenmiyor."
-                      />
-                    </a>
-                    <a href="/product/<%= product.pk %>">
-                      <img src="" alt="" />
-                    </a>
-                  </div>
-                </button>
-              </div>
-              <div class="product-measure">
-                <p>
-                  Ölçü:
-                  <span style="color: #8e502b; margin-left: 3px">
-                    <%= product.attributes.boyut %>
-                    <!-- TODO: farkli bir olcuye tikladiginda sayfa yenilenecek ve o olculu olan urunun resmi gelecek. -->
-                  </span>
-                </p>
-              </div>
-              <div class="product-measure-box"></div>
-            </div>
+            <%- include("components/product/variants") -%>
 
             <div class="add-to-basket-and-quantity">
               <div class="product-quantity">
@@ -194,121 +113,7 @@
               </div>
             </div>
 
-            <div class="product-everything">
-              <button class="accordion js-accordion">
-                <div class="detail">
-                  <div class="detail-divs">
-                    <div class="icon">
-                      <i class="bi bi-bookmark"></i>
-                    </div>
-                    <div class="title">
-                      <p>Ürün Detayı</p>
-                    </div>
-                  </div>
-                </div>
-              </button>
-              <div class="panel">
-                <div class="attributes"><%- product.attributes.aciklama %></div>
-                <div class="attributes">
-                  <%- product.attributes.teknik_ozellik %>
-                </div>
-                <div class="attributes">
-                  <%- product.attributes.paket_icerik %>
-                </div>
-              </div>
-
-              <% if(product.attributes.bakim_talimati) { %>
-              <button class="accordion js-accordion">
-                <div class="detail">
-                  <div class="detail-divs">
-                    <div class="icon">
-                      <i class="bi bi-moisture"></i>
-                    </div>
-                    <div class="title">
-                      <p>Bakım</p>
-                    </div>
-                  </div>
-                </div>
-              </button>
-              <div class="panel">
-                <div class="attributes">
-                  <%- product.attributes.bakim_talimati %>
-                </div>
-              </div>
-              <% } %>
-
-              <button class="accordion js-accordion">
-                <div class="detail">
-                  <div class="detail-divs">
-                    <div class="icon">
-                      <i class="bi bi-shuffle"></i>
-                    </div>
-                    <div class="title">
-                      <p>İade ve Değişim</p>
-                    </div>
-                  </div>
-                </div>
-              </button>
-              <div class="panel">
-                <div class="attributes">
-                  Satın aldığınız ürünlerden memnun kalmamanız durumunda, teslim
-                  aldığınız tarihten itibaren ürünleri kullanılmamış ve orijinal
-                  ambalajları bozulmamış şekilde faturasıyla birlikte
-                  <strong>14 gün</strong> içerisinde ücretsiz olarak
-                  <strong>PTT Kargo</strong> ile iade edebilirsiniz. <br />
-                  <br />
-                  <br />Web sitemiz üzerinden alınan ürünlerde değişim
-                  yapılmamaktadır, herhangi bir MADAME COCO mağazasından ürün
-                  değişimi işlemlerinizi yapabilirsiniz. <br />
-                  <br />
-                  <br />
-                  Kozmetik ve kişisel bakım ürünlerinde ambalajı açılmış,
-                  denenmiş ve kullanılmış, tekrar satılamaz durumdaki ürünlerin
-                  iadesi kabul edilmemektedir. <br />
-                  <br />
-                  <br />
-                  Detaylı bilgi için lütfen
-                  <a
-                    href="#"
-                    target="_blank"
-                    style="color: #000000; text-decoration: none"
-                  >
-                    <strong>tıklayınız.</strong>
-                  </a>
-                </div>
-              </div>
-
-              <button class="accordion js-accordion">
-                <div class="detail">
-                  <div class="detail-divs">
-                    <div class="icon">
-                      <i class="bi bi-chat"></i>
-                    </div>
-                    <div class="title">
-                      <p>Yorumlar</p>
-                    </div>
-                  </div>
-                </div>
-              </button>
-              <div class="panel"></div>
-
-              <button class="accordion js-accordion">
-                <div class="detail">
-                  <div class="detail-divs">
-                    <div class="icon">
-                      <i class="bi bi-shop"></i>
-                    </div>
-                    <div class="title">
-                      <p>Mağazada Bul</p>
-                    </div>
-                  </div>
-                </div>
-              </button>
-              <!-- TODO: burayi hallet. -->
-              <div class="panel">
-                <div class="attributes">Buraya yazilacak.</div>
-              </div>
-            </div>
+            <%- include("components/product/product-everything") -%>
           </div>
         </div>
 

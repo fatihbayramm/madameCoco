@@ -1,0 +1,105 @@
+<div class="product-everything">
+  <button class="accordion js-accordion">
+    <div class="detail">
+      <div class="detail-divs">
+        <div class="icon">
+          <i class="bi bi-bookmark"></i>
+        </div>
+        <div class="title">
+          <p>Ürün Detayı</p>
+        </div>
+      </div>
+    </div>
+  </button>
+  <div class="panel">
+    <div class="attributes"><%- product.attributes.aciklama %></div>
+    <div class="attributes"><%- product.attributes.teknik_ozellik %></div>
+    <div class="attributes"><%- product.attributes.paket_icerik %></div>
+  </div>
+
+  <% if(product.attributes.bakim_talimati) { %>
+  <button class="accordion js-accordion">
+    <div class="detail">
+      <div class="detail-divs">
+        <div class="icon">
+          <i class="bi bi-moisture"></i>
+        </div>
+        <div class="title">
+          <p>Bakım</p>
+        </div>
+      </div>
+    </div>
+  </button>
+  <div class="panel">
+    <div class="attributes"><%- product.attributes.bakim_talimati %></div>
+  </div>
+  <% } %>
+
+  <button class="accordion js-accordion">
+    <div class="detail">
+      <div class="detail-divs">
+        <div class="icon">
+          <i class="bi bi-shuffle"></i>
+        </div>
+        <div class="title">
+          <p>İade ve Değişim</p>
+        </div>
+      </div>
+    </div>
+  </button>
+  <div class="panel">
+    <div class="attributes">
+      Satın aldığınız ürünlerden memnun kalmamanız durumunda, teslim aldığınız
+      tarihten itibaren ürünleri kullanılmamış ve orijinal ambalajları
+      bozulmamış şekilde faturasıyla birlikte
+      <strong>14 gün</strong> içerisinde ücretsiz olarak
+      <strong>PTT Kargo</strong> ile iade edebilirsiniz. <br />
+      <br />
+      <br />Web sitemiz üzerinden alınan ürünlerde değişim yapılmamaktadır,
+      herhangi bir MADAME COCO mağazasından ürün değişimi işlemlerinizi
+      yapabilirsiniz. <br />
+      <br />
+      <br />
+      Kozmetik ve kişisel bakım ürünlerinde ambalajı açılmış, denenmiş ve
+      kullanılmış, tekrar satılamaz durumdaki ürünlerin iadesi kabul
+      edilmemektedir. <br />
+      <br />
+      <br />
+      Detaylı bilgi için lütfen
+      <a href="#" target="_blank" style="color: #000000; text-decoration: none">
+        <strong>tıklayınız.</strong>
+      </a>
+    </div>
+  </div>
+
+  <button class="accordion js-accordion">
+    <div class="detail">
+      <div class="detail-divs">
+        <div class="icon">
+          <i class="bi bi-chat"></i>
+        </div>
+        <div class="title">
+          <p>Yorumlar</p>
+        </div>
+      </div>
+    </div>
+  </button>
+  <div class="panel"></div>
+
+  <button class="accordion js-accordion">
+    <div class="detail">
+      <div class="detail-divs">
+        <div class="icon">
+          <i class="bi bi-shop"></i>
+        </div>
+        <div class="title">
+          <p>Mağazada Bul</p>
+        </div>
+      </div>
+    </div>
+  </button>
+  <!-- TODO: burayi hallet. -->
+  <div class="panel">
+    <div class="attributes">Buraya yazilacak.</div>
+  </div>
+</div>
