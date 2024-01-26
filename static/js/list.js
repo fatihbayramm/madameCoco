@@ -131,40 +131,6 @@ function runFilter() {
   });
 }
 
-function clearSpecificFilters(params) {
-  let filtersHTML = [];
-  for (let entry of params.entries()) {
-    let [currentFilterName, currentFilterValue] = entry;
-    filtersHTML.push(
-      `
-        <div class="clear-specific-filters-box js-clear-specific-filters-box">
-          <button name="${currentFilterName}" value="${currentFilterValue}">${currentFilterValue}</button>
-          <div class="js-clear-specific-filter-icon">
-            <i class="bi bi-x"></i>
-          </div>
-        </div>
-        `
-    );
-  }
-
-  document.querySelector(".js-clear-specific-filters").innerHTML =
-    filtersHTML.join("");
-
-  document
-    .querySelectorAll(".js-clear-specific-filters-box")
-    .forEach((filterBox) => {
-      filterBox.addEventListener("click", (event) => {
-        let filterName = event.currentTarget.firstElementChild.name;
-        let filterValue = event.currentTarget.firstElementChild.value;
-        console.log(filterName, filterValue);
-        params.delete(filterName, filterValue);
-        window.history.pushState(null, "", "?" + params.toString());
-        let url = window.location.href;
-        fetchData(url);
-      });
-    });
-}
-
 function runOrderButton() {
   let orderBtnDOM = document.querySelector(".js-order-button");
   if (!orderBtnDOM) return;
@@ -217,6 +183,46 @@ function runOrder() {
       fetchData(url);
     });
   });
+}
+
+function clearSpecificFilters(params) {
+  let filtersHTML = [];
+  for (let entry of params.entries()) {
+    let [currentFilterName, currentFilterValue] = entry;
+    filtersHTML.push(
+      `
+        <div class="clear-specific-filters-box js-clear-specific-filters-box">
+          <button name="${currentFilterName}" value="${currentFilterValue}">${currentFilterValue}</button>
+          <div class="js-clear-specific-filter-icon">
+            <i class="bi bi-x"></i>
+          </div>
+        </div>
+        `
+    );
+  }
+
+  document.querySelector(".js-clear-specific-filters").innerHTML =
+    filtersHTML.join("");
+
+  document
+    .querySelectorAll(".js-clear-specific-filters-box")
+    .forEach((filterBox) => {
+      filterBox.addEventListener("click", (event) => {
+        let filterName = event.currentTarget.firstElementChild.name;
+        let filterValue = event.currentTarget.firstElementChild.value;
+        console.log(filterName, filterValue);
+        params.delete(filterName, filterValue);
+        window.history.pushState(null, "", "?" + params.toString());
+        let url = window.location.href;
+        fetchData(url);
+        event.currentTarget.parentElement.removeChild(event.currentTarget);
+        document.querySelectorAll(".js-filter-checkbox").forEach((checkbox) => {
+          if (checkbox.value === filterValue) {
+            checkbox.checked = false;
+          }
+        });
+      });
+    });
 }
 
 function clearAllFilters() {
