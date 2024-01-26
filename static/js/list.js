@@ -138,7 +138,7 @@ function clearSpecificFilters(params) {
     filtersHTML.push(
       `
         <div class="clear-specific-filters-box js-clear-specific-filters-box">
-          <p name="${currentFilterName}" value="${currentFilterValue}">${currentFilterValue}</p>
+          <button name="${currentFilterName}" value="${currentFilterValue}">${currentFilterValue}</button>
           <div class="js-clear-specific-filter-icon">
             <i class="bi bi-x"></i>
           </div>

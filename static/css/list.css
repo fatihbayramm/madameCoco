@@ -222,6 +222,14 @@
   cursor: pointer;
 }
 
+.clear-specific-filters-box button {
+  border: none;
+  background-color: #e6e6e6;
+  color: #696969;
+  font-size: 18px;
+  cursor: pointer;
+}
+
 .clear-specific-filter-icon {
   display: flex;
   align-items: center;
