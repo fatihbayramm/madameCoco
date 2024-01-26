@@ -122,12 +122,47 @@ function runFilter() {
       } else {
         params.delete(checkbox.name, checkbox.value);
       }
+      clearSpecificFilters(params);
       window.history.pushState(null, "", "?" + params.toString());
       let url = window.location.href;
       fetchData(url);
       document.querySelector(".js-selected-filters").style.display = "block";
     });
   });
+}
+
+function clearSpecificFilters(params) {
+  let filtersHTML = [];
+  for (let entry of params.entries()) {
+    let [currentFilterName, currentFilterValue] = entry;
+    filtersHTML.push(
+      `
+        <div class="clear-specific-filters-box js-clear-specific-filters-box">
+          <p name="${currentFilterName}" value="${currentFilterValue}">${currentFilterValue}</p>
+          <div class="js-clear-specific-filter-icon">
+            <i class="bi bi-x"></i>
+          </div>
+        </div>
+        `
+    );
+  }
+
+  document.querySelector(".js-clear-specific-filters").innerHTML =
+    filtersHTML.join("");
+
+  document
+    .querySelectorAll(".js-clear-specific-filters-box")
+    .forEach((filterBox) => {
+      filterBox.addEventListener("click", (event) => {
+        let filterName = event.currentTarget.firstElementChild.name;
+        let filterValue = event.currentTarget.firstElementChild.value;
+        console.log(filterName, filterValue);
+        params.delete(filterName, filterValue);
+        window.history.pushState(null, "", "?" + params.toString());
+        let url = window.location.href;
+        fetchData(url);
+      });
+    });
 }
 
 function runOrderButton() {
