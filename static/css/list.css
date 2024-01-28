@@ -134,6 +134,14 @@
   cursor: pointer;
 }
 
+.choice {
+  z-index: 1;
+}
+
+.filter-checkbox {
+  z-index: 999;
+}
+
 .filter-titles {
   font-size: 18px;
   font-weight: bolder;
@@ -168,9 +176,11 @@
 
 .dropdown-content input {
   float: right;
-  margin-right: 15px;
   width: 22px;
   height: 22px;
+  position: absolute;
+  z-index: -1;
+  right: 15px;
 }
 
 .show {

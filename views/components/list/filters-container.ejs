@@ -64,8 +64,8 @@
             <%= choice.label %>
             <span> (<%= choice.quantity %>) </span>
             <input type="checkbox" name="<%= facet.data.search_key %>"
-            value="<%= choice.value %>" class="js-filter-checkbox" <%=
-            choice.is_selected ? "checked" : "" %> />
+            value="<%= choice.value %>" class="filter-checkbox
+            js-filter-checkbox" <%= choice.is_selected ? "checked" : "" %> />
           </div>
           <% }); %>
         </div>

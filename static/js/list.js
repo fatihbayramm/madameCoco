@@ -100,6 +100,7 @@ function fetchData(url) {
       const html = parser.parseFromString(resp, "text/html");
       let containerInHTML = html.querySelector(".js-container").innerHTML;
       document.querySelector(".js-container").innerHTML = containerInHTML;
+      // TODO: add js- prefix
       let productQuantityInHTML =
         html.querySelector(".product-quantity").innerHTML;
       document.querySelector(".product-quantity").innerHTML =
@@ -210,11 +211,11 @@ function clearSpecificFilters(params) {
       filterBox.addEventListener("click", (event) => {
         let filterName = event.currentTarget.firstElementChild.name;
         let filterValue = event.currentTarget.firstElementChild.value;
-        console.log(filterName, filterValue);
         params.delete(filterName, filterValue);
         window.history.pushState(null, "", "?" + params.toString());
         let url = window.location.href;
         fetchData(url);
+
         event.currentTarget.parentElement.removeChild(event.currentTarget);
         document.querySelectorAll(".js-filter-checkbox").forEach((checkbox) => {
           if (checkbox.value === filterValue) {
