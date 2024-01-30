@@ -184,7 +184,7 @@
 }
 
 .show {
-  display: block;
+  display: block !important;
   z-index: 999;
 }
 

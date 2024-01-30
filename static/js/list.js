@@ -49,11 +49,15 @@ function runFilterBox() {
 
     const color = counter % 2 == 1 ? "#B94E0C" : "#323E48";
     const display = counter % 2 == 1 ? "flex" : "none";
-
+    // TODO: resolve this by adding class name
     filterBtnDOM.style.color = color;
     filterDivDOM.style.display = display;
     filterDivDOM.style.borderTop =
       counter % 2 == 1 ? "1px solid black" : "none";
+
+    let params = new URLSearchParams(window.location.search);
+    renderAppliedFilters(params);
+    document.querySelector(".js-selected-filters").classList.toggle("show");
   });
 }
 
@@ -123,7 +127,7 @@ function runFilter() {
       } else {
         params.delete(checkbox.name, checkbox.value);
       }
-      clearSpecificFilters(params);
+      renderAppliedFilters(params);
       window.history.pushState(null, "", "?" + params.toString());
       let url = window.location.href;
       fetchData(url);
@@ -186,9 +190,12 @@ function runOrder() {
   });
 }
 
-function clearSpecificFilters(params) {
+function renderAppliedFilters(params) {
   let filtersHTML = [];
   for (let entry of params.entries()) {
+    if (entry[0] == "sorter") {
+      continue;
+    }
     let [currentFilterName, currentFilterValue] = entry;
     filtersHTML.push(
       `
@@ -237,6 +244,12 @@ function clearAllFilters() {
     window.history.pushState(null, "", "?" + params.toString());
     let url = window.location.href;
     fetchData(url);
+    document
+      .querySelectorAll(".js-clear-specific-filters-box")
+      .forEach((filter) => {
+        filter.parentElement.removeChild(filter);
+      });
+
     document.querySelector(".js-selected-filters").style.display = "none";
     document.querySelectorAll(".js-filter-checkbox").forEach((checkbox) => {
       checkbox.checked = false;
