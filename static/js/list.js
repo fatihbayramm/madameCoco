@@ -40,24 +40,30 @@ function hexaLayout() {
 function runFilterBox() {
   const filterBtnDOM = document.querySelector(".js-filter-button");
   if (!filterBtnDOM) return;
-  const filterDivDOM = document.querySelector(".js-filter-div");
-  filterDivDOM.style.display = "none";
+
+  function toggleClasslistsOfFilterDivs() {
+    filterBtnDOM.classList.toggle("show-filter-button");
+    document
+      .querySelector(".js-filter-div")
+      .classList.toggle("show-filter-div");
+    document
+      .querySelector(".js-selected-filters")
+      .classList.toggle("show-selected-filters");
+  }
+
   let counter = 0;
 
   filterBtnDOM.addEventListener("click", () => {
     counter++;
 
-    const color = counter % 2 == 1 ? "#B94E0C" : "#323E48";
-    const display = counter % 2 == 1 ? "flex" : "none";
-    // TODO: resolve this by adding class name
-    filterBtnDOM.style.color = color;
-    filterDivDOM.style.display = display;
-    filterDivDOM.style.borderTop =
-      counter % 2 == 1 ? "1px solid black" : "none";
+    if (counter % 2 == 1) {
+      toggleClasslistsOfFilterDivs();
+    } else {
+      toggleClasslistsOfFilterDivs();
+    }
 
     let params = new URLSearchParams(window.location.search);
     renderAppliedFilters(params);
-    document.querySelector(".js-selected-filters").classList.toggle("show");
   });
 }
 
@@ -104,10 +110,10 @@ function fetchData(url) {
       const html = parser.parseFromString(resp, "text/html");
       let containerInHTML = html.querySelector(".js-container").innerHTML;
       document.querySelector(".js-container").innerHTML = containerInHTML;
-      // TODO: add js- prefix
-      let productQuantityInHTML =
-        html.querySelector(".product-quantity").innerHTML;
-      document.querySelector(".product-quantity").innerHTML =
+      let productQuantityInHTML = html.querySelector(
+        ".js-product-quantity"
+      ).innerHTML;
+      document.querySelector(".js-product-quantity").innerHTML =
         productQuantityInHTML;
     })
     .catch(function (error) {
@@ -131,7 +137,6 @@ function runFilter() {
       window.history.pushState(null, "", "?" + params.toString());
       let url = window.location.href;
       fetchData(url);
-      document.querySelector(".js-selected-filters").style.display = "block";
     });
   });
 }
@@ -222,7 +227,6 @@ function renderAppliedFilters(params) {
         window.history.pushState(null, "", "?" + params.toString());
         let url = window.location.href;
         fetchData(url);
-
         event.currentTarget.parentElement.removeChild(event.currentTarget);
         document.querySelectorAll(".js-filter-checkbox").forEach((checkbox) => {
           if (checkbox.value === filterValue) {
@@ -250,7 +254,6 @@ function clearAllFilters() {
         filter.parentElement.removeChild(filter);
       });
 
-    document.querySelector(".js-selected-filters").style.display = "none";
     document.querySelectorAll(".js-filter-checkbox").forEach((checkbox) => {
       checkbox.checked = false;
     });

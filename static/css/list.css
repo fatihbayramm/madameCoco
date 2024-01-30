@@ -108,14 +108,32 @@
   background: none;
   border: none;
   font-size: 18px;
+  color: #323e48;
+}
+
+.show-filter-button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #b94e0c;
 }
 
 .filter-div {
   padding: 15px 40px 30px 40px;
-  display: flex;
+  display: none;
   justify-content: flex-start;
   gap: 21px;
   background-color: #ffffff;
+}
+
+.show-filter-div {
+  display: flex;
+  padding: 15px 40px 30px 40px;
+  justify-content: flex-start;
+  gap: 21px;
+  background-color: #ffffff;
+  border-top: 1px solid black;
 }
 
 .filter-div div {
@@ -184,7 +202,7 @@
 }
 
 .show {
-  display: block !important;
+  display: block;
   z-index: 999;
 }
 
@@ -192,6 +210,13 @@
   padding: 15px 40px 15px 40px;
   color: #696969;
   display: none;
+  background-color: #ffffff;
+}
+
+.show-selected-filters {
+  display: flex;
+  padding: 15px 40px 15px 40px;
+  color: #696969;
   background-color: #ffffff;
 }
 
