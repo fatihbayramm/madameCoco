@@ -24,9 +24,6 @@
   border-radius: 5px;
 }
 
-.filters-container {
-}
-
 .filters {
   background-color: #ffffff;
   position: sticky;
@@ -165,12 +162,12 @@
   font-weight: bolder;
 }
 
-.dropdown {
+.filter-dropdown {
   position: relative;
   display: inline-block;
 }
 
-.dropdown-content {
+.filter-dropdown-content {
   display: none;
   position: absolute;
   min-width: 210px;
@@ -180,19 +177,19 @@
   background-color: white;
   border: none;
 }
-.dropdown-content div {
+.filter-dropdown-content div {
   padding-left: 7px;
 }
 
-.dropdown-content div:hover {
+.filter-dropdown-content div:hover {
   cursor: pointer;
 }
 
-.dropdown-content span {
+.filter-dropdown-content span {
   font-size: 12px;
 }
 
-.dropdown-content input {
+.filter-dropdown-content input {
   float: right;
   width: 22px;
   height: 22px;

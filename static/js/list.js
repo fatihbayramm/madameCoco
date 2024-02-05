@@ -1,9 +1,21 @@
+function searchProduct() {
+  let formElement = document.querySelector("#search-form");
+  formElement.addEventListener("input", () => {
+    let formData = new FormData(formElement);
+
+    let searchBox = formData.get("search-box");
+    let params = new URLSearchParams(window.location.search);
+    params.set("search_text", searchBox);
+    let url = window.location.search;
+    fetchData(url);
+  });
+}
+
 const productListDOM = document.querySelector(".js-product-list");
 
 function removeClass() {
   productListDOM.removeAttribute("class");
 }
-
 function doubleLayout() {
   const doubleLayoutDOM = document.querySelector("#js-double-layout");
 
@@ -201,22 +213,26 @@ function renderAppliedFilters(params) {
     if (entry[0] == "sorter") {
       continue;
     }
+
     let [currentFilterName, currentFilterValue] = entry;
-    filtersHTML.push(
-      `
-        <div class="clear-specific-filters-box js-clear-specific-filters-box">
-          <button name="${currentFilterName}" value="${currentFilterValue}">${currentFilterValue}</button>
-          <div class="js-clear-specific-filter-icon">
-            <i class="bi bi-x"></i>
-          </div>
-        </div>
-        `
-    );
+    let specificFilterBox = `
+    <div class="clear-specific-filters-box js-clear-specific-filters-box">
+      <button name="${currentFilterName}" value="${currentFilterValue}">${currentFilterValue}</button>
+      <div class="js-clear-specific-filter-icon">
+        <i class="bi bi-x"></i>
+      </div>
+    </div>
+    `;
+    filtersHTML.push(specificFilterBox);
   }
 
   document.querySelector(".js-clear-specific-filters").innerHTML =
     filtersHTML.join("");
 
+  clearAppliedFilters(params);
+}
+
+function clearAppliedFilters(params) {
   document
     .querySelectorAll(".js-clear-specific-filters-box")
     .forEach((filterBox) => {
@@ -260,6 +276,7 @@ function clearAllFilters() {
   });
 }
 
+searchProduct();
 doubleLayout();
 defaultLayout();
 hexaLayout();

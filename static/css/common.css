@@ -76,19 +76,18 @@ input {
   margin-right: 50px;
 }
 
-.search-mark {
-  position: absolute;
-  left: 440px;
+.search-div {
+  display: flex;
 }
 
-.form input {
+form input {
   width: 608px;
   height: 36px;
   border: none;
   border-bottom: 1px solid black;
 }
 
-.form input:focus {
+form input:focus {
   outline: none;
 }
 
