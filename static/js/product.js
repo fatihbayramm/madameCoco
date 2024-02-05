@@ -1,3 +1,40 @@
+function fetchData(url) {
+  fetch(url)
+    .then(function (resp) {
+      if (!resp.ok) {
+        throw new Error(`HTTP error! Status: ${resp.status}`);
+      }
+      return resp.text();
+    })
+    .then(function (resp) {
+      const parser = new DOMParser();
+      const html = parser.parseFromString(resp, "text/html");
+      let containerInHTML = html.querySelector(".js-container").innerHTML;
+      document.querySelector(".js-container").innerHTML = containerInHTML;
+      let productQuantityInHTML = html.querySelector(
+        ".js-product-quantity"
+      ).innerHTML;
+      document.querySelector(".js-product-quantity").innerHTML =
+        productQuantityInHTML;
+    })
+    .catch(function (error) {
+      console.error("Fetch or parsing error:", error);
+    });
+}
+
+function searchProduct() {
+  let formElement = document.querySelector("#search-form");
+  formElement.addEventListener("input", () => {
+    let formData = new FormData(formElement);
+
+    let searchBox = formData.get("search-box");
+    let params = new URLSearchParams(window.location.search);
+    params.set("search_text", searchBox);
+    let url = window.location.search;
+    fetchData(url);
+  });
+}
+
 function productCounter() {
   const deacreaseBtnDOM = document.querySelector(".js-deacrease-button");
   const increaseBtnDOM = document.querySelector(".js-increase-button");
@@ -54,6 +91,7 @@ function autoAccordionMenu() {
 
 console.log("Fatih Bayram is here !");
 
+searchProduct();
 productCounter();
 runAccordionMenu();
 autoAccordionMenu();
