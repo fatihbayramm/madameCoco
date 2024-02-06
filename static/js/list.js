@@ -1,9 +1,8 @@
 function searchProduct() {
-  // TODO: js prefix
-  let formElement = document.querySelector("#search-form");
+  let formElement = document.querySelector("#js-search-form");
   formElement.addEventListener("input", () => {
     let formData = new FormData(formElement);
-    let searchBox = formData.get("search-box");
+    let searchBox = formData.get("js-search-box");
     let params = new URLSearchParams(window.location.search);
     params.set("search_text", searchBox);
   });
@@ -67,11 +66,7 @@ function runFilterBox() {
   filterBtnDOM.addEventListener("click", () => {
     counter++;
 
-    if (counter % 2 == 1) {
-      toggleClasslistsOfFilterDivs();
-    } else {
-      toggleClasslistsOfFilterDivs();
-    }
+    toggleClasslistsOfFilterDivs();
 
     let params = new URLSearchParams(window.location.search);
     renderAppliedFilters(params);
@@ -209,11 +204,10 @@ function runOrder() {
 function renderAppliedFilters(params) {
   let filtersHTML = [];
   for (let entry of params.entries()) {
-    if (entry[0] == "sorter") {
-      continue;
-    }
+    if (entry[0] == "sorter") continue;
 
     let [currentFilterName, currentFilterValue] = entry;
+    if (currentFilterName == "search_text") continue;
     let specificFilterBox = `
     <div class="clear-specific-filters-box js-clear-specific-filters-box">
       <button name="${currentFilterName}" value="${currentFilterValue}">${currentFilterValue}</button>

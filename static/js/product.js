@@ -23,15 +23,12 @@ function fetchData(url) {
 }
 
 function searchProduct() {
-  let formElement = document.querySelector("#search-form");
+  let formElement = document.querySelector("#js-search-form");
   formElement.addEventListener("input", () => {
     let formData = new FormData(formElement);
-
-    let searchBox = formData.get("search-box");
+    let searchBox = formData.get("js-search-box");
     let params = new URLSearchParams(window.location.search);
     params.set("search_text", searchBox);
-    // let url = window.location.search;
-    // fetchData(url);
   });
 }
 
