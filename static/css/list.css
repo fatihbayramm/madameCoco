@@ -274,6 +274,30 @@
   cursor: pointer;
 }
 
+.result {
+  border-bottom: 1px solid black;
+  font-size: 20px;
+  width: 1380px;
+  height: 30px;
+  margin: auto;
+  margin-bottom: 44px;
+  padding-bottom: 40px;
+}
+
+.result-box {
+  width: 1380px;
+  height: 300px;
+  margin: auto;
+  text-align: center;
+  padding: 28px 80px;
+  font-size: 18px;
+  border-bottom: 1px solid black;
+}
+
+.bi-cart-x-fill {
+  font-size: 100px;
+}
+
 .product-list {
   display: grid;
   grid-template: repeat(6, 490px) / repeat(4, 333px);

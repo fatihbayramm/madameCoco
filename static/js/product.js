@@ -30,8 +30,8 @@ function searchProduct() {
     let searchBox = formData.get("search-box");
     let params = new URLSearchParams(window.location.search);
     params.set("search_text", searchBox);
-    let url = window.location.search;
-    fetchData(url);
+    // let url = window.location.search;
+    // fetchData(url);
   });
 }
 

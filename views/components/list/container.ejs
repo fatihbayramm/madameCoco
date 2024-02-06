@@ -1,6 +1,21 @@
 <div class="js-container">
+  <% if(products.length === 0) { %>
+    <div class="result">
+      <span>
+        <b class="empty-result">
+          "<%= search_text %>"
+        </b>
+        için arama sonuçları
+      </span>
+    </div>
+    <div class="result-box">
+        <i class="bi bi-cart-x-fill"></i>
+        <p>Aradığınız sonuç bulunamadı</p>
+    </div>
+  <% } %>
     <div class="product-list-top">
       <div class="product-list js-product-list">
+      
         <% products.forEach(product => { %>
         <div class="product_list_div">
               <div>

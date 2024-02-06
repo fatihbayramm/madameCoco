@@ -1,13 +1,11 @@
 function searchProduct() {
+  // TODO: js prefix
   let formElement = document.querySelector("#search-form");
   formElement.addEventListener("input", () => {
     let formData = new FormData(formElement);
-
     let searchBox = formData.get("search-box");
     let params = new URLSearchParams(window.location.search);
     params.set("search_text", searchBox);
-    let url = window.location.search;
-    fetchData(url);
   });
 }
 
@@ -16,6 +14,7 @@ const productListDOM = document.querySelector(".js-product-list");
 function removeClass() {
   productListDOM.removeAttribute("class");
 }
+
 function doubleLayout() {
   const doubleLayoutDOM = document.querySelector("#js-double-layout");
 
