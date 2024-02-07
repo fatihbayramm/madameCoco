@@ -10,19 +10,19 @@
     </p>
   </div>
   <div class="product-color-images">
-    <button class="image-button">
-      <div class="image-1">
-        <a href="#">
-          <img
-            src="<%= product.productimage_set[0].image %>"
-            alt="Bu dosyanın uzantısı tarayıcınız tarafından desteklenmiyor."
-          />
-        </a>
-        <a href="/product/<%= product.pk %>">
-          <img src="" alt="" />
-        </a>
-      </div>
-    </button>
+    <% variants.forEach((variant) => { %> <% if(variant.attribute_key ==
+    "renk"){ %> <% variant.options.forEach((option) => { %>
+    <div class="image">
+      <a href="/product/<%= option.product.pk %>">
+        <img
+          class="product-image <%= option.is_selected ? 'selected-product' : ''%>"
+          src="<%= option.product.productimage_set[0].image %>"
+          alt="Bu dosyanın uzantısı tarayıcınız tarafından desteklenmiyor."
+        />
+      </a>
+    </div>
+
+    <% }) %> <% } %> <% }) %>
   </div>
   <div class="product-measure">
     <p>

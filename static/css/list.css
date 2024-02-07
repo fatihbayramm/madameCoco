@@ -309,7 +309,7 @@
   height: auto;
 }
 
-.product-image {
+.product-image-list {
   width: 333px;
   height: 416px;
 }
@@ -324,7 +324,7 @@
   justify-content: center;
 }
 
-.product_list_double .product-image {
+.product_list_double .product-image-list {
   width: 478px;
   height: 512px;
 }
@@ -339,7 +339,7 @@
   padding-top: 15px;
 }
 
-.product_list_hexa .product-image {
+.product_list_hexa .product-image-list {
   width: 220px;
   height: 288px;
 }

@@ -131,21 +131,19 @@
 
 .product-color-images {
   padding: 15px 0px 15px 0px;
+  display: flex;
+  gap: 20px;
 }
 
-.product-color-images .image-1 img {
+.product-image {
   width: 40px;
   height: 40px;
   padding: 3px;
-  border: 1px solid black;
   border-radius: 100px;
 }
 
-.image-button {
-  background: none;
-  outline: none;
-  border: none;
-  cursor: pointer;
+.selected-product {
+  border: 1px solid black;
 }
 
 .product-everything {
