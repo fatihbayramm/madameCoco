@@ -146,6 +146,10 @@
   border: 1px solid black;
 }
 
+.is-not-selectable {
+  opacity: 0.5;
+}
+
 .product-everything {
   padding-top: 50px;
 }

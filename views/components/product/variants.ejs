@@ -15,7 +15,7 @@
     <div class="image">
       <a href="/product/<%= option.product.pk %>">
         <img
-          class="product-image <%= option.is_selected ? 'selected-product' : ''%>"
+          class="product-image <%= option.is_selected ? 'selected-product' : ''%> <%= option.is_selectable ? '' : 'is-not-selectable'%>"
           src="<%= option.product.productimage_set[0].image %>"
           alt="Bu dosyanın uzantısı tarayıcınız tarafından desteklenmiyor."
         />
