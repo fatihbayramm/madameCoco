@@ -1,17 +1,16 @@
 <div class="product-variants">
   <div class="product-color">
-    <!-- farki renkleri de olabilir ona bak. -->
     <p>
       Renk:
       <span style="color: #8e502b; margin-left: 3px">
         <%= product.attributes.renk %>
-        <!-- TODO: farki bir renge tiklandiginda sayfa yenilenecek ve rengi o olan urunun resmi gelecek.-->
       </span>
     </p>
   </div>
   <div class="product-color-images">
     <% variants.forEach((variant) => { %> <% if(variant.attribute_key ==
     "renk"){ %> <% variant.options.forEach((option) => { %>
+
     <div class="image">
       <a href="/product/<%= option.product.pk %>">
         <img
@@ -33,5 +32,14 @@
       </span>
     </p>
   </div>
-  <div class="product-measure-box"></div>
+  <div class="product-measure-box">
+    <% variants.forEach((variant) => { %> <% if(variant.attribute_key ==
+    "boyut") %> <% { %> <% variant.options.forEach((option) => { %>
+
+    <div class="measures">
+      <span> <%= option.product.attributes.boyut %> </span>
+    </div>
+
+    <% }) %> <% } %> <% }) %>
+  </div>
 </div>

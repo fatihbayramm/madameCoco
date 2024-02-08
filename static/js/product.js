@@ -86,9 +86,21 @@ function autoAccordionMenu() {
   };
 }
 
+function disableClick() {
+  let notSelectableVariants = document.querySelectorAll(".is-not-selectable");
+
+  notSelectableVariants.forEach((variant) => {
+    variant.addEventListener("click", function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    });
+  });
+}
+
 console.log("Fatih Bayram is here !");
 
 searchProduct();
 productCounter();
 runAccordionMenu();
 autoAccordionMenu();
+disableClick();

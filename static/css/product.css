@@ -148,6 +148,24 @@
 
 .is-not-selectable {
   opacity: 0.5;
+  cursor: auto;
+}
+
+.product-measure-box {
+  display: flex;
+  gap: 10px;
+}
+
+.measures {
+  background-color: #efefef;
+  font-size: 18px;
+  padding: 12px 16px;
+  width: auto;
+  height: 52px;
+}
+
+.measures:hover {
+  border: 1px solid black;
 }
 
 .product-everything {
