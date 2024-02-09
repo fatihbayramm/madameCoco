@@ -1,27 +1,3 @@
-function fetchData(url) {
-  fetch(url)
-    .then(function (resp) {
-      if (!resp.ok) {
-        throw new Error(`HTTP error! Status: ${resp.status}`);
-      }
-      return resp.text();
-    })
-    .then(function (resp) {
-      const parser = new DOMParser();
-      const html = parser.parseFromString(resp, "text/html");
-      let containerInHTML = html.querySelector(".js-container").innerHTML;
-      document.querySelector(".js-container").innerHTML = containerInHTML;
-      let productQuantityInHTML = html.querySelector(
-        ".js-product-quantity"
-      ).innerHTML;
-      document.querySelector(".js-product-quantity").innerHTML =
-        productQuantityInHTML;
-    })
-    .catch(function (error) {
-      console.error("Fetch or parsing error:", error);
-    });
-}
-
 function searchProduct() {
   let formElement = document.querySelector("#js-search-form");
   formElement.addEventListener("input", () => {
@@ -36,15 +12,11 @@ function productCounter() {
   const deacreaseBtnDOM = document.querySelector(".js-deacrease-button");
   const increaseBtnDOM = document.querySelector(".js-increase-button");
   const quantityDOM = document.querySelector(".js-quantity");
-  if (!deacreaseBtnDOM) {
-    return;
-  }
+  if (!deacreaseBtnDOM) return;
   let number = 1;
   quantityDOM.innerHTML = number;
   deacreaseBtnDOM.addEventListener("click", () => {
-    if (number == 1) {
-      return;
-    }
+    if (number == 1) return;
     number--;
     quantityDOM.innerHTML = number;
   });
@@ -86,8 +58,8 @@ function autoAccordionMenu() {
   };
 }
 
-function disableClick() {
-  let notSelectableVariants = document.querySelectorAll(".is-not-selectable");
+function disableClick(className) {
+  let notSelectableVariants = document.querySelectorAll(className);
 
   notSelectableVariants.forEach((variant) => {
     variant.addEventListener("click", function (event) {
@@ -97,10 +69,25 @@ function disableClick() {
   });
 }
 
+function changeMeasuresClasses() {
+  if (!document.querySelector(".selected-product-measure")) return;
+  document
+    .querySelector(".selected-product-measure")
+    .classList.remove("measure");
+
+  document
+    .querySelectorAll(".is-not-selectable-measure")
+    .forEach((notSelectable) => {
+      notSelectable.classList.remove("measure");
+    });
+}
+
 console.log("Fatih Bayram is here !");
 
 searchProduct();
 productCounter();
 runAccordionMenu();
 autoAccordionMenu();
-disableClick();
+disableClick(".is-not-selectable-color");
+disableClick(".is-not-selectable-measure");
+changeMeasuresClasses();

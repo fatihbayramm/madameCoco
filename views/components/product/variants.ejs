@@ -14,14 +14,14 @@
     <div class="image">
       <a href="/product/<%= option.product.pk %>">
         <img
-          class="product-image <%= option.is_selected ? 'selected-product' : ''%> <%= option.is_selectable ? '' : 'is-not-selectable'%>"
+          class="product-image <%= option.is_selected ? 'selected-product-color' : ''%> <%= option.is_selectable ? '' : 'is-not-selectable-color'%>"
           src="<%= option.product.productimage_set[0].image %>"
           alt="Bu dosyanın uzantısı tarayıcınız tarafından desteklenmiyor."
         />
       </a>
     </div>
 
-    <% }) %> <% } %> <% }) %>
+    <% })}}) %>
   </div>
   <div class="product-measure">
     <p>
@@ -34,12 +34,15 @@
   </div>
   <div class="product-measure-box">
     <% variants.forEach((variant) => { %> <% if(variant.attribute_key ==
-    "boyut") %> <% { %> <% variant.options.forEach((option) => { %>
+    "boyut") { %> <% variant.options.forEach((option) => { %>
 
-    <div class="measures">
-      <span> <%= option.product.attributes.boyut %> </span>
-    </div>
+    <a
+      href="/product/<%= option.product.pk %>"
+      class="measure <%= option.is_selected ? 'selected-product-measure' : '' %> <%= option.is_selectable ? '' : 'is-not-selectable-measure' %>"
+    >
+      <div><%= option.product.attributes.boyut %></div>
+    </a>
 
-    <% }) %> <% } %> <% }) %>
+    <% })}}) %>
   </div>
 </div>
