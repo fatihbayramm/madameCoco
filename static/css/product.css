@@ -188,10 +188,11 @@
   width: auto;
   height: 52px;
   text-decoration: none;
+  border: 1px solid rgba(0, 0, 0, 0);
 }
 
 .measure:hover {
-  border: 1px solid black;
+  border: 1px solid rgba(0, 0, 0, 1);
 }
 
 .product-everything {
