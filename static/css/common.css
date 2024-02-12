@@ -43,6 +43,10 @@ input {
   color: #323e48;
 }
 
+.header-buttons {
+  font-size: 32px;
+}
+
 .main-container {
   display: flex;
   width: 100%;
@@ -89,6 +93,11 @@ form input {
 
 form input:focus {
   outline: none;
+}
+
+.profile a {
+  text-decoration: none;
+  color: #000000;
 }
 
 footer {

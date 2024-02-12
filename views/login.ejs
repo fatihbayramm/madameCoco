@@ -1,0 +1,27 @@
+<%- include("header") -%>
+
+<div class="login-container">
+  <form action="#">
+    <div class="routers">
+      <a href="/users/login" class="login-router">
+        <div class="login-router-box">GİRİŞ</div>
+      </a>
+      <a href="/users/register" class="register-router">
+        <div class="register-router-box">KAYIT OL</div>
+      </a>
+    </div>
+    <div class="email-box">
+      <label for="login-mail-box" class="login-labels">E-posta Adresi</label>
+      <br />
+      <input type="text" id="login-mail-box" class="login-input" />
+    </div>
+    <div class="password-box">
+      <label for="login-password-box" class="login-labels">Şifre</label> <br />
+      <input type="password" id="login-password-box" class="login-input" />
+    </div>
+    <div class="forget-password-box"><span>Şifremi Unuttum</span> <br /></div>
+    <div class="login-button">GİRİŞ YAP</div>
+  </form>
+</div>
+
+<%- include("footer") -%>

@@ -15,6 +15,42 @@ app.get("/", (req, res) => {
   res.redirect("/list/");
 });
 
+app.get("/users/login", (req, res) => {
+  res.render("login", "");
+});
+
+app.post("/users/login", (req, res) => {
+  require("request").post(
+    `${targetUrl}/users/login`,
+    {
+      headers: {
+        Accept: "application/json",
+      },
+    },
+    function (error, response, body) {
+      res.render("login", JSON.parse(body));
+    }
+  );
+});
+
+app.get("/users/register", (req, res) => {
+  res.render("register", "");
+});
+
+app.post("/users/register", (req, res) => {
+  require("request").post(
+    `${targetUrl}/users/register`,
+    {
+      headers: {
+        Accept: "application/json",
+      },
+    },
+    function (error, response, body) {
+      res.render("register", JSON.parse(body));
+    }
+  );
+});
+
 app.get("/list/", (req, res) => {
   let queryString =
     req.url.split("?").length > 1 ? `?${req.url.split("?")[1]}` : "";

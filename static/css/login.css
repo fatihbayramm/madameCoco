@@ -1,0 +1,92 @@
+.routers {
+  display: flex;
+}
+
+.routers a {
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.routers div {
+  width: 192px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-router-box {
+  color: #000000;
+  border-bottom: 2px solid #000000;
+}
+
+.register-router-box {
+  color: #848484;
+  border-bottom: 2px solid #d3d3d3;
+}
+
+.login-input {
+  width: 384px;
+  height: 48px;
+  border: 1px solid gray;
+}
+
+.login-labels {
+  color: #323e48;
+  font-size: 16px;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 200px;
+}
+
+.login-container div {
+  margin-top: 20px;
+}
+
+.login-input {
+  font-size: 16px;
+  padding: 16px 12px;
+}
+
+.login-input:hover {
+  border: 1px solid black;
+}
+
+.login-input:focus {
+  border: 2px solid #2f4f4f;
+}
+
+.forget-password-box {
+  cursor: pointer;
+}
+
+.forget-password-box span {
+  font-size: 14px;
+  color: #848484;
+  text-decoration: underline;
+  float: right;
+}
+
+.login-button {
+  width: 384px;
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #323e48;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 16px;
+}
+
+.login-button:hover {
+  color: #000000;
+  background-color: #ffffff;
+  border: 1px solid black;
+  transition: 0.1s all;
+}
