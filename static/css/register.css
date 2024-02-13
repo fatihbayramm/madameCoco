@@ -1,0 +1,122 @@
+.register-page-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-container {
+  margin-top: 10px;
+}
+
+.register-container div:not(.remember-me div, .register-show-password) {
+  margin-top: 20px;
+}
+
+.register-routers {
+  display: flex;
+}
+
+.register-routers a {
+  text-decoration: none;
+}
+
+.to-login-page {
+  color: #848484;
+  border-bottom: 2px solid #d3d3d3;
+}
+
+.to-register-page {
+  color: #000000;
+  border-bottom: 2px solid;
+}
+
+.register-routers a div {
+  width: 192px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+}
+
+.user-name {
+  display: flex;
+  gap: 16px;
+}
+
+.register-label {
+  color: #323e48;
+  font-size: 16px;
+}
+
+.user-name-input {
+  width: 184px;
+  height: 48px;
+  padding: 16px 12px;
+  font-size: 16px;
+  border: 1px solid gray;
+}
+
+.user-input {
+  width: 384px;
+  height: 48px;
+  padding: 16px 12px;
+  font-size: 16px;
+  border: 1px solid gray;
+}
+
+.un:focus {
+  border: 2px solid #2f4f4f;
+}
+
+.un:hover {
+  border: 1px solid black;
+  transition: 0.3s all;
+}
+
+/* TODO: focus hover oldugunda calismiyor. */
+
+.bi-eye-fill,
+.bi-eye-slash-fill {
+  font-size: 20px;
+  position: absolute;
+  right: 15px;
+  top: 40%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: gray;
+}
+
+.user-password {
+  position: relative;
+}
+
+.user-password p {
+  color: #000000;
+  font-size: 16px;
+}
+
+.user-password p span {
+  color: #fa0d3a;
+}
+
+.remember-me {
+  display: flex;
+}
+
+.remember-me-checkbox {
+  width: 18px;
+  height: 18px;
+}
+
+.remember-me div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.remember-me div span {
+  color: #323e48;
+  font-size: 14px;
+}

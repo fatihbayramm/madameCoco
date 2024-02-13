@@ -1,1 +1,73 @@
-<%- include("header") -%> <%- include("footer") -%>
+<%- include("header") -%>
+<div class="register-page-wrapper">
+  <div class="register-container">
+    <div class="register-routers">
+      <a href="/users/login" class="to-login-page">
+        <div>GİRİŞ</div>
+      </a>
+      <a href="/users/register" class="to-register-page">
+        <div>KAYIT OL</div>
+      </a>
+    </div>
+    <div class="user-name">
+      <div class="user-firstname">
+        <label for="user-name-box" class="register-label">Ad</label> <br />
+        <input
+          type="text"
+          name=""
+          id="user-name-box"
+          class="user-name-input un"
+        />
+      </div>
+      <div class="user-lastname">
+        <label for="user-surname-box" class="register-label">Soyad</label>
+        <br />
+        <input
+          type="text"
+          name=""
+          id="user-surname-box"
+          class="user-name-input un"
+        />
+      </div>
+    </div>
+    <div class="user-email">
+      <label for="user-email-box" class="register-label">E-posta Adresi</label>
+      <br />
+      <input type="text" id="user-email-box" class="user-input un" />
+    </div>
+    <div class="user-phone-number">
+      <label for="user-phone-box" class="register-label">
+        Telefon Numarası</label
+      >
+      <br />
+      <input type="tel" id="user-phone-box" class="user-input un" />
+    </div>
+    <div class="user-password">
+      <label for="user-password-box" class="register-label">Şifre</label> <br />
+      <input type="password" id="user-password-box" class="user-input un" />
+      <div class="register-show-password js-register-show-password">
+        <i class="bi bi-eye-fill js-bi-eye-fill"></i>
+      </div>
+      <p>
+        Şifreniz en az <span>1 büyük harf, 1 küçük harf, 1 sayı,</span> ve
+        <span
+          >1 özel <br />
+          karakter içermelidir.</span
+        >
+      </p>
+    </div>
+    <div class="remember-me">
+      <input type="checkbox" class="remember-me-checkbox" />
+      <div>
+        <span>Beni Hatırla</span>
+      </div>
+    </div>
+    <div class="user-birthday">
+      <div class="day"></div>
+      <div class="month"></div>
+      <div class="year"></div>
+    </div>
+  </div>
+  <div class="register-slogan-container"></div>
+</div>
+<%- include("footer") -%>
