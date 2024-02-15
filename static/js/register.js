@@ -25,4 +25,32 @@ function togglePasswordType() {
     });
 }
 
+function openBirthdayDropdowns() {
+  const dayDOM = document.querySelectorAll(".js-birthday");
+  if (!dayDOM) return;
+  dayDOM.forEach((birthday) => {
+    birthday.addEventListener("click", (event) => {
+      event.target.parentElement
+        .querySelector(".js-birthday-dropdown")
+        .classList.toggle("birthday-dropdown-show");
+    });
+  });
+}
+
+function selectBirthday() {
+  document.querySelectorAll(".js-day-box").forEach((dayBox) => {
+    dayBox.addEventListener("click", (event) => {
+      event.target.parentElement.previousElementSibling.querySelector(
+        ".js-bt-span"
+      ).innerHTML = dayBox.innerHTML;
+    });
+  });
+}
+
+// TODO: kayit ve giris sayfasinda arama yeri calismiyor.
+
+// TODO: dropdown menulerin disina tiklayinca kapanacak.
+
 togglePasswordType();
+openBirthdayDropdowns();
+selectBirthday();

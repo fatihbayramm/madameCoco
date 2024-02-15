@@ -2,13 +2,26 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 200px;
+  padding: 20px 50px;
 }
 
 .register-container {
   margin-top: 10px;
+  padding-right: 200px;
+  border-right: 1px solid black;
 }
 
-.register-container div:not(.remember-me div, .register-show-password) {
+.register-container
+  div:not(
+    .remember-me div,
+    .register-show-password,
+    .bt,
+    .birthday-dropdown,
+    .day-box,
+    .register-button,
+    .selected-birthday
+  ) {
   margin-top: 20px;
 }
 
@@ -107,6 +120,7 @@
 .remember-me-checkbox {
   width: 18px;
   height: 18px;
+  cursor: pointer;
 }
 
 .remember-me div {
@@ -119,4 +133,131 @@
 .remember-me div span {
   color: #323e48;
   font-size: 14px;
+}
+
+.user-birthday {
+  gap: 10px;
+  display: flex;
+}
+
+.user-birthday
+  div:not(.birthday-box, .birthday-dropdown, .day-box, .selected-birthday) {
+  width: 122.67px;
+  height: 40px;
+  border: 1px solid gray;
+}
+
+.user-birthday
+  div:hover:not(
+    .birthday-box,
+    .birthday-dropdown,
+    .day-box,
+    .selected-birthday
+  ) {
+  border: 1px solid black;
+  transition: 0.3s all;
+  cursor: pointer;
+}
+
+.birthday-box span {
+  font-size: 16px;
+  color: #323e48;
+}
+
+.bt-arrow {
+  color: gray;
+  margin-right: 12px;
+}
+
+.bt-span {
+  margin-left: 12px;
+}
+
+.selected-birthday {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+  position: relative;
+  z-index: -1;
+}
+
+.birthday-dropdown {
+  display: none;
+  background-color: #ffffff;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  overflow: auto;
+  width: 122.67px;
+  height: 178px;
+  position: absolute;
+}
+
+.birthday-dropdown-show {
+  display: block;
+  z-index: 999;
+}
+.day-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  height: 40px;
+}
+
+.day-box:hover {
+  cursor: pointer;
+  background-color: #ededed;
+}
+
+.register-button {
+  color: #ffffff;
+  background-color: #323e48;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 384px;
+  height: 44px;
+  cursor: pointer;
+  margin-top: 50px;
+}
+
+.register-button:hover {
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid black;
+  transition: 0.2s all;
+}
+
+.register-slogan-container {
+  padding-left: 150px;
+  margin-bottom: 100px;
+}
+
+.register-advantages {
+  font-size: 36px;
+  color: #323e48;
+  margin-bottom: 30px;
+}
+
+.advantage-group div {
+  margin-top: 20px;
+}
+
+.advantage-icon i {
+  font-size: 44px;
+}
+
+.advantage-icon {
+  display: flex;
+  gap: 25px;
+}
+
+.advantage-icon span {
+  font-size: 20px;
+  color: #323e48;
+}
+
+.advantage-span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
