@@ -47,6 +47,32 @@ function selectBirthday() {
   });
 }
 
+function sendRegisterForm() {
+  let registerForm = document.querySelector("#register-form");
+  if (!registerForm) return;
+  registerForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const formData = new FormData(this);
+
+    fetch("https://www.madamecoco.com/users/register/", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  });
+}
+
 // TODO: kayit ve giris sayfasinda arama yeri calismiyor.
 
 // TODO: dropdown menulerin disina tiklayinca kapanacak.
@@ -54,3 +80,4 @@ function selectBirthday() {
 togglePasswordType();
 openBirthdayDropdowns();
 selectBirthday();
+sendRegisterForm();

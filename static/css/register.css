@@ -216,8 +216,11 @@
   align-items: center;
   width: 384px;
   height: 44px;
+  font-size: 16px;
   cursor: pointer;
   margin-top: 50px;
+  outline: none;
+  border: none;
 }
 
 .register-button:hover {

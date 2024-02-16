@@ -1,129 +1,146 @@
 <%- include("header") -%>
 <div class="register-page-wrapper">
-  <div class="register-container">
-    <div class="register-routers">
-      <a href="/users/login" class="to-login-page">
-        <div>GİRİŞ</div>
-      </a>
-      <a href="/users/register" class="to-register-page">
-        <div>KAYIT OL</div>
-      </a>
-    </div>
-    <div class="user-name">
-      <div class="user-firstname">
-        <label for="user-name-box" class="register-label">Ad</label> <br />
-        <input
-          type="text"
-          name=""
-          id="user-name-box"
-          class="user-name-input un"
-        />
+  <form id="register-form" method="post">
+    <div class="register-container">
+      <div class="register-routers">
+        <a href="/users/login" class="to-login-page">
+          <div>GİRİŞ</div>
+        </a>
+        <a href="/users/register" class="to-register-page">
+          <div>KAYIT OL</div>
+        </a>
       </div>
-      <div class="user-lastname">
-        <label for="user-surname-box" class="register-label">Soyad</label>
+      <div class="user-name">
+        <div class="user-firstname">
+          <label for="user-name-box" class="register-label">Ad</label> <br />
+          <input
+            type="text"
+            name="user-name-box"
+            id="user-name-box"
+            class="user-name-input un"
+          />
+        </div>
+        <div class="user-lastname">
+          <label for="user-surname-box" class="register-label">Soyad</label>
+          <br />
+          <input
+            type="text"
+            name="user-surname-box"
+            id="user-surname-box"
+            class="user-name-input un"
+          />
+        </div>
+      </div>
+      <div class="user-email">
+        <label for="user-email-box" class="register-label"
+          >E-posta Adresi</label
+        >
         <br />
         <input
           type="text"
-          name=""
-          id="user-surname-box"
-          class="user-name-input un"
+          id="user-email-box"
+          name="user-email-box"
+          class="user-input un"
         />
       </div>
-    </div>
-    <div class="user-email">
-      <label for="user-email-box" class="register-label">E-posta Adresi</label>
-      <br />
-      <input type="text" id="user-email-box" class="user-input un" />
-    </div>
-    <div class="user-phone-number">
-      <label for="user-phone-box" class="register-label">
-        Telefon Numarası</label
-      >
-      <br />
-      <!-- TODO: numara formatinda yap -->
-      <input
-        type="tel"
-        id="user-phone-box"
-        maxlength="14"
-        class="user-input un"
-      />
-    </div>
-    <div class="user-password">
-      <label for="user-password-box" class="register-label">Şifre</label> <br />
-      <input type="password" id="user-password-box" class="user-input un" />
-      <div class="register-show-password js-register-show-password">
-        <i class="bi bi-eye-fill js-bi-eye-fill"></i>
-      </div>
-      <p>
-        Şifreniz en az <span>1 büyük harf, 1 küçük harf, 1 sayı,</span> ve
-        <span
-          >1 özel <br />
-          karakter içermelidir.</span
+      <div class="user-phone-number">
+        <label for="user-phone-box" class="register-label">
+          Telefon Numarası</label
         >
-      </p>
-    </div>
-    <div class="remember-me">
-      <input type="checkbox" class="remember-me-checkbox" />
-      <div>
-        <span>Beni Hatırla</span>
+        <br />
+        <!-- TODO: numara formatinda yap -->
+        <input
+          type="tel"
+          id="user-phone-box"
+          name="user-phone-box"
+          maxlength="14"
+          class="user-input un"
+        />
       </div>
-    </div>
-    <div class="user-birthday">
-      <div class="birthday-box">
-        <span>Doğum Gününüz</span>
-        <div class="bt birthday js-birthday">
-          <div class="selected-birthday js-selected-birthday">
-            <span class="bt-span js-bt-span">Gün</span>
-            <i class="bi bi-chevron-down bt-arrow"></i>
+      <div class="user-password">
+        <label for="user-password-box" class="register-label">Şifre</label>
+        <br />
+        <input
+          type="password"
+          id="user-password-box"
+          name="user-password-box"
+          class="user-input un"
+        />
+        <div class="register-show-password js-register-show-password">
+          <i class="bi bi-eye-fill js-bi-eye-fill"></i>
+        </div>
+        <p>
+          Şifreniz en az <span>1 büyük harf, 1 küçük harf, 1 sayı,</span> ve
+          <span
+            >1 özel <br />
+            karakter içermelidir.</span
+          >
+        </p>
+      </div>
+      <div class="remember-me">
+        <input type="checkbox" class="remember-me-checkbox" />
+        <div>
+          <span>Beni Hatırla</span>
+        </div>
+      </div>
+      <div class="user-birthday">
+        <div class="birthday-box">
+          <span>Doğum Gününüz</span>
+          <div class="bt birthday js-birthday">
+            <div class="selected-birthday js-selected-birthday">
+              <span class="bt-span js-bt-span">Gün</span>
+              <i class="bi bi-chevron-down bt-arrow"></i>
+            </div>
+          </div>
+          <div class="birthday-dropdown js-birthday-dropdown">
+            <div class="day-box js-day-box">Gün</div>
+            <% for(let i = 1; i < 32; i++) { %>
+            <div class="day-box js-day-box" data-value="<%= i %>"><%= i %></div>
+            <% } %>
           </div>
         </div>
-        <div class="birthday-dropdown js-birthday-dropdown">
-          <div class="day-box js-day-box">Gün</div>
-          <% for(let i = 1; i < 32; i++) { %>
-          <div class="day-box js-day-box" data-value="<%= i %>"><%= i %></div>
-          <% } %>
-        </div>
-      </div>
 
-      <div class="birthday-box">
-        <span>Ay</span>
-        <div class="bt birthday js-birthday">
-          <div class="selected-birthday js-selected-birthday">
-            <span class="bt-span js-bt-span">Ay</span>
-            <i class="bi bi-chevron-down bt-arrow"></i>
+        <div class="birthday-box">
+          <span>Ay</span>
+          <div class="bt birthday js-birthday">
+            <div class="selected-birthday js-selected-birthday">
+              <span class="bt-span js-bt-span">Ay</span>
+              <i class="bi bi-chevron-down bt-arrow"></i>
+            </div>
+          </div>
+          <div class="birthday-dropdown js-birthday-dropdown">
+            <div class="day-box js-day-box">Ay</div>
+            <% const months = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs",
+            "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım",
+            "Aralık"];%> <% for (let i = 0; i < months.length; i++) { %>
+            <div class="day-box js-day-box" data-value="<%= months[i]%>">
+              <%= months[i] %>
+            </div>
+            <% } %>
           </div>
         </div>
-        <div class="birthday-dropdown js-birthday-dropdown">
-          <div class="day-box js-day-box">Ay</div>
-          <% const months = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs",
-          "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"];%>
-          <% for (let i = 0; i < months.length; i++) { %>
-          <div class="day-box js-day-box" data-value="<%= months[i]%>">
-            <%= months[i] %>
+        <div class="birthday-box">
+          <span>Yıl</span>
+          <div class="bt birthday js-birthday">
+            <div class="selected-birthday js-selected-birthday">
+              <span class="bt-span js-bt-span">Yıl</span>
+              <i class="bi bi-chevron-down bt-arrow"></i>
+            </div>
           </div>
-          <% } %>
+          <div class="birthday-dropdown js-birthday-dropdown">
+            <div class="day-box js-day-box">Yıl</div>
+            <% const currentDate = new Date()%> <% const currentYear =
+            currentDate.getFullYear()%> <% for(let i = 1950; i < currentYear +
+            1; i++) { %> <% if(currentYear - i >= 18) { %>
+            <div class="day-box js-day-box" data-value="<%= i %>"><%= i %></div>
+            <% } %> <% } %>
+          </div>
         </div>
       </div>
-      <div class="birthday-box">
-        <span>Yıl</span>
-        <div class="bt birthday js-birthday">
-          <div class="selected-birthday js-selected-birthday">
-            <span class="bt-span js-bt-span">Yıl</span>
-            <i class="bi bi-chevron-down bt-arrow"></i>
-          </div>
-        </div>
-        <div class="birthday-dropdown js-birthday-dropdown">
-          <div class="day-box js-day-box">Yıl</div>
-          <% const currentDate = new Date()%> <% const currentYear =
-          currentDate.getFullYear()%> <% for(let i = 1950; i < currentYear + 1;
-          i++) { %> <% if(currentYear - i >= 18) { %>
-          <div class="day-box js-day-box" data-value="<%= i %>"><%= i %></div>
-          <% } %> <% } %>
-        </div>
-      </div>
+      <button class="register-button" type="submit">ÜYE OL</button>
     </div>
-    <div class="register-button">ÜYE OL</div>
-  </div>
+  </form>
+
   <div class="register-slogan-container">
     <div class="register-advantages">
       AVANTAJLARDAN <br />
