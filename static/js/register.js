@@ -38,39 +38,59 @@ function openBirthdayDropdowns() {
 }
 
 function selectBirthday() {
-  document.querySelectorAll(".js-day-box").forEach((dayBox) => {
-    dayBox.addEventListener("click", (event) => {
-      event.target.parentElement.previousElementSibling.querySelector(
-        ".js-bt-span"
-      ).innerHTML = dayBox.innerHTML;
-    });
-  });
+  document.querySelector(".select-box");
 }
 
 function sendRegisterForm() {
-  let registerForm = document.querySelector("#register-form");
-  if (!registerForm) return;
-  registerForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const formData = new FormData(this);
+  document
+    .querySelector("#register-form")
+    .addEventListener("submit", function (event) {
+      event.preventDefault();
 
-    fetch("https://www.madamecoco.com/users/register/", {
-      method: "POST",
-      body: formData,
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
+      const firstName = document.querySelector("#user-name-box").value;
+      const lastName = document.querySelector("#user-surname-box").value;
+      const email = document.querySelector("#user-email-box").value;
+      const phoneNumber = document.querySelector("#user-phone-box").value;
+      const password = document.querySelector("#user-password-box").value;
+
+      // const birthdayDay = document.querySelector(".js-user-day").value;
+      // console.log(birthdayDay);
+
+      const birthdayMonth = document.querySelector(".js-user-month").value;
+      console.log(birthdayMonth);
+
+      const birthdayYear = document.querySelector(".js-user-year").value;
+      console.log(birthdayYear);
+
+      const formData = {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        phoneNumber: phoneNumber,
+        password: password,
+        birthdayDay: birthdayDay,
+        birthdayMonth: birthdayMonth,
+        birthdayYear: birthdayYear,
+      };
+
+      fetch("/users/register/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
       })
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  });
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+        })
+        .catch((error) => {
+          console.error(
+            "There has been a problem with your fetch operation:",
+            error
+          );
+        });
+    });
 }
 
 // TODO: kayit ve giris sayfasinda arama yeri calismiyor.

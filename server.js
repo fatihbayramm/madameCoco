@@ -10,6 +10,7 @@ const targetUrl = "https://www.madamecoco.com";
 app.use(express.static("static"));
 
 app.use("/api/", proxy(targetUrl));
+app.use(express.json());
 
 app.get("/", (req, res) => {
   res.redirect("/list/");
@@ -37,18 +38,21 @@ app.get("/users/register", (req, res) => {
   res.render("register", "");
 });
 
-app.post("/users/register", (req, res) => {
-  require("request").post(
-    `${targetUrl}/users/register`,
-    {
-      headers: {
-        Accept: "application/json",
-      },
-    },
-    function (error, response, body) {
-      res.render("register", JSON.parse(body));
-    }
-  );
+app.post("/users/register/", (req, res) => {
+  console.log("REGISTER");
+  console.log(req.body);
+  // require("request").post(
+  //   `${targetUrl}/users/register`,
+  //   {
+  //     headers: {
+  //       Accept: "application/json",
+  //     },
+  //   },
+  //   function (error, response, body) {
+  //     res.render("register", JSON.parse(body));
+  //   }
+  // );
+  res.json({});
 });
 
 app.get("/list/", (req, res) => {

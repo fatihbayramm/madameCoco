@@ -93,10 +93,13 @@
             </div>
           </div>
           <div class="birthday-dropdown js-birthday-dropdown">
-            <div class="day-box js-day-box">Gün</div>
-            <% for(let i = 1; i < 32; i++) { %>
-            <div class="day-box js-day-box" data-value="<%= i %>"><%= i %></div>
-            <% } %>
+            <select class="select-box" name="js-user-day" id="js-user-day">
+              <option value=""> Gün </option>
+              <% for(let i = 1; i < 32; i++) { %>
+                <% let newValue = i < 10 ? "0" + i : i; %>
+                <option value= <%= newValue %>> <%= newValue %> </option>      
+              <% } %>
+            </select>
           </div>
         </div>
 
@@ -113,9 +116,13 @@
             <% const months = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs",
             "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım",
             "Aralık"];%> <% for (let i = 0; i < months.length; i++) { %>
-            <div class="day-box js-day-box" data-value="<%= months[i]%>">
-              <%= months[i] %>
-            </div>
+            <input
+              type="text"
+              class="day-box js-day-box js-user-month"
+              value="<%= months[i]%>"
+            >
+
+            </input>
             <% } %>
           </div>
         </div>
@@ -132,7 +139,13 @@
             <% const currentDate = new Date()%> <% const currentYear =
             currentDate.getFullYear()%> <% for(let i = 1950; i < currentYear +
             1; i++) { %> <% if(currentYear - i >= 18) { %>
-            <div class="day-box js-day-box" data-value="<%= i %>"><%= i %></div>
+            <input
+              type="text"
+              class="day-box js-day-box js-user-year"
+              value="<%= i %>"
+            >
+
+            </input>
             <% } %> <% } %>
           </div>
         </div>

@@ -164,6 +164,12 @@
   color: #323e48;
 }
 
+.birthday {
+  outline: none;
+  border: none;
+  background-color: none;
+}
+
 .bt-arrow {
   color: gray;
   margin-right: 12px;
@@ -205,6 +211,21 @@
 
 .day-box:hover {
   cursor: pointer;
+  background-color: #ededed;
+}
+
+.select-box {
+}
+
+option {
+  background-color: white;
+  text-align: center;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 7px;
+}
+
+option:hover {
   background-color: #ededed;
 }
 
