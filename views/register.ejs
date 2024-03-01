@@ -85,69 +85,39 @@
       </div>
       <div class="user-birthday">
         <div class="birthday-box">
-          <span>Doğum Gününüz</span>
-          <div class="bt birthday js-birthday">
-            <div class="selected-birthday js-selected-birthday">
-              <span class="bt-span js-bt-span">Gün</span>
-              <i class="bi bi-chevron-down bt-arrow"></i>
-            </div>
-          </div>
-          <div class="birthday-dropdown js-birthday-dropdown">
-            <select class="select-box" name="js-user-day" id="js-user-day">
-              <option value=""> Gün </option>
-              <% for(let i = 1; i < 32; i++) { %>
-                <% let newValue = i < 10 ? "0" + i : i; %>
-                <option value= <%= newValue %>> <%= newValue %> </option>      
-              <% } %>
-            </select>
-          </div>
-        </div>
-
-        <div class="birthday-box">
-          <span>Ay</span>
-          <div class="bt birthday js-birthday">
-            <div class="selected-birthday js-selected-birthday">
-              <span class="bt-span js-bt-span">Ay</span>
-              <i class="bi bi-chevron-down bt-arrow"></i>
-            </div>
-          </div>
-          <div class="birthday-dropdown js-birthday-dropdown">
-            <div class="day-box js-day-box">Ay</div>
-            <% const months = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs",
-            "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım",
-            "Aralık"];%> <% for (let i = 0; i < months.length; i++) { %>
-            <input
-              type="text"
-              class="day-box js-day-box js-user-month"
-              value="<%= months[i]%>"
-            >
-
-            </input>
+          <span>Doğum Gününüz</span> <br />
+          <select class="select-box" name="js-user-day" id="js-user-day">
+            <option value="">Gün</option>
+            <% for(let i = 1; i < 32; i++) { %> <% let newValue = i < 10 ? "0" +
+            i : i; %>
+            <option value="<%= newValue %>"><%= newValue %></option>
             <% } %>
-          </div>
+          </select>
         </div>
-        <div class="birthday-box">
-          <span>Yıl</span>
-          <div class="bt birthday js-birthday">
-            <div class="selected-birthday js-selected-birthday">
-              <span class="bt-span js-bt-span">Yıl</span>
-              <i class="bi bi-chevron-down bt-arrow"></i>
-            </div>
-          </div>
-          <div class="birthday-dropdown js-birthday-dropdown">
-            <div class="day-box js-day-box">Yıl</div>
-            <% const currentDate = new Date()%> <% const currentYear =
-            currentDate.getFullYear()%> <% for(let i = 1950; i < currentYear +
-            1; i++) { %> <% if(currentYear - i >= 18) { %>
-            <input
-              type="text"
-              class="day-box js-day-box js-user-year"
-              value="<%= i %>"
-            >
 
-            </input>
-            <% } %> <% } %>
-          </div>
+        <div class="birthday-box">
+          <span>Ay</span> <br />
+          <select class="select-box" name="js-user-month" id="js-user-month">
+            <option value="">Ay</option>
+            <% const months = ["Ay" ,"Ocak", "Şubat", "Mart", "Nisan", "Mayıs",
+            "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım",
+            "Aralık"];%> <% for (let i = 1; i < months.length; i++) { %> <% let
+            newValue = i < 10 ? "0" + i : i; %>
+            <option value="<%= newValue %>"><%= months[i]%></option>
+            <% } %>
+          </select>
+        </div>
+
+        <div class="birthday-box">
+          <span>Yıl</span> <br />
+          <select class="select-box" name="js-user-year" id="js-user-year">
+            <option value="">Yıl</option>
+            <% const currentDate = new Date()%> <% const currentYear =
+            currentDate.getFullYear() %> <% for(let i = 1950; i < currentYear +
+            1; i++) { %> <% if(currentYear - i >= 18) { %>
+            <option value="<%= i %>"><%= i %></option>
+            <% }} %>
+          </select>
         </div>
       </div>
       <button class="register-button" type="submit">ÜYE OL</button>

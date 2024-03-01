@@ -25,23 +25,8 @@ function togglePasswordType() {
     });
 }
 
-function openBirthdayDropdowns() {
-  const dayDOM = document.querySelectorAll(".js-birthday");
-  if (!dayDOM) return;
-  dayDOM.forEach((birthday) => {
-    birthday.addEventListener("click", (event) => {
-      event.target.parentElement
-        .querySelector(".js-birthday-dropdown")
-        .classList.toggle("birthday-dropdown-show");
-    });
-  });
-}
-
-function selectBirthday() {
-  document.querySelector(".select-box");
-}
-
 function sendRegisterForm() {
+  if (!document.querySelector("#register-form")) return;
   document
     .querySelector("#register-form")
     .addEventListener("submit", function (event) {
@@ -95,9 +80,5 @@ function sendRegisterForm() {
 
 // TODO: kayit ve giris sayfasinda arama yeri calismiyor.
 
-// TODO: dropdown menulerin disina tiklayinca kapanacak.
-
 togglePasswordType();
-openBirthdayDropdowns();
-selectBirthday();
 sendRegisterForm();

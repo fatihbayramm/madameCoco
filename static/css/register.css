@@ -215,18 +215,18 @@
 }
 
 .select-box {
+  width: 122.66px;
+  height: 40px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 option {
   background-color: white;
-  text-align: center;
+  text-align: left;
   cursor: pointer;
   font-size: 18px;
   padding: 7px;
-}
-
-option:hover {
-  background-color: #ededed;
 }
 
 .register-button {
