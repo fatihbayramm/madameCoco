@@ -12,19 +12,6 @@
   border-right: 1px solid black;
 }
 
-.register-container
-  div:not(
-    .remember-me div,
-    .register-show-password,
-    .bt,
-    .birthday-dropdown,
-    .day-box,
-    .register-button,
-    .selected-birthday
-  ) {
-  margin-top: 20px;
-}
-
 .register-routers {
   display: flex;
 }
@@ -62,6 +49,10 @@
   font-size: 16px;
 }
 
+.bt {
+  margin-top: 23px;
+}
+
 .user-name-input {
   width: 184px;
   height: 48px;
@@ -76,10 +67,6 @@
   padding: 16px 12px;
   font-size: 16px;
   border: 1px solid gray;
-}
-
-.un:focus {
-  border: 2px solid #2f4f4f;
 }
 
 .un:hover {
@@ -140,78 +127,9 @@
   display: flex;
 }
 
-.user-birthday
-  div:not(.birthday-box, .birthday-dropdown, .day-box, .selected-birthday) {
-  width: 122.67px;
-  height: 40px;
-  border: 1px solid gray;
-}
-
-.user-birthday
-  div:hover:not(
-    .birthday-box,
-    .birthday-dropdown,
-    .day-box,
-    .selected-birthday
-  ) {
-  border: 1px solid black;
-  transition: 0.3s all;
-  cursor: pointer;
-}
-
 .birthday-box span {
   font-size: 16px;
   color: #323e48;
-}
-
-.birthday {
-  outline: none;
-  border: none;
-  background-color: none;
-}
-
-.bt-arrow {
-  color: gray;
-  margin-right: 12px;
-}
-
-.bt-span {
-  margin-left: 12px;
-}
-
-.selected-birthday {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 5px;
-  position: relative;
-  z-index: -1;
-}
-
-.birthday-dropdown {
-  display: none;
-  background-color: #ffffff;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  overflow: auto;
-  width: 122.67px;
-  height: 178px;
-  position: absolute;
-}
-
-.birthday-dropdown-show {
-  display: block;
-  z-index: 999;
-}
-.day-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 16px;
-  height: 40px;
-}
-
-.day-box:hover {
-  cursor: pointer;
-  background-color: #ededed;
 }
 
 .select-box {
@@ -221,12 +139,15 @@
   cursor: pointer;
 }
 
-option {
+.option {
   background-color: white;
   text-align: left;
   cursor: pointer;
   font-size: 18px;
   padding: 7px;
+}
+
+.selected {
 }
 
 .register-button {

@@ -25,28 +25,40 @@ function togglePasswordType() {
     });
 }
 
+// function selectedOption(day, callback) {
+//   let optionDOM = document.querySelector(".js-option");
+//   if (!optionDOM) return;
+
+//   const selectElement = document.getElementById(day);
+//   let selectedValue;
+
+//   selectElement.addEventListener("change", (event) => {
+//     const selectedOption = event.target.options[event.target.selectedIndex];
+//     selectedValue = selectedOption.value;
+//     callback(selectedValue);
+//   });
+//   return selectedValue;
+// }
+
 function sendRegisterForm() {
   if (!document.querySelector("#register-form")) return;
+
   document
-    .querySelector("#register-form")
-    .addEventListener("submit", function (event) {
-      event.preventDefault();
+    .getElementById("register-form")
+    .addEventListener("submit", (event) => {
+      event.preventDefault(); // Formun varsayılan davranışını engelle
 
-      const firstName = document.querySelector("#user-name-box").value;
-      const lastName = document.querySelector("#user-surname-box").value;
-      const email = document.querySelector("#user-email-box").value;
-      const phoneNumber = document.querySelector("#user-phone-box").value;
-      const password = document.querySelector("#user-password-box").value;
+      // Formdaki girdileri al
+      const firstName = document.getElementById("user-name-box").value;
+      const lastName = document.getElementById("user-surname-box").value;
+      const email = document.getElementById("user-email-box").value;
+      const phoneNumber = document.getElementById("user-phone-box").value;
+      const password = document.getElementById("user-password-box").value;
+      const birthdayDay = document.getElementById("js-user-day").value;
+      const birthdayMonth = document.getElementById("js-user-month").value;
+      const birthdayYear = document.getElementById("js-user-year").value;
 
-      // const birthdayDay = document.querySelector(".js-user-day").value;
-      // console.log(birthdayDay);
-
-      const birthdayMonth = document.querySelector(".js-user-month").value;
-      console.log(birthdayMonth);
-
-      const birthdayYear = document.querySelector(".js-user-year").value;
-      console.log(birthdayYear);
-
+      // Form verilerini bir JavaScript nesnesinde topla
       const formData = {
         firstName: firstName,
         lastName: lastName,
@@ -58,7 +70,8 @@ function sendRegisterForm() {
         birthdayYear: birthdayYear,
       };
 
-      fetch("/users/register/", {
+      // POST isteği gönder
+      fetch("/users/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -67,13 +80,12 @@ function sendRegisterForm() {
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
+          console.log("Başarılı:", data);
+          // Başarılı bir yanıt aldığınızda, istediğiniz işlemleri yapabilirsiniz.
         })
         .catch((error) => {
-          console.error(
-            "There has been a problem with your fetch operation:",
-            error
-          );
+          console.error("Hata:", error);
+          // Hata durumunda, uygun bir şekilde ele alabilirsiniz.
         });
     });
 }

@@ -1,7 +1,7 @@
 <%- include("header") -%>
 
 <div class="login-container">
-  <form action="#">
+  <form id="login-form" method="POST">
     <div class="routers">
       <a href="/users/login" class="login-router">
         <div class="login-router-box">GİRİŞ</div>
@@ -13,17 +13,27 @@
     <div class="email-box">
       <label for="login-mail-box" class="login-labels">E-posta Adresi</label>
       <br />
-      <input type="text" id="login-mail-box" class="login-input" />
+      <input
+        type="text"
+        id="login-mail-box"
+        name="login-mail-box"
+        class="login-input"
+      />
     </div>
     <div class="password-box">
       <label for="login-password-box" class="login-labels">Şifre</label> <br />
-      <input type="password" id="login-password-box" class="login-input" />
+      <input
+        type="password"
+        id="login-password-box"
+        name="login-password-box"
+        class="login-input"
+      />
       <div class="show-password js-show-password">
         <i class="bi bi-eye js-bi-eye-fill"></i>
       </div>
     </div>
     <div class="forget-password-box"><span>Şifremi Unuttum</span> <br /></div>
-    <div class="login-button">GİRİŞ YAP</div>
+    <button class="login-button">GİRİŞ YAP</button>
   </form>
 </div>
 

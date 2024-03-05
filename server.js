@@ -20,18 +20,19 @@ app.get("/users/login", (req, res) => {
   res.render("login", "");
 });
 
-app.post("/users/login", (req, res) => {
-  require("request").post(
-    `${targetUrl}/users/login`,
-    {
-      headers: {
-        Accept: "application/json",
-      },
-    },
-    function (error, response, body) {
-      res.render("login", JSON.parse(body));
-    }
-  );
+app.post("/users/login/", (req, res) => {
+  console.log(req.body);
+  // require("request").post(
+  //   `${targetUrl}/users/login`,
+  //   {
+  //     headers: {
+  //       Accept: "application/json",
+  //     },
+  //   },
+  //   function (error, response, body) {
+  //     res.render("login", JSON.parse(body));
+  //   }
+  // );
 });
 
 app.get("/users/register", (req, res) => {
@@ -39,7 +40,6 @@ app.get("/users/register", (req, res) => {
 });
 
 app.post("/users/register/", (req, res) => {
-  console.log("REGISTER");
   console.log(req.body);
   // require("request").post(
   //   `${targetUrl}/users/register`,
@@ -53,6 +53,19 @@ app.post("/users/register/", (req, res) => {
   //   }
   // );
   res.json({});
+});
+
+app.post("/users/register", (req, res) => {
+  require("request").post(
+    {
+      headers: {
+        Accept: "application/json",
+      },
+    },
+    function (error, response, body) {
+      res.render("register", JSON.parse(body));
+    }
+  );
 });
 
 app.get("/list/", (req, res) => {

@@ -15,4 +15,39 @@ function togglePasswordType() {
   });
 }
 
+function sendLoginForm() {
+  let loginFormDOM = document.getElementById("login-form");
+
+  if (!loginFormDOM) return;
+  loginFormDOM.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const email = document.getElementById("login-mail-box");
+    const password = document.getElementById("login-password-box");
+
+    const formData = {
+      email: email,
+      password: password,
+    };
+
+    fetch("/users/login/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Başarılı:", data);
+        // Başarılı bir yanıt aldığınızda, istediğiniz işlemleri yapabilirsiniz.
+      })
+      .catch((error) => {
+        console.error("Hata:", error);
+        // Hata durumunda, uygun bir şekilde ele alabilirsiniz.
+      });
+  });
+}
+
 togglePasswordType();
+sendLoginForm();
