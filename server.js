@@ -1,6 +1,5 @@
 const express = require("express");
 const proxy = require("express-http-proxy");
-const http = require("http");
 
 const app = express();
 app.set("view engine", "ejs");
@@ -20,42 +19,7 @@ app.get("/users/login", (req, res) => {
   res.render("login", "");
 });
 
-app.post("/users/login/", (req, res) => {
-  console.log(req.body);
-  // require("request").post(
-  //   `${targetUrl}/users/login`,
-  //   {
-  //     headers: {
-  //       Accept: "application/json",
-  //     },
-  //   },
-  //   function (error, response, body) {
-  //     res.render("login", JSON.parse(body));
-  //   }
-  // );
-});
-
-app.get("/users/register", (req, res) => {
-  res.render("register", "");
-});
-
-app.post("/users/register/", (req, res) => {
-  console.log(req.body);
-  // require("request").post(
-  //   `${targetUrl}/users/register`,
-  //   {
-  //     headers: {
-  //       Accept: "application/json",
-  //     },
-  //   },
-  //   function (error, response, body) {
-  //     res.render("register", JSON.parse(body));
-  //   }
-  // );
-  res.json({});
-});
-
-app.post("/users/register", (req, res) => {
+app.post("/users/login", (req, res) => {
   require("request").post(
     {
       headers: {
@@ -63,6 +27,26 @@ app.post("/users/register", (req, res) => {
       },
     },
     function (error, response, body) {
+      res.render("login", JSON.parse(body));
+    }
+  );
+});
+
+app.get("/users/register", (req, res) => {
+  console.log("register");
+  res.render("register", "");
+});
+
+app.post("/users/register", (req, res) => {
+  require("request").post(
+    `${targetUrl}/users/register`,
+    {
+      headers: {
+        "content-type": "application/json",
+      },
+    },
+    function (error, response, body) {
+      console.log(body);
       res.render("register", JSON.parse(body));
     }
   );

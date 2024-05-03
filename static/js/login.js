@@ -40,11 +40,9 @@ function sendLoginForm() {
       .then((response) => response.json())
       .then((data) => {
         console.log("Başarılı:", data);
-        // Başarılı bir yanıt aldığınızda, istediğiniz işlemleri yapabilirsiniz.
       })
       .catch((error) => {
         console.error("Hata:", error);
-        // Hata durumunda, uygun bir şekilde ele alabilirsiniz.
       });
   });
 }

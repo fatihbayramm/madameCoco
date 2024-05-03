@@ -294,10 +294,6 @@
   border-bottom: 1px solid black;
 }
 
-.bi-cart-x-fill {
-  font-size: 100px;
-}
-
 .product-list {
   display: grid;
   grid-template: repeat(6, 490px) / repeat(4, 333px);

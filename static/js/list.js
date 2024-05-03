@@ -1,13 +1,3 @@
-function searchProduct() {
-  let formElement = document.querySelector("#js-search-form");
-  formElement.addEventListener("input", () => {
-    let formData = new FormData(formElement);
-    let searchBox = formData.get("js-search-box");
-    let params = new URLSearchParams(window.location.search);
-    params.set("search_text", searchBox);
-  });
-}
-
 const productListDOM = document.querySelector(".js-product-list");
 
 function removeClass() {
@@ -47,19 +37,18 @@ function hexaLayout() {
   });
 }
 
+function toggleClasslistsOfFilterDivs() {
+  const filterBtnDOM = document.querySelector(".js-filter-button");
+  filterBtnDOM.classList.toggle("show-filter-button");
+  document.querySelector(".js-filter-div").classList.toggle("show-filter-div");
+  document
+    .querySelector(".js-selected-filters")
+    .classList.toggle("show-selected-filters");
+}
+
 function runFilterBox() {
   const filterBtnDOM = document.querySelector(".js-filter-button");
   if (!filterBtnDOM) return;
-
-  function toggleClasslistsOfFilterDivs() {
-    filterBtnDOM.classList.toggle("show-filter-button");
-    document
-      .querySelector(".js-filter-div")
-      .classList.toggle("show-filter-div");
-    document
-      .querySelector(".js-selected-filters")
-      .classList.toggle("show-selected-filters");
-  }
 
   let counter = 0;
 
@@ -265,11 +254,11 @@ function clearAllFilters() {
 
     document.querySelectorAll(".js-filter-checkbox").forEach((checkbox) => {
       checkbox.checked = false;
+      toggleClasslistsOfFilterDivs();
     });
   });
 }
 
-searchProduct();
 doubleLayout();
 defaultLayout();
 hexaLayout();

@@ -1,12 +1,2 @@
-<%- include("header"); -%>
-<div class="header-bottom">
-  <% facets.forEach(facet => { %> <% if(facet.widget_type == "category") { %> <%
-  facet.data.choices.forEach(category => { %>
-  <a href="<%= category.url %>">
-    <div class="categories"><%= category.label %></div>
-  </a>
-  <% }); %> <% } %> <% }); %>
-</div>
-
-<%- include("components/list/filters-container"); -%> <%-
-include("components/list/container"); -%> <%- include("footer"); -%>
+<%- include("header"); -%> <%- include("components/list/filters-container"); -%>
+<%- include("components/list/container"); -%> <%- include("footer"); -%>

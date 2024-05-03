@@ -25,21 +25,6 @@ function togglePasswordType() {
     });
 }
 
-// function selectedOption(day, callback) {
-//   let optionDOM = document.querySelector(".js-option");
-//   if (!optionDOM) return;
-
-//   const selectElement = document.getElementById(day);
-//   let selectedValue;
-
-//   selectElement.addEventListener("change", (event) => {
-//     const selectedOption = event.target.options[event.target.selectedIndex];
-//     selectedValue = selectedOption.value;
-//     callback(selectedValue);
-//   });
-//   return selectedValue;
-// }
-
 function sendRegisterForm() {
   if (!document.querySelector("#register-form")) return;
 
@@ -70,7 +55,6 @@ function sendRegisterForm() {
         birthdayYear: birthdayYear,
       };
 
-      // POST isteği gönder
       fetch("/users/register", {
         method: "POST",
         headers: {
@@ -81,11 +65,9 @@ function sendRegisterForm() {
         .then((response) => response.json())
         .then((data) => {
           console.log("Başarılı:", data);
-          // Başarılı bir yanıt aldığınızda, istediğiniz işlemleri yapabilirsiniz.
         })
         .catch((error) => {
           console.error("Hata:", error);
-          // Hata durumunda, uygun bir şekilde ele alabilirsiniz.
         });
     });
 }

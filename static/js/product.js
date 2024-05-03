@@ -1,13 +1,3 @@
-function searchProduct() {
-  let formElement = document.querySelector("#js-search-form");
-  formElement.addEventListener("input", () => {
-    let formData = new FormData(formElement);
-    let searchBox = formData.get("js-search-box");
-    let params = new URLSearchParams(window.location.search);
-    params.set("search_text", searchBox);
-  });
-}
-
 function productCounter() {
   const deacreaseBtnDOM = document.querySelector(".js-deacrease-button");
   const increaseBtnDOM = document.querySelector(".js-increase-button");
@@ -84,7 +74,6 @@ function changeMeasuresClasses() {
 
 console.log("Fatih Bayram is here !");
 
-searchProduct();
 productCounter();
 runAccordionMenu();
 autoAccordionMenu();
