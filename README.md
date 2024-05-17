@@ -17,13 +17,14 @@ The architectural structure of this project is based on a single-page HTML struc
 - EJS
 
 # Images of the project
-<img width="300" alt="Ekran Resmi 2024-05-17 22 51 27" src="https://github.com/fatihbayramm/madameCoco/assets/99727365/7ad9ea96-add2-441d-84c3-eb309bf536f4">
-<img width="300" alt="Ekran Resmi 2024-05-17 22 51 43" src="https://github.com/fatihbayramm/madameCoco/assets/99727365/2cf44c13-306b-41d5-84ab-6b9ce680ad56">
-<img width="300" alt="Ekran Resmi 2024-05-17 22 52 05" src="https://github.com/fatihbayramm/madameCoco/assets/99727365/86e22bbd-4ae1-4799-bddd-a81589a08451">
-<img width="300" alt="Ekran Resmi 2024-05-17 22 52 45" src="https://github.com/fatihbayramm/madameCoco/assets/99727365/8e3448a3-7633-41e7-a908-00d0c2d7586b">
-<img width="300" alt="Ekran Resmi 2024-05-17 22 53 59" src="https://github.com/fatihbayramm/madameCoco/assets/99727365/0f0aaa56-0f28-4a22-9fc2-23fb04dc2f6a">
-<img width="300" alt="Ekran Resmi 2024-05-17 22 54 28" src="https://github.com/fatihbayramm/madameCoco/assets/99727365/b6bc7985-d745-4577-b977-48d0d97c23ea">
-<img width="300" alt="Ekran Resmi 2024-05-17 22 54 39" src="https://github.com/fatihbayramm/madameCoco/assets/99727365/f3eb9681-91c2-4b40-b6fc-d698fe908832">
+<img width="1440" alt="331716905-f3eb9681-91c2-4b40-b6fc-d698fe908832-min" src="https://github.com/fatihbayramm/madameCoco/assets/99727365/789ee89b-6b86-4d49-a4ae-11aac882b64f">
+<img width="1440" alt="331716875-b6bc7985-d745-4577-b977-48d0d97c23ea-min" src="https://github.com/fatihbayramm/madameCoco/assets/99727365/364bb8ac-9887-4f44-a313-adfcf3f2ca11">
+<img width="770" alt="331716773-0f0aaa56-0f28-4a22-9fc2-23fb04dc2f6a-min" src="https://github.com/fatihbayramm/madameCoco/assets/99727365/ee14214b-f814-4a27-9aa2-541e7fa20d00">
+<img width="1439" alt="331716508-8e3448a3-7633-41e7-a908-00d0c2d7586b-min" src="https://github.com/fatihbayramm/madameCoco/assets/99727365/ca98d6fc-43f6-46cb-87fc-ccb6085ef9cc">
+<img width="1440" alt="331716383-86e22bbd-4ae1-4799-bddd-a81589a08451-min" src="https://github.com/fatihbayramm/madameCoco/assets/99727365/85ad0a9e-5b84-4656-bf27-4c05b5d6e867">
+<img width="1440" alt="331716325-2cf44c13-306b-41d5-84ab-6b9ce680ad56-min" src="https://github.com/fatihbayramm/madameCoco/assets/99727365/ecba9565-cae1-4543-9b02-4a09db26176f">
+<img width="1440" alt="331716236-7ad9ea96-add2-441d-84c3-eb309bf536f4-min" src="https://github.com/fatihbayramm/madameCoco/assets/99727365/a8168b29-5c96-49af-9448-f4c0e6857a40">
+
 
 
 
