@@ -16,6 +16,19 @@ The architectural structure of this project is based on a single-page HTML struc
 - Node.js
 - EJS
 
+# Images of the project
+<img width="1440" alt="Ekran Resmi 2024-05-17 22 51 27" src="https://github.com/fatihbayramm/madameCoco/assets/99727365/7ad9ea96-add2-441d-84c3-eb309bf536f4">
+<img width="1440" alt="Ekran Resmi 2024-05-17 22 51 43" src="https://github.com/fatihbayramm/madameCoco/assets/99727365/2cf44c13-306b-41d5-84ab-6b9ce680ad56">
+<img width="1440" alt="Ekran Resmi 2024-05-17 22 52 05" src="https://github.com/fatihbayramm/madameCoco/assets/99727365/86e22bbd-4ae1-4799-bddd-a81589a08451">
+<img width="1439" alt="Ekran Resmi 2024-05-17 22 52 45" src="https://github.com/fatihbayramm/madameCoco/assets/99727365/8e3448a3-7633-41e7-a908-00d0c2d7586b">
+<img width="770" alt="Ekran Resmi 2024-05-17 22 53 59" src="https://github.com/fatihbayramm/madameCoco/assets/99727365/0f0aaa56-0f28-4a22-9fc2-23fb04dc2f6a">
+<img width="1440" alt="Ekran Resmi 2024-05-17 22 54 28" src="https://github.com/fatihbayramm/madameCoco/assets/99727365/b6bc7985-d745-4577-b977-48d0d97c23ea">
+<img width="1440" alt="Ekran Resmi 2024-05-17 22 54 39" src="https://github.com/fatihbayramm/madameCoco/assets/99727365/f3eb9681-91c2-4b40-b6fc-d698fe908832">
+
+
+
+
+
 
 
 
