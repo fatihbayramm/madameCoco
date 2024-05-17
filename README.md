@@ -16,7 +16,7 @@ The architectural structure of this project is based on a single-page HTML struc
 - Node.js
 - EJS
 
-# Images of the project
+# Screenshots of the project
 <img width="1440" alt="331716905-f3eb9681-91c2-4b40-b6fc-d698fe908832-min" src="https://github.com/fatihbayramm/madameCoco/assets/99727365/789ee89b-6b86-4d49-a4ae-11aac882b64f">
 <img width="1440" alt="331716875-b6bc7985-d745-4577-b977-48d0d97c23ea-min" src="https://github.com/fatihbayramm/madameCoco/assets/99727365/364bb8ac-9887-4f44-a313-adfcf3f2ca11">
 <img width="770" alt="331716773-0f0aaa56-0f28-4a22-9fc2-23fb04dc2f6a-min" src="https://github.com/fatihbayramm/madameCoco/assets/99727365/ee14214b-f814-4a27-9aa2-541e7fa20d00">
