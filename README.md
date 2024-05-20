@@ -11,7 +11,7 @@ The architectural structure of this project is based on a single-page HTML struc
 
 # Detailed information about the project
 
-To give more detailed information about the architectural structure of the project:
+To give more detailed information about the project:
 
 As I said before, header and footer templates are placed on the list page. There is a classic container in the body section. As can be seen in the navbar section, but they are not working buttons. In the section below the navbar, the login and registration buttons work and direct you to the page you want.Then, when you filter the products as you wish according to color, size, size, gender, material and price filters, the products that match those filters are displayed on the page according to the filter made. When you click clear all filters, all filters are removed and the page returns to its previous state. Additionally, if you want to remove any of the filters, you can remove the filter you want by pressing on the bubbles that appear in that section when you make a filter. You can also filter using the advanced sorting button. You can filter by increasing by price, decreasing by price, new arrivals and bestsellers. Then, under that section, there are buttons with which you can change the appearance of the products. You can see the products in different sizes and orders, it is up to your preference. Then we see the product list page. By clicking on the product you want, you can access the detail page of that product.
 
