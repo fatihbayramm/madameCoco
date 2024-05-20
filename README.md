@@ -11,15 +11,15 @@ The architectural structure of this project is based on a single-page HTML struc
 
 # Directory structure of the project
 
-> node_modules --> Folder containing the files required for Node.js. </br>
-> static --> folder containing the main static files of the project </br>
-  > css --> Common css codes, error, list, login, register, product pages' css codes are all imported from style.css. </br>
-  > js --> It contains the js codes of the list, login, register, product and main pages. There is only a product search function on the main page. </br>
-> views --> The main views folder, which contains the files of the part of the project that is visible to the user. </br>
-  > auth --> It contains login and registration pages. </br>
-  > components --> It contains list, product directory, error, footer, header, index, and product pages. </br>
-    > list --> The list page has 2 divided folders. </br>
-    > product --> The product page is divided into 3 folders. </br>
+- node_modules --> Folder containing the files required for Node.js. </br>
+- static --> folder containing the main static files of the project </br>
+  - css --> Common css codes, error, list, login, register, product pages' css codes are all imported from style.css. </br>
+  - js --> It contains the js codes of the list, login, register, product and main pages. There is only a product search function on the main page. </br>
+- views --> The main views folder, which contains the files of the part of the project that is visible to the user. </br>
+  - auth --> It contains login and registration pages. </br>
+  - components --> It contains list, product directory, error, footer, header, index, and product pages. </br>
+    - list --> The list page has 2 divided folders. </br>
+    - product --> The product page is divided into 3 folders. </br>
   error.ejs --> error page </br>
   footer.ejs --> common footer </br>
   header.ejs --> common header </br>
@@ -51,6 +51,7 @@ On the login and registration page, you can fill in the information in the form 
 - EJS
 
 # Screenshots of the project
+
 <img width="1440" alt="331716905-f3eb9681-91c2-4b40-b6fc-d698fe908832-min" src="https://github.com/fatihbayramm/madameCoco/assets/99727365/789ee89b-6b86-4d49-a4ae-11aac882b64f">
 <img width="1440" alt="331716875-b6bc7985-d745-4577-b977-48d0d97c23ea-min" src="https://github.com/fatihbayramm/madameCoco/assets/99727365/364bb8ac-9887-4f44-a313-adfcf3f2ca11">
 <img width="770" alt="331716773-0f0aaa56-0f28-4a22-9fc2-23fb04dc2f6a-min" src="https://github.com/fatihbayramm/madameCoco/assets/99727365/ee14214b-f814-4a27-9aa2-541e7fa20d00">
