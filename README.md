@@ -9,6 +9,28 @@ First of all, I did this project to improve myself in the frontend field and bri
 # Architectural structure
 The architectural structure of this project is based on a single-page HTML structure. Common views are used on pages. For example, on the product list page, the header and footer sections are written in separate HTML files and imported to the list page. The page was then arranged according to the incoming data. The code of each page in the project is divided into sections. HTML, CSS, JavaScript codes have been turned into templates. In this way, the project has become more organized. The codes of the relevant page can be found more easily, thus avoiding code complexity. The established architectural structure is clearly seen in the directories. As for the backend, a proxy was written with Node.js to overcome the CORS error for communication and communication with the backend was made through it. Additionally, handling the requests is also done by Node.js. I placed the incoming data into my page using ejs in HTML. The project includes listing products, changing the appearance of the list page, filtering products by many types, product detail page, logging in and out. A grid structure is used to place the products on the list page.
 
+# Directory structure of the project
+
+> node_modules --> Folder containing the files required for Node.js.
+> static --> folder containing the main static files of the project
+  > css --> Common css codes, error, list, login, register, product pages' css codes are all imported from style.css.
+  > js --> It contains the js codes of the list, login, register, product and main pages. There is only a product search function on the main page.
+> views --> The main views folder, which contains the files of the part of the project that is visible to the user.
+  > auth --> It contains login and registration pages.
+  > components --> It contains list, product directory, error, footer, header, index, and product pages.
+    > list --> The list page has 2 divided folders.
+    > product --> The product page is divided into 3 folders.
+  error.ejs --> error page
+  footer.ejs --> common footer
+  header.ejs --> common header
+  index.ejs --> The product page is divided into 3 folders. This is the page where the parts of the list page are imported.
+  product.ejs --> product page
+.gitignore --> Files that will not be committed, namely node_modules
+ {} package-lock.json --> Node.js doc
+ {} package.json --> Node.js doc
+ i README.md --> about the project
+ JS server.js --> server.js file that communicates with the backend
+
 # Detailed information about the project
 
 To give more detailed information about the project:
