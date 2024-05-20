@@ -37,32 +37,6 @@ You can install the project by going to the section where your project's directo
 ```bash
 npm install
 ```
-
-## •
-```bash
-npm install ejs
-```
-
-## •
-```bash
-npm install express
-```
-
-## •
-```bash
-npm install express-http-proxy
-```
-
-## •
-```bash
-npm install node-fetch
-```
-
-## •
-```bash
-npm install request
-```
-
 ## •
 ```bash
 npm start
