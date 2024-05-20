@@ -31,6 +31,42 @@ The architectural structure of this project is based on a single-page HTML struc
  - i README.md .. about the project </br>
  - JS server.js .. server.js file that communicates with the backend </br>
 
+# Installation
+You can install the project by going to the section where your project's directory is located from the terminal and following the steps below.
+## 1.
+```bash
+npm install
+```
+
+## 2.
+```bash
+npm install ejs
+```
+
+## 3.
+```bash
+npm install express
+```
+
+## 4.
+```bash
+npm install express-http-proxy
+```
+
+## 5.
+```bash
+npm install node-fetch
+```
+
+## 6.
+```bash
+npm install request
+```
+
+## 7.
+```bash
+npm start
+```
 # Detailed information about the project
 
 To give more detailed information about the project:
