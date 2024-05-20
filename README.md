@@ -33,37 +33,37 @@ The architectural structure of this project is based on a single-page HTML struc
 
 # Installation
 You can install the project by going to the section where your project's directory is located from the terminal and following the steps below.
-## -
+## •
 ```bash
 npm install
 ```
 
-## -
+## •
 ```bash
 npm install ejs
 ```
 
-## -
+## •
 ```bash
 npm install express
 ```
 
-## -
+## •
 ```bash
 npm install express-http-proxy
 ```
 
-## -
+## •
 ```bash
 npm install node-fetch
 ```
 
-## -
+## •
 ```bash
 npm install request
 ```
 
-## -
+## •
 ```bash
 npm start
 ```
