@@ -20,16 +20,16 @@ The architectural structure of this project is based on a single-page HTML struc
   - components --> It contains list, product directory, error, footer, header, index, and product pages. </br>
     - list --> The list page has 2 divided folders. </br>
     - product --> The product page is divided into 3 folders. </br>
-  error.ejs --> error page </br>
-  footer.ejs --> common footer </br>
-  header.ejs --> common header </br>
-  index.ejs --> The product page is divided into 3 folders. This is the page where the parts of the list page are imported. </br>
-  product.ejs --> product page </br>
-.gitignore --> Files that will not be committed, namely node_modules </br>
- {} package-lock.json --> Node.js doc </br>
- {} package.json --> Node.js doc </br>
- i README.md --> about the project </br>
- JS server.js --> server.js file that communicates with the backend </br>
+  - error.ejs --> error page </br>
+  - footer.ejs --> common footer </br>
+  - header.ejs --> common header </br>
+  - index.ejs --> The product page is divided into 3 folders. This is the page where the parts of the list page are imported. </br>
+  - product.ejs --> product page </br>
+- .gitignore --> Files that will not be committed, namely node_modules </br>
+ - {} package-lock.json --> Node.js doc </br>
+ - {} package.json --> Node.js doc </br>
+ - i README.md --> about the project </br>
+ - JS server.js --> server.js file that communicates with the backend </br>
 
 # Detailed information about the project
 
