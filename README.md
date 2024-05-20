@@ -11,7 +11,7 @@ The architectural structure of this project is based on a single-page HTML struc
 
 # Directory structure of the project
 
-> node_modules --> Folder containing the files required for Node.js.
+> node_modules --> Folder containing the files required for Node.js. </br>
 > static --> folder containing the main static files of the project
   > css --> Common css codes, error, list, login, register, product pages' css codes are all imported from style.css.
   > js --> It contains the js codes of the list, login, register, product and main pages. There is only a product search function on the main page.
