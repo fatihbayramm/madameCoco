@@ -12,24 +12,24 @@ The architectural structure of this project is based on a single-page HTML struc
 # Directory structure of the project
 
 > node_modules --> Folder containing the files required for Node.js. </br>
-> static --> folder containing the main static files of the project
-  > css --> Common css codes, error, list, login, register, product pages' css codes are all imported from style.css.
-  > js --> It contains the js codes of the list, login, register, product and main pages. There is only a product search function on the main page.
-> views --> The main views folder, which contains the files of the part of the project that is visible to the user.
-  > auth --> It contains login and registration pages.
-  > components --> It contains list, product directory, error, footer, header, index, and product pages.
-    > list --> The list page has 2 divided folders.
-    > product --> The product page is divided into 3 folders.
-  error.ejs --> error page
-  footer.ejs --> common footer
-  header.ejs --> common header
-  index.ejs --> The product page is divided into 3 folders. This is the page where the parts of the list page are imported.
-  product.ejs --> product page
-.gitignore --> Files that will not be committed, namely node_modules
- {} package-lock.json --> Node.js doc
- {} package.json --> Node.js doc
- i README.md --> about the project
- JS server.js --> server.js file that communicates with the backend
+> static --> folder containing the main static files of the project </br>
+  > css --> Common css codes, error, list, login, register, product pages' css codes are all imported from style.css. </br>
+  > js --> It contains the js codes of the list, login, register, product and main pages. There is only a product search function on the main page. </br>
+> views --> The main views folder, which contains the files of the part of the project that is visible to the user. </br>
+  > auth --> It contains login and registration pages. </br>
+  > components --> It contains list, product directory, error, footer, header, index, and product pages. </br>
+    > list --> The list page has 2 divided folders. </br>
+    > product --> The product page is divided into 3 folders. </br>
+  error.ejs --> error page </br>
+  footer.ejs --> common footer </br>
+  header.ejs --> common header </br>
+  index.ejs --> The product page is divided into 3 folders. This is the page where the parts of the list page are imported. </br>
+  product.ejs --> product page </br>
+.gitignore --> Files that will not be committed, namely node_modules </br>
+ {} package-lock.json --> Node.js doc </br>
+ {} package.json --> Node.js doc </br>
+ i README.md --> about the project </br>
+ JS server.js --> server.js file that communicates with the backend </br>
 
 # Detailed information about the project
 
